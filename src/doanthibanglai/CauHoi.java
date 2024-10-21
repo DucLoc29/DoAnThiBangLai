@@ -80,5 +80,4 @@ public class CauHoi {
         this.trangThaiTraLoi = trangThaiTraLoi;
     }
     
-    
 }

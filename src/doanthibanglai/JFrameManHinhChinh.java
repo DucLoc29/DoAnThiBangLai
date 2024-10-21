@@ -15,6 +15,8 @@ public class JFrameManHinhChinh extends javax.swing.JFrame {
      */
     public JFrameManHinhChinh() {
         initComponents();
+        setVisible(true);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -29,7 +31,7 @@ public class JFrameManHinhChinh extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        batDauButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -46,11 +48,11 @@ public class JFrameManHinhChinh extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("A1");
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton1.setText("BẮT ĐẦU");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        batDauButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        batDauButton.setText("BẮT ĐẦU");
+        batDauButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                batDauButtonActionPerformed(evt);
             }
         });
 
@@ -69,7 +71,7 @@ public class JFrameManHinhChinh extends javax.swing.JFrame {
                         .addGap(25, 25, 25))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(104, 104, 104)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(batDauButton, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -80,7 +82,7 @@ public class JFrameManHinhChinh extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addGap(109, 109, 109)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(batDauButton, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(115, Short.MAX_VALUE))
         );
 
@@ -122,9 +124,14 @@ public class JFrameManHinhChinh extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void batDauButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batDauButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        if (evt.getSource() == batDauButton){
+            setVisible(false);
+            new JFrameManHinhThi();
+            
+        }
+    }//GEN-LAST:event_batDauButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -157,13 +164,15 @@ public class JFrameManHinhChinh extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFrameManHinhChinh().setVisible(true);
+                JFrameManHinhChinh manHinhChinh = new JFrameManHinhChinh();
+                manHinhChinh.setVisible(true);
+                manHinhChinh.setLocationRelativeTo(null);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton batDauButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
