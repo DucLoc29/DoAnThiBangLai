@@ -4,6 +4,8 @@
  */
 package doanthibanglai;
 
+import java.awt.Color;
+
 /**
  *
  * @author DASH ST
@@ -13,10 +15,50 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
     /**
      * Creates new form JFrameManHinhThi
      */
+    Color DefauColor,
+
+    /**
+     * Creates new form HienThiCau1
+     */
+
+    /**
+     * Creates new form JFrameManHinhThi
+     */
+    ClickColor;
+    
     public JFrameManHinhThi() {
         initComponents();
         setVisible(true);
         setLocationRelativeTo(null);
+        
+        DefauColor = new Color(242,242,242);
+        ClickColor = new Color(153,153,153);
+        
+        //set defaut color to pan or run time
+        panelCau1.setBackground(ClickColor);
+        panelCau2.setBackground(DefauColor);
+        panelCau3.setBackground(DefauColor);
+        panelCau4.setBackground(DefauColor);
+        panelCau5.setBackground(DefauColor);
+        panelCau6.setBackground(DefauColor);
+        panelCau7.setBackground(DefauColor);
+        panelCau8.setBackground(DefauColor);
+        panelCau9.setBackground(DefauColor);
+        panelCau10.setBackground(DefauColor);
+        panelCau11.setBackground(DefauColor);
+        panelCau12.setBackground(DefauColor);
+        panelCau13.setBackground(DefauColor);
+        panelCau14.setBackground(DefauColor);
+        panelCau15.setBackground(DefauColor);
+        panelCau16.setBackground(DefauColor);
+        panelCau17.setBackground(DefauColor);
+        panelCau18.setBackground(DefauColor);
+        panelCau19.setBackground(DefauColor);
+        panelCau20.setBackground(DefauColor);
+        
+        HienThiCau1 hienThiCau1 = new HienThiCau1();
+        jDesktopPane2.removeAll();
+        jDesktopPane2.add(hienThiCau1).setVisible(true);
     }
 
     /**
@@ -28,16 +70,55 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        panelTinhNang = new javax.swing.JPanel();
         nopBaiButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        panelCau1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        panelCau2 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        panelCau3 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        panelCau4 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        panelCau5 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        panelCau6 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        panelCau7 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        panelCau8 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        panelCau9 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        panelCau10 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        panelCau12 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        panelCau13 = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        panelCau14 = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
+        panelCau15 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        panelCau16 = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        panelCau17 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        panelCau18 = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
+        panelCau19 = new javax.swing.JPanel();
+        jLabel23 = new javax.swing.JLabel();
+        panelCau20 = new javax.swing.JPanel();
+        jLabel24 = new javax.swing.JLabel();
+        panelCau11 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jDesktopPane2 = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
-        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+        panelTinhNang.setBackground(new java.awt.Color(0, 102, 102));
+        panelTinhNang.setForeground(new java.awt.Color(255, 255, 255));
 
         nopBaiButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         nopBaiButton.setText("NỘP BÀI");
@@ -51,41 +132,640 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("THỜI GIAN:");
 
-        jList1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Câu 1", "Câu 2", "Câu 3", "Câu 4", "Câu 5", "Câu 6", "Câu 7", "Câu 8", "Câu 9", "Câu 10", "Câu 11", "Câu 12", "Câu 13", "Câu 14", "Câu 15", "Câu 16", "Câu 17", "Câu 18", "Câu 19", "Câu 20" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        panelCau1.setBackground(new java.awt.Color(255, 255, 255));
+        panelCau1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelCau1MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelCau1MousePressed(evt);
+            }
         });
-        jScrollPane1.setViewportView(jList1);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addComponent(nopBaiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(85, Short.MAX_VALUE))
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setText("CÂU 1");
+
+        javax.swing.GroupLayout panelCau1Layout = new javax.swing.GroupLayout(panelCau1);
+        panelCau1.setLayout(panelCau1Layout);
+        panelCau1Layout.setHorizontalGroup(
+            panelCau1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCau1Layout.createSequentialGroup()
+                .addContainerGap(32, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(34, 34, 34))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        panelCau1Layout.setVerticalGroup(
+            panelCau1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCau1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        panelCau2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelCau2MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelCau2MousePressed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setText("CÂU 2");
+
+        javax.swing.GroupLayout panelCau2Layout = new javax.swing.GroupLayout(panelCau2);
+        panelCau2.setLayout(panelCau2Layout);
+        panelCau2Layout.setHorizontalGroup(
+            panelCau2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCau2Layout.createSequentialGroup()
+                .addContainerGap(32, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(34, 34, 34))
+        );
+        panelCau2Layout.setVerticalGroup(
+            panelCau2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCau2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        panelCau3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelCau3MousePressed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setText("CÂU 3");
+
+        javax.swing.GroupLayout panelCau3Layout = new javax.swing.GroupLayout(panelCau3);
+        panelCau3.setLayout(panelCau3Layout);
+        panelCau3Layout.setHorizontalGroup(
+            panelCau3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCau3Layout.createSequentialGroup()
+                .addContainerGap(32, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(34, 34, 34))
+        );
+        panelCau3Layout.setVerticalGroup(
+            panelCau3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCau3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        panelCau4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelCau4MousePressed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setText("CÂU 4");
+
+        javax.swing.GroupLayout panelCau4Layout = new javax.swing.GroupLayout(panelCau4);
+        panelCau4.setLayout(panelCau4Layout);
+        panelCau4Layout.setHorizontalGroup(
+            panelCau4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCau4Layout.createSequentialGroup()
+                .addContainerGap(32, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(34, 34, 34))
+        );
+        panelCau4Layout.setVerticalGroup(
+            panelCau4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCau4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        panelCau5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelCau5MousePressed(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setText("CÂU 5");
+
+        javax.swing.GroupLayout panelCau5Layout = new javax.swing.GroupLayout(panelCau5);
+        panelCau5.setLayout(panelCau5Layout);
+        panelCau5Layout.setHorizontalGroup(
+            panelCau5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCau5Layout.createSequentialGroup()
+                .addContainerGap(32, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addGap(34, 34, 34))
+        );
+        panelCau5Layout.setVerticalGroup(
+            panelCau5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCau5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        panelCau6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelCau6MousePressed(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel7.setText("CÂU 6");
+
+        javax.swing.GroupLayout panelCau6Layout = new javax.swing.GroupLayout(panelCau6);
+        panelCau6.setLayout(panelCau6Layout);
+        panelCau6Layout.setHorizontalGroup(
+            panelCau6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCau6Layout.createSequentialGroup()
+                .addContainerGap(32, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addGap(34, 34, 34))
+        );
+        panelCau6Layout.setVerticalGroup(
+            panelCau6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCau6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        panelCau7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelCau7MousePressed(evt);
+            }
+        });
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel8.setText("CÂU 7");
+
+        javax.swing.GroupLayout panelCau7Layout = new javax.swing.GroupLayout(panelCau7);
+        panelCau7.setLayout(panelCau7Layout);
+        panelCau7Layout.setHorizontalGroup(
+            panelCau7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCau7Layout.createSequentialGroup()
+                .addContainerGap(32, Short.MAX_VALUE)
+                .addComponent(jLabel8)
+                .addGap(34, 34, 34))
+        );
+        panelCau7Layout.setVerticalGroup(
+            panelCau7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCau7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        panelCau8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelCau8MousePressed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel9.setText("CÂU 8");
+
+        javax.swing.GroupLayout panelCau8Layout = new javax.swing.GroupLayout(panelCau8);
+        panelCau8.setLayout(panelCau8Layout);
+        panelCau8Layout.setHorizontalGroup(
+            panelCau8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCau8Layout.createSequentialGroup()
+                .addContainerGap(32, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addGap(34, 34, 34))
+        );
+        panelCau8Layout.setVerticalGroup(
+            panelCau8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCau8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        panelCau9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelCau9MousePressed(evt);
+            }
+        });
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel10.setText("CÂU 9");
+
+        javax.swing.GroupLayout panelCau9Layout = new javax.swing.GroupLayout(panelCau9);
+        panelCau9.setLayout(panelCau9Layout);
+        panelCau9Layout.setHorizontalGroup(
+            panelCau9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCau9Layout.createSequentialGroup()
+                .addContainerGap(32, Short.MAX_VALUE)
+                .addComponent(jLabel10)
+                .addGap(34, 34, 34))
+        );
+        panelCau9Layout.setVerticalGroup(
+            panelCau9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCau9Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        panelCau10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelCau10MousePressed(evt);
+            }
+        });
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel11.setText("CÂU 10");
+
+        javax.swing.GroupLayout panelCau10Layout = new javax.swing.GroupLayout(panelCau10);
+        panelCau10.setLayout(panelCau10Layout);
+        panelCau10Layout.setHorizontalGroup(
+            panelCau10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCau10Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
+        );
+        panelCau10Layout.setVerticalGroup(
+            panelCau10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCau10Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        panelCau12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelCau12MousePressed(evt);
+            }
+        });
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel14.setText("CÂU 12");
+
+        javax.swing.GroupLayout panelCau12Layout = new javax.swing.GroupLayout(panelCau12);
+        panelCau12.setLayout(panelCau12Layout);
+        panelCau12Layout.setHorizontalGroup(
+            panelCau12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCau12Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
+        );
+        panelCau12Layout.setVerticalGroup(
+            panelCau12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCau12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        panelCau13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelCau13MousePressed(evt);
+            }
+        });
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel16.setText("CÂU 13");
+
+        javax.swing.GroupLayout panelCau13Layout = new javax.swing.GroupLayout(panelCau13);
+        panelCau13.setLayout(panelCau13Layout);
+        panelCau13Layout.setHorizontalGroup(
+            panelCau13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCau13Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jLabel16)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelCau13Layout.setVerticalGroup(
+            panelCau13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCau13Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        panelCau14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelCau14MousePressed(evt);
+            }
+        });
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel18.setText("CÂU 14");
+
+        javax.swing.GroupLayout panelCau14Layout = new javax.swing.GroupLayout(panelCau14);
+        panelCau14.setLayout(panelCau14Layout);
+        panelCau14Layout.setHorizontalGroup(
+            panelCau14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCau14Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel18)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelCau14Layout.setVerticalGroup(
+            panelCau14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCau14Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        panelCau15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelCau15MousePressed(evt);
+            }
+        });
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel19.setText("CÂU 15");
+
+        javax.swing.GroupLayout panelCau15Layout = new javax.swing.GroupLayout(panelCau15);
+        panelCau15.setLayout(panelCau15Layout);
+        panelCau15Layout.setHorizontalGroup(
+            panelCau15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCau15Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jLabel19)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelCau15Layout.setVerticalGroup(
+            panelCau15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCau15Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        panelCau16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelCau16MousePressed(evt);
+            }
+        });
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel20.setText("CÂU 16");
+
+        javax.swing.GroupLayout panelCau16Layout = new javax.swing.GroupLayout(panelCau16);
+        panelCau16.setLayout(panelCau16Layout);
+        panelCau16Layout.setHorizontalGroup(
+            panelCau16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCau16Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel20)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelCau16Layout.setVerticalGroup(
+            panelCau16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCau16Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        panelCau17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelCau17MousePressed(evt);
+            }
+        });
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel21.setText("CÂU 17");
+
+        javax.swing.GroupLayout panelCau17Layout = new javax.swing.GroupLayout(panelCau17);
+        panelCau17.setLayout(panelCau17Layout);
+        panelCau17Layout.setHorizontalGroup(
+            panelCau17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCau17Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel21)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelCau17Layout.setVerticalGroup(
+            panelCau17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCau17Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        panelCau18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelCau18MousePressed(evt);
+            }
+        });
+
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel22.setText("CÂU 18");
+
+        javax.swing.GroupLayout panelCau18Layout = new javax.swing.GroupLayout(panelCau18);
+        panelCau18.setLayout(panelCau18Layout);
+        panelCau18Layout.setHorizontalGroup(
+            panelCau18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCau18Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel22)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelCau18Layout.setVerticalGroup(
+            panelCau18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCau18Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        panelCau19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelCau19MousePressed(evt);
+            }
+        });
+
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel23.setText("CÂU 19");
+
+        javax.swing.GroupLayout panelCau19Layout = new javax.swing.GroupLayout(panelCau19);
+        panelCau19.setLayout(panelCau19Layout);
+        panelCau19Layout.setHorizontalGroup(
+            panelCau19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCau19Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jLabel23)
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
+        panelCau19Layout.setVerticalGroup(
+            panelCau19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCau19Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        panelCau20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelCau20MousePressed(evt);
+            }
+        });
+
+        jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel24.setText("CÂU 20");
+
+        javax.swing.GroupLayout panelCau20Layout = new javax.swing.GroupLayout(panelCau20);
+        panelCau20.setLayout(panelCau20Layout);
+        panelCau20Layout.setHorizontalGroup(
+            panelCau20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCau20Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel24)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelCau20Layout.setVerticalGroup(
+            panelCau20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCau20Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        panelCau11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelCau11MousePressed(evt);
+            }
+        });
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel15.setText("CÂU 11");
+
+        javax.swing.GroupLayout panelCau11Layout = new javax.swing.GroupLayout(panelCau11);
+        panelCau11.setLayout(panelCau11Layout);
+        panelCau11Layout.setHorizontalGroup(
+            panelCau11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCau11Layout.createSequentialGroup()
+                .addContainerGap(29, Short.MAX_VALUE)
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
+        );
+        panelCau11Layout.setVerticalGroup(
+            panelCau11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCau11Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout panelTinhNangLayout = new javax.swing.GroupLayout(panelTinhNang);
+        panelTinhNang.setLayout(panelTinhNangLayout);
+        panelTinhNangLayout.setHorizontalGroup(
+            panelTinhNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTinhNangLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(panelTinhNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelTinhNangLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(panelTinhNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelTinhNangLayout.createSequentialGroup()
+                                .addComponent(panelCau1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(panelCau11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(panelTinhNangLayout.createSequentialGroup()
+                                .addGroup(panelTinhNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(panelCau10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(panelCau2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(panelCau4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(panelCau5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(panelCau8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(panelCau6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(panelCau7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(panelCau3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(panelCau9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelTinhNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(panelCau19, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(panelCau18, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(panelCau17, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(panelCau16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(panelCau15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(panelCau14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(panelCau13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(panelCau12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(panelCau20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap(43, Short.MAX_VALUE))))
+                    .addGroup(panelTinhNangLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(68, 68, 68))))
+            .addGroup(panelTinhNangLayout.createSequentialGroup()
+                .addGap(83, 83, 83)
+                .addComponent(nopBaiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelTinhNangLayout.setVerticalGroup(
+            panelTinhNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTinhNangLayout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(jLabel2)
-                .addGap(74, 74, 74)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
+                .addGap(57, 57, 57)
+                .addGroup(panelTinhNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelTinhNangLayout.createSequentialGroup()
+                        .addComponent(panelCau1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addGroup(panelTinhNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTinhNangLayout.createSequentialGroup()
+                                .addGroup(panelTinhNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(panelCau12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(panelCau2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelTinhNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(panelCau3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(panelCau13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelTinhNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(panelCau4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(panelCau14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelTinhNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(panelCau15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(panelCau5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(panelCau6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(panelCau16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelTinhNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panelCau17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelCau7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelTinhNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(panelCau8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(panelCau18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelTinhNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(panelCau19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelCau9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(panelCau11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelTinhNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panelCau20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelCau10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addComponent(nopBaiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64))
+                .addContainerGap(87, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jDesktopPane2Layout = new javax.swing.GroupLayout(jDesktopPane2);
+        jDesktopPane2.setLayout(jDesktopPane2Layout);
+        jDesktopPane2Layout.setHorizontalGroup(
+            jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1039, Short.MAX_VALUE)
+        );
+        jDesktopPane2Layout.setVerticalGroup(
+            jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -93,12 +773,14 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 911, Short.MAX_VALUE))
+                .addComponent(panelTinhNang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jDesktopPane2))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelTinhNang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jDesktopPane2)
         );
 
         pack();
@@ -111,6 +793,502 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
             new JFrameKetQua();
         }
     }//GEN-LAST:event_nopBaiButtonActionPerformed
+
+    private void panelCau1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau1MousePressed
+        // TODO add your handling code here:
+        panelCau1.setBackground(ClickColor);
+        panelCau2.setBackground(DefauColor);
+        panelCau3.setBackground(DefauColor);
+        panelCau4.setBackground(DefauColor);
+        panelCau5.setBackground(DefauColor);
+        panelCau6.setBackground(DefauColor);
+        panelCau7.setBackground(DefauColor);
+        panelCau8.setBackground(DefauColor);
+        panelCau9.setBackground(DefauColor);
+        panelCau10.setBackground(DefauColor);
+        panelCau11.setBackground(DefauColor);
+        panelCau12.setBackground(DefauColor);
+        panelCau13.setBackground(DefauColor);
+        panelCau14.setBackground(DefauColor);
+        panelCau15.setBackground(DefauColor);
+        panelCau16.setBackground(DefauColor);
+        panelCau17.setBackground(DefauColor);
+        panelCau18.setBackground(DefauColor);
+        panelCau19.setBackground(DefauColor);
+        panelCau20.setBackground(DefauColor);
+    }//GEN-LAST:event_panelCau1MousePressed
+
+    private void panelCau2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau2MousePressed
+        // TODO add your handling code here:
+        panelCau1.setBackground(DefauColor);
+        panelCau2.setBackground(ClickColor);
+        panelCau3.setBackground(DefauColor);
+        panelCau4.setBackground(DefauColor);
+        panelCau5.setBackground(DefauColor);
+        panelCau6.setBackground(DefauColor);
+        panelCau7.setBackground(DefauColor);
+        panelCau8.setBackground(DefauColor);
+        panelCau9.setBackground(DefauColor);
+        panelCau10.setBackground(DefauColor);
+        panelCau11.setBackground(DefauColor);
+        panelCau12.setBackground(DefauColor);
+        panelCau13.setBackground(DefauColor);
+        panelCau14.setBackground(DefauColor);
+        panelCau15.setBackground(DefauColor);
+        panelCau16.setBackground(DefauColor);
+        panelCau17.setBackground(DefauColor);
+        panelCau18.setBackground(DefauColor);
+        panelCau19.setBackground(DefauColor);
+        panelCau20.setBackground(DefauColor);
+    }//GEN-LAST:event_panelCau2MousePressed
+
+    private void panelCau3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau3MousePressed
+        panelCau1.setBackground(DefauColor);
+        panelCau2.setBackground(DefauColor);
+        panelCau3.setBackground(ClickColor);
+        panelCau4.setBackground(DefauColor);
+        panelCau5.setBackground(DefauColor);
+        panelCau6.setBackground(DefauColor);
+        panelCau7.setBackground(DefauColor);
+        panelCau8.setBackground(DefauColor);
+        panelCau9.setBackground(DefauColor);
+        panelCau10.setBackground(DefauColor);
+        panelCau11.setBackground(DefauColor);
+        panelCau12.setBackground(DefauColor);
+        panelCau13.setBackground(DefauColor);
+        panelCau14.setBackground(DefauColor);
+        panelCau15.setBackground(DefauColor);
+        panelCau16.setBackground(DefauColor);
+        panelCau17.setBackground(DefauColor);
+        panelCau18.setBackground(DefauColor);
+        panelCau19.setBackground(DefauColor);
+        panelCau20.setBackground(DefauColor);        // TODO add your handling code here:
+    }//GEN-LAST:event_panelCau3MousePressed
+
+    private void panelCau4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau4MousePressed
+        // TODO add your handling code here:
+        panelCau1.setBackground(DefauColor);
+        panelCau2.setBackground(DefauColor);
+        panelCau3.setBackground(DefauColor);
+        panelCau4.setBackground(ClickColor);
+        panelCau5.setBackground(DefauColor);
+        panelCau6.setBackground(DefauColor);
+        panelCau7.setBackground(DefauColor);
+        panelCau8.setBackground(DefauColor);
+        panelCau9.setBackground(DefauColor);
+        panelCau10.setBackground(DefauColor);
+        panelCau11.setBackground(DefauColor);
+        panelCau12.setBackground(DefauColor);
+        panelCau13.setBackground(DefauColor);
+        panelCau14.setBackground(DefauColor);
+        panelCau15.setBackground(DefauColor);
+        panelCau16.setBackground(DefauColor);
+        panelCau17.setBackground(DefauColor);
+        panelCau18.setBackground(DefauColor);
+        panelCau19.setBackground(DefauColor);
+        panelCau20.setBackground(DefauColor);
+    }//GEN-LAST:event_panelCau4MousePressed
+
+    private void panelCau5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau5MousePressed
+        // TODO add your handling code here:
+        panelCau1.setBackground(DefauColor);
+        panelCau2.setBackground(DefauColor);
+        panelCau3.setBackground(DefauColor);
+        panelCau4.setBackground(DefauColor);
+        panelCau5.setBackground(ClickColor);
+        panelCau6.setBackground(DefauColor);
+        panelCau7.setBackground(DefauColor);
+        panelCau8.setBackground(DefauColor);
+        panelCau9.setBackground(DefauColor);
+        panelCau10.setBackground(DefauColor);
+        panelCau11.setBackground(DefauColor);
+        panelCau12.setBackground(DefauColor);
+        panelCau13.setBackground(DefauColor);
+        panelCau14.setBackground(DefauColor);
+        panelCau15.setBackground(DefauColor);
+        panelCau16.setBackground(DefauColor);
+        panelCau17.setBackground(DefauColor);
+        panelCau18.setBackground(DefauColor);
+        panelCau19.setBackground(DefauColor);
+        panelCau20.setBackground(DefauColor);
+        
+    }//GEN-LAST:event_panelCau5MousePressed
+
+    private void panelCau6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau6MousePressed
+        // TODO add your handling code here:
+        panelCau1.setBackground(DefauColor);
+        panelCau2.setBackground(DefauColor);
+        panelCau3.setBackground(DefauColor);
+        panelCau4.setBackground(DefauColor);
+        panelCau5.setBackground(DefauColor);
+        panelCau6.setBackground(ClickColor);
+        panelCau7.setBackground(DefauColor);
+        panelCau8.setBackground(DefauColor);
+        panelCau9.setBackground(DefauColor);
+        panelCau10.setBackground(DefauColor);
+        panelCau11.setBackground(DefauColor);
+        panelCau12.setBackground(DefauColor);
+        panelCau13.setBackground(DefauColor);
+        panelCau14.setBackground(DefauColor);
+        panelCau15.setBackground(DefauColor);
+        panelCau16.setBackground(DefauColor);
+        panelCau17.setBackground(DefauColor);
+        panelCau18.setBackground(DefauColor);
+        panelCau19.setBackground(DefauColor);
+        panelCau20.setBackground(DefauColor);
+    }//GEN-LAST:event_panelCau6MousePressed
+
+    private void panelCau7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau7MousePressed
+        // TODO add your handling code here:
+        panelCau1.setBackground(DefauColor);
+        panelCau2.setBackground(DefauColor);
+        panelCau3.setBackground(DefauColor);
+        panelCau4.setBackground(DefauColor);
+        panelCau5.setBackground(DefauColor);
+        panelCau6.setBackground(DefauColor);
+        panelCau7.setBackground(ClickColor);
+        panelCau8.setBackground(DefauColor);
+        panelCau9.setBackground(DefauColor);
+        panelCau10.setBackground(DefauColor);
+        panelCau11.setBackground(DefauColor);
+        panelCau12.setBackground(DefauColor);
+        panelCau13.setBackground(DefauColor);
+        panelCau14.setBackground(DefauColor);
+        panelCau15.setBackground(DefauColor);
+        panelCau16.setBackground(DefauColor);
+        panelCau17.setBackground(DefauColor);
+        panelCau18.setBackground(DefauColor);
+        panelCau19.setBackground(DefauColor);
+        panelCau20.setBackground(DefauColor);
+    }//GEN-LAST:event_panelCau7MousePressed
+
+    private void panelCau8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau8MousePressed
+        // TODO add your handling code here:
+        panelCau1.setBackground(DefauColor);
+        panelCau2.setBackground(DefauColor);
+        panelCau3.setBackground(DefauColor);
+        panelCau4.setBackground(DefauColor);
+        panelCau5.setBackground(DefauColor);
+        panelCau6.setBackground(DefauColor);
+        panelCau7.setBackground(DefauColor);
+        panelCau8.setBackground(ClickColor);
+        panelCau9.setBackground(DefauColor);
+        panelCau10.setBackground(DefauColor);
+        panelCau11.setBackground(DefauColor);
+        panelCau12.setBackground(DefauColor);
+        panelCau13.setBackground(DefauColor);
+        panelCau14.setBackground(DefauColor);
+        panelCau15.setBackground(DefauColor);
+        panelCau16.setBackground(DefauColor);
+        panelCau17.setBackground(DefauColor);
+        panelCau18.setBackground(DefauColor);
+        panelCau19.setBackground(DefauColor);
+        panelCau20.setBackground(DefauColor);
+    }//GEN-LAST:event_panelCau8MousePressed
+
+    private void panelCau9MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau9MousePressed
+        // TODO add your handling code here:
+        panelCau1.setBackground(DefauColor);
+        panelCau2.setBackground(DefauColor);
+        panelCau3.setBackground(DefauColor);
+        panelCau4.setBackground(DefauColor);
+        panelCau5.setBackground(DefauColor);
+        panelCau6.setBackground(DefauColor);
+        panelCau7.setBackground(DefauColor);
+        panelCau8.setBackground(DefauColor);
+        panelCau9.setBackground(ClickColor);
+        panelCau10.setBackground(DefauColor);
+        panelCau11.setBackground(DefauColor);
+        panelCau12.setBackground(DefauColor);
+        panelCau13.setBackground(DefauColor);
+        panelCau14.setBackground(DefauColor);
+        panelCau15.setBackground(DefauColor);
+        panelCau16.setBackground(DefauColor);
+        panelCau17.setBackground(DefauColor);
+        panelCau18.setBackground(DefauColor);
+        panelCau19.setBackground(DefauColor);
+        panelCau20.setBackground(DefauColor);
+    }//GEN-LAST:event_panelCau9MousePressed
+
+    private void panelCau10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau10MousePressed
+        // TODO add your handling code here:
+        panelCau1.setBackground(DefauColor);
+        panelCau2.setBackground(DefauColor);
+        panelCau3.setBackground(DefauColor);
+        panelCau4.setBackground(DefauColor);
+        panelCau5.setBackground(DefauColor);
+        panelCau6.setBackground(DefauColor);
+        panelCau7.setBackground(DefauColor);
+        panelCau8.setBackground(DefauColor);
+        panelCau9.setBackground(DefauColor);
+        panelCau10.setBackground(ClickColor);
+        panelCau11.setBackground(DefauColor);
+        panelCau12.setBackground(DefauColor);
+        panelCau13.setBackground(DefauColor);
+        panelCau14.setBackground(DefauColor);
+        panelCau15.setBackground(DefauColor);
+        panelCau16.setBackground(DefauColor);
+        panelCau17.setBackground(DefauColor);
+        panelCau18.setBackground(DefauColor);
+        panelCau19.setBackground(DefauColor);
+        panelCau20.setBackground(DefauColor);
+    }//GEN-LAST:event_panelCau10MousePressed
+
+    private void panelCau11MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau11MousePressed
+        // TODO add your handling code here:
+        panelCau1.setBackground(DefauColor);
+        panelCau2.setBackground(DefauColor);
+        panelCau3.setBackground(DefauColor);
+        panelCau4.setBackground(DefauColor);
+        panelCau5.setBackground(DefauColor);
+        panelCau6.setBackground(DefauColor);
+        panelCau7.setBackground(DefauColor);
+        panelCau8.setBackground(DefauColor);
+        panelCau9.setBackground(DefauColor);
+        panelCau10.setBackground(DefauColor);
+        panelCau11.setBackground(ClickColor);
+        panelCau12.setBackground(DefauColor);
+        panelCau13.setBackground(DefauColor);
+        panelCau14.setBackground(DefauColor);
+        panelCau15.setBackground(DefauColor);
+        panelCau16.setBackground(DefauColor);
+        panelCau17.setBackground(DefauColor);
+        panelCau18.setBackground(DefauColor);
+        panelCau19.setBackground(DefauColor);
+        panelCau20.setBackground(DefauColor);
+    }//GEN-LAST:event_panelCau11MousePressed
+
+    private void panelCau12MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau12MousePressed
+        // TODO add your handling code here:
+        panelCau1.setBackground(DefauColor);
+        panelCau2.setBackground(DefauColor);
+        panelCau3.setBackground(DefauColor);
+        panelCau4.setBackground(DefauColor);
+        panelCau5.setBackground(DefauColor);
+        panelCau6.setBackground(DefauColor);
+        panelCau7.setBackground(DefauColor);
+        panelCau8.setBackground(DefauColor);
+        panelCau9.setBackground(DefauColor);
+        panelCau10.setBackground(DefauColor);
+        panelCau11.setBackground(DefauColor);
+        panelCau12.setBackground(ClickColor);
+        panelCau13.setBackground(DefauColor);
+        panelCau14.setBackground(DefauColor);
+        panelCau15.setBackground(DefauColor);
+        panelCau16.setBackground(DefauColor);
+        panelCau17.setBackground(DefauColor);
+        panelCau18.setBackground(DefauColor);
+        panelCau19.setBackground(DefauColor);
+        panelCau20.setBackground(DefauColor);
+    }//GEN-LAST:event_panelCau12MousePressed
+
+    private void panelCau13MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau13MousePressed
+        // TODO add your handling code here:
+        panelCau1.setBackground(DefauColor);
+        panelCau2.setBackground(DefauColor);
+        panelCau3.setBackground(DefauColor);
+        panelCau4.setBackground(DefauColor);
+        panelCau5.setBackground(DefauColor);
+        panelCau6.setBackground(DefauColor);
+        panelCau7.setBackground(DefauColor);
+        panelCau8.setBackground(DefauColor);
+        panelCau9.setBackground(DefauColor);
+        panelCau10.setBackground(DefauColor);
+        panelCau11.setBackground(DefauColor);
+        panelCau12.setBackground(DefauColor);
+        panelCau13.setBackground(ClickColor);
+        panelCau14.setBackground(DefauColor);
+        panelCau15.setBackground(DefauColor);
+        panelCau16.setBackground(DefauColor);
+        panelCau17.setBackground(DefauColor);
+        panelCau18.setBackground(DefauColor);
+        panelCau19.setBackground(DefauColor);
+        panelCau20.setBackground(DefauColor);
+    }//GEN-LAST:event_panelCau13MousePressed
+
+    private void panelCau14MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau14MousePressed
+        // TODO add your handling code here:
+        panelCau1.setBackground(DefauColor);
+        panelCau2.setBackground(DefauColor);
+        panelCau3.setBackground(DefauColor);
+        panelCau4.setBackground(DefauColor);
+        panelCau5.setBackground(DefauColor);
+        panelCau6.setBackground(DefauColor);
+        panelCau7.setBackground(DefauColor);
+        panelCau8.setBackground(DefauColor);
+        panelCau9.setBackground(DefauColor);
+        panelCau10.setBackground(DefauColor);
+        panelCau11.setBackground(DefauColor);
+        panelCau12.setBackground(DefauColor);
+        panelCau13.setBackground(DefauColor);
+        panelCau14.setBackground(ClickColor);
+        panelCau15.setBackground(DefauColor);
+        panelCau16.setBackground(DefauColor);
+        panelCau17.setBackground(DefauColor);
+        panelCau18.setBackground(DefauColor);
+        panelCau19.setBackground(DefauColor);
+        panelCau20.setBackground(DefauColor);
+    }//GEN-LAST:event_panelCau14MousePressed
+
+    private void panelCau15MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau15MousePressed
+        // TODO add your handling code here:
+        panelCau1.setBackground(DefauColor);
+        panelCau2.setBackground(DefauColor);
+        panelCau3.setBackground(DefauColor);
+        panelCau4.setBackground(DefauColor);
+        panelCau5.setBackground(DefauColor);
+        panelCau6.setBackground(DefauColor);
+        panelCau7.setBackground(DefauColor);
+        panelCau8.setBackground(DefauColor);
+        panelCau9.setBackground(DefauColor);
+        panelCau10.setBackground(DefauColor);
+        panelCau11.setBackground(DefauColor);
+        panelCau12.setBackground(DefauColor);
+        panelCau13.setBackground(DefauColor);
+        panelCau14.setBackground(DefauColor);
+        panelCau15.setBackground(ClickColor);
+        panelCau16.setBackground(DefauColor);
+        panelCau17.setBackground(DefauColor);
+        panelCau18.setBackground(DefauColor);
+        panelCau19.setBackground(DefauColor);
+        panelCau20.setBackground(DefauColor);
+    }//GEN-LAST:event_panelCau15MousePressed
+
+    private void panelCau16MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau16MousePressed
+        // TODO add your handling code here:
+        panelCau1.setBackground(DefauColor);
+        panelCau2.setBackground(DefauColor);
+        panelCau3.setBackground(DefauColor);
+        panelCau4.setBackground(DefauColor);
+        panelCau5.setBackground(DefauColor);
+        panelCau6.setBackground(DefauColor);
+        panelCau7.setBackground(DefauColor);
+        panelCau8.setBackground(DefauColor);
+        panelCau9.setBackground(DefauColor);
+        panelCau10.setBackground(DefauColor);
+        panelCau11.setBackground(DefauColor);
+        panelCau12.setBackground(DefauColor);
+        panelCau13.setBackground(DefauColor);
+        panelCau14.setBackground(DefauColor);
+        panelCau15.setBackground(DefauColor);
+        panelCau16.setBackground(ClickColor);
+        panelCau17.setBackground(DefauColor);
+        panelCau18.setBackground(DefauColor);
+        panelCau19.setBackground(DefauColor);
+        panelCau20.setBackground(DefauColor);
+    }//GEN-LAST:event_panelCau16MousePressed
+
+    private void panelCau17MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau17MousePressed
+        // TODO add your handling code here:
+        panelCau1.setBackground(DefauColor);
+        panelCau2.setBackground(DefauColor);
+        panelCau3.setBackground(DefauColor);
+        panelCau4.setBackground(DefauColor);
+        panelCau5.setBackground(DefauColor);
+        panelCau6.setBackground(DefauColor);
+        panelCau7.setBackground(DefauColor);
+        panelCau8.setBackground(DefauColor);
+        panelCau9.setBackground(DefauColor);
+        panelCau10.setBackground(DefauColor);
+        panelCau11.setBackground(DefauColor);
+        panelCau12.setBackground(DefauColor);
+        panelCau13.setBackground(DefauColor);
+        panelCau14.setBackground(DefauColor);
+        panelCau15.setBackground(DefauColor);
+        panelCau16.setBackground(DefauColor);
+        panelCau17.setBackground(ClickColor);
+        panelCau18.setBackground(DefauColor);
+        panelCau19.setBackground(DefauColor);
+        panelCau20.setBackground(DefauColor);
+    }//GEN-LAST:event_panelCau17MousePressed
+
+    private void panelCau18MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau18MousePressed
+        // TODO add your handling code here:
+        panelCau1.setBackground(DefauColor);
+        panelCau2.setBackground(DefauColor);
+        panelCau3.setBackground(DefauColor);
+        panelCau4.setBackground(DefauColor);
+        panelCau5.setBackground(DefauColor);
+        panelCau6.setBackground(DefauColor);
+        panelCau7.setBackground(DefauColor);
+        panelCau8.setBackground(DefauColor);
+        panelCau9.setBackground(DefauColor);
+        panelCau10.setBackground(DefauColor);
+        panelCau11.setBackground(DefauColor);
+        panelCau12.setBackground(DefauColor);
+        panelCau13.setBackground(DefauColor);
+        panelCau14.setBackground(DefauColor);
+        panelCau15.setBackground(DefauColor);
+        panelCau16.setBackground(DefauColor);
+        panelCau17.setBackground(DefauColor);
+        panelCau18.setBackground(ClickColor);
+        panelCau19.setBackground(DefauColor);
+        panelCau20.setBackground(DefauColor);
+    }//GEN-LAST:event_panelCau18MousePressed
+
+    private void panelCau19MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau19MousePressed
+        // TODO add your handling code here:
+        panelCau1.setBackground(DefauColor);
+        panelCau2.setBackground(DefauColor);
+        panelCau3.setBackground(DefauColor);
+        panelCau4.setBackground(DefauColor);
+        panelCau5.setBackground(DefauColor);
+        panelCau6.setBackground(DefauColor);
+        panelCau7.setBackground(DefauColor);
+        panelCau8.setBackground(DefauColor);
+        panelCau9.setBackground(DefauColor);
+        panelCau10.setBackground(DefauColor);
+        panelCau11.setBackground(DefauColor);
+        panelCau12.setBackground(DefauColor);
+        panelCau13.setBackground(DefauColor);
+        panelCau14.setBackground(DefauColor);
+        panelCau15.setBackground(DefauColor);
+        panelCau16.setBackground(DefauColor);
+        panelCau17.setBackground(DefauColor);
+        panelCau18.setBackground(DefauColor);
+        panelCau19.setBackground(ClickColor);
+        panelCau20.setBackground(DefauColor);
+    }//GEN-LAST:event_panelCau19MousePressed
+
+    private void panelCau20MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau20MousePressed
+        // TODO add your handling code here:
+        panelCau1.setBackground(DefauColor);
+        panelCau2.setBackground(DefauColor);
+        panelCau3.setBackground(DefauColor);
+        panelCau4.setBackground(DefauColor);
+        panelCau5.setBackground(DefauColor);
+        panelCau6.setBackground(DefauColor);
+        panelCau7.setBackground(DefauColor);
+        panelCau8.setBackground(DefauColor);
+        panelCau9.setBackground(DefauColor);
+        panelCau10.setBackground(DefauColor);
+        panelCau11.setBackground(DefauColor);
+        panelCau12.setBackground(DefauColor);
+        panelCau13.setBackground(DefauColor);
+        panelCau14.setBackground(DefauColor);
+        panelCau15.setBackground(DefauColor);
+        panelCau16.setBackground(DefauColor);
+        panelCau17.setBackground(DefauColor);
+        panelCau18.setBackground(DefauColor);
+        panelCau19.setBackground(DefauColor);
+        panelCau20.setBackground(ClickColor);
+    }//GEN-LAST:event_panelCau20MousePressed
+
+    
+    
+    private void panelCau1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau1MouseClicked
+        // TODO add your handling code here:
+        HienThiCau1 hienThiCau1 = new HienThiCau1();
+        jDesktopPane2.removeAll();
+        jDesktopPane2.add(hienThiCau1).setVisible(true);
+    }//GEN-LAST:event_panelCau1MouseClicked
+
+    private void panelCau2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau2MouseClicked
+        // TODO add your handling code here:
+        HienThiCau2 hienThiCau1 = new HienThiCau2();
+        jDesktopPane2.removeAll();
+        jDesktopPane2.add(hienThiCau1).setVisible(true);
+    }//GEN-LAST:event_panelCau2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -138,6 +1316,9 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(JFrameManHinhThi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -148,10 +1329,49 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDesktopPane jDesktopPane2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JButton nopBaiButton;
+    private javax.swing.JPanel panelCau1;
+    private javax.swing.JPanel panelCau10;
+    private javax.swing.JPanel panelCau11;
+    private javax.swing.JPanel panelCau12;
+    private javax.swing.JPanel panelCau13;
+    private javax.swing.JPanel panelCau14;
+    private javax.swing.JPanel panelCau15;
+    private javax.swing.JPanel panelCau16;
+    private javax.swing.JPanel panelCau17;
+    private javax.swing.JPanel panelCau18;
+    private javax.swing.JPanel panelCau19;
+    private javax.swing.JPanel panelCau2;
+    private javax.swing.JPanel panelCau20;
+    private javax.swing.JPanel panelCau3;
+    private javax.swing.JPanel panelCau4;
+    private javax.swing.JPanel panelCau5;
+    private javax.swing.JPanel panelCau6;
+    private javax.swing.JPanel panelCau7;
+    private javax.swing.JPanel panelCau8;
+    private javax.swing.JPanel panelCau9;
+    private javax.swing.JPanel panelTinhNang;
     // End of variables declaration//GEN-END:variables
 }
