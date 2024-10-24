@@ -32,8 +32,11 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="panelTinhNang" max="32767" attributes="0"/>
           <Component id="jDesktopPane2" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="panelTinhNang" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -165,7 +168,7 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="nopBaiButton" min="-2" pref="52" max="-2" attributes="0"/>
-                  <EmptySpace pref="87" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -274,6 +277,7 @@
         </Container>
         <Container class="javax.swing.JPanel" name="panelCau3">
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau3MouseClicked"/>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau3MousePressed"/>
           </Events>
 
@@ -310,6 +314,7 @@
         </Container>
         <Container class="javax.swing.JPanel" name="panelCau4">
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau4MouseClicked"/>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau4MousePressed"/>
           </Events>
 
@@ -346,6 +351,7 @@
         </Container>
         <Container class="javax.swing.JPanel" name="panelCau5">
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau5MouseClicked"/>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau5MousePressed"/>
           </Events>
 
@@ -382,6 +388,7 @@
         </Container>
         <Container class="javax.swing.JPanel" name="panelCau6">
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau6MouseClicked"/>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau6MousePressed"/>
           </Events>
 
@@ -418,6 +425,7 @@
         </Container>
         <Container class="javax.swing.JPanel" name="panelCau7">
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau7MouseClicked"/>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau7MousePressed"/>
           </Events>
 
@@ -454,6 +462,7 @@
         </Container>
         <Container class="javax.swing.JPanel" name="panelCau8">
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau8MouseClicked"/>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau8MousePressed"/>
           </Events>
 
@@ -490,6 +499,7 @@
         </Container>
         <Container class="javax.swing.JPanel" name="panelCau9">
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau9MouseClicked"/>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau9MousePressed"/>
           </Events>
 
@@ -526,6 +536,7 @@
         </Container>
         <Container class="javax.swing.JPanel" name="panelCau10">
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau10MouseClicked"/>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau10MousePressed"/>
           </Events>
 
@@ -562,6 +573,7 @@
         </Container>
         <Container class="javax.swing.JPanel" name="panelCau12">
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau12MouseClicked"/>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau12MousePressed"/>
           </Events>
 
@@ -598,6 +610,7 @@
         </Container>
         <Container class="javax.swing.JPanel" name="panelCau13">
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau13MouseClicked"/>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau13MousePressed"/>
           </Events>
 
@@ -634,6 +647,7 @@
         </Container>
         <Container class="javax.swing.JPanel" name="panelCau14">
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau14MouseClicked"/>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau14MousePressed"/>
           </Events>
 
@@ -670,6 +684,7 @@
         </Container>
         <Container class="javax.swing.JPanel" name="panelCau15">
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau15MouseClicked"/>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau15MousePressed"/>
           </Events>
 
@@ -706,6 +721,7 @@
         </Container>
         <Container class="javax.swing.JPanel" name="panelCau16">
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau16MouseClicked"/>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau16MousePressed"/>
           </Events>
 
@@ -742,6 +758,7 @@
         </Container>
         <Container class="javax.swing.JPanel" name="panelCau17">
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau17MouseClicked"/>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau17MousePressed"/>
           </Events>
 
@@ -778,6 +795,7 @@
         </Container>
         <Container class="javax.swing.JPanel" name="panelCau18">
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau18MouseClicked"/>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau18MousePressed"/>
           </Events>
 
@@ -814,6 +832,7 @@
         </Container>
         <Container class="javax.swing.JPanel" name="panelCau19">
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau19MouseClicked"/>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau19MousePressed"/>
           </Events>
 
@@ -850,6 +869,7 @@
         </Container>
         <Container class="javax.swing.JPanel" name="panelCau20">
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau20MouseClicked"/>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau20MousePressed"/>
           </Events>
 
@@ -886,6 +906,7 @@
         </Container>
         <Container class="javax.swing.JPanel" name="panelCau11">
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau11MouseClicked"/>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCau11MousePressed"/>
           </Events>
 
@@ -932,7 +953,7 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="660" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>

@@ -4,6 +4,7 @@
  */
 package doanthibanglai;
 
+import JInternalFrameHienThiCauHoi.*;
 import java.awt.Color;
 
 /**
@@ -15,16 +16,7 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
     /**
      * Creates new form JFrameManHinhThi
      */
-    Color DefauColor,
-
-    /**
-     * Creates new form HienThiCau1
-     */
-
-    /**
-     * Creates new form JFrameManHinhThi
-     */
-    ClickColor;
+    Color DefauColor, ClickColor;
     
     public JFrameManHinhThi() {
         initComponents();
@@ -192,6 +184,9 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         );
 
         panelCau3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelCau3MouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 panelCau3MousePressed(evt);
             }
@@ -218,6 +213,9 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         );
 
         panelCau4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelCau4MouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 panelCau4MousePressed(evt);
             }
@@ -244,6 +242,9 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         );
 
         panelCau5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelCau5MouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 panelCau5MousePressed(evt);
             }
@@ -270,6 +271,9 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         );
 
         panelCau6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelCau6MouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 panelCau6MousePressed(evt);
             }
@@ -296,6 +300,9 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         );
 
         panelCau7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelCau7MouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 panelCau7MousePressed(evt);
             }
@@ -322,6 +329,9 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         );
 
         panelCau8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelCau8MouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 panelCau8MousePressed(evt);
             }
@@ -348,6 +358,9 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         );
 
         panelCau9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelCau9MouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 panelCau9MousePressed(evt);
             }
@@ -374,6 +387,9 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         );
 
         panelCau10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelCau10MouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 panelCau10MousePressed(evt);
             }
@@ -400,6 +416,9 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         );
 
         panelCau12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelCau12MouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 panelCau12MousePressed(evt);
             }
@@ -426,6 +445,9 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         );
 
         panelCau13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelCau13MouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 panelCau13MousePressed(evt);
             }
@@ -452,6 +474,9 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         );
 
         panelCau14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelCau14MouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 panelCau14MousePressed(evt);
             }
@@ -478,6 +503,9 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         );
 
         panelCau15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelCau15MouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 panelCau15MousePressed(evt);
             }
@@ -504,6 +532,9 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         );
 
         panelCau16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelCau16MouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 panelCau16MousePressed(evt);
             }
@@ -530,6 +561,9 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         );
 
         panelCau17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelCau17MouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 panelCau17MousePressed(evt);
             }
@@ -556,6 +590,9 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         );
 
         panelCau18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelCau18MouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 panelCau18MousePressed(evt);
             }
@@ -582,6 +619,9 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         );
 
         panelCau19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelCau19MouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 panelCau19MousePressed(evt);
             }
@@ -608,6 +648,9 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         );
 
         panelCau20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelCau20MouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 panelCau20MousePressed(evt);
             }
@@ -634,6 +677,9 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         );
 
         panelCau11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelCau11MouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 panelCau11MousePressed(evt);
             }
@@ -754,7 +800,7 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
                     .addComponent(panelCau10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(nopBaiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jDesktopPane2Layout = new javax.swing.GroupLayout(jDesktopPane2);
@@ -765,7 +811,7 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         );
         jDesktopPane2Layout.setVerticalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 660, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -779,8 +825,10 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelTinhNang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jDesktopPane2)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelTinhNang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -1285,10 +1333,136 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
 
     private void panelCau2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau2MouseClicked
         // TODO add your handling code here:
-        HienThiCau2 hienThiCau1 = new HienThiCau2();
+        HienThiCau2 hienThiCau2 = new HienThiCau2();
         jDesktopPane2.removeAll();
-        jDesktopPane2.add(hienThiCau1).setVisible(true);
+        jDesktopPane2.add(hienThiCau2).setVisible(true);
     }//GEN-LAST:event_panelCau2MouseClicked
+
+    private void panelCau3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau3MouseClicked
+        // TODO add your handling code here:
+        HienThiCau3 hienThiCau3 = new HienThiCau3();
+        jDesktopPane2.removeAll();
+        jDesktopPane2.add(hienThiCau3).setVisible(true);
+    }//GEN-LAST:event_panelCau3MouseClicked
+
+    private void panelCau4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau4MouseClicked
+        // TODO add your handling code here:
+        HienThiCau4 hienThiCau4 = new HienThiCau4();
+        jDesktopPane2.removeAll();
+        jDesktopPane2.add(hienThiCau4).setVisible(true);
+    }//GEN-LAST:event_panelCau4MouseClicked
+
+    private void panelCau5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau5MouseClicked
+        // TODO add your handling code here:
+        HienThiCau5 hienThiCau5 = new HienThiCau5();
+        jDesktopPane2.removeAll();
+        jDesktopPane2.add(hienThiCau5).setVisible(true);
+    }//GEN-LAST:event_panelCau5MouseClicked
+
+    private void panelCau6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau6MouseClicked
+        // TODO add your handling code here:
+        HienThiCau6 hienThiCau6 = new HienThiCau6();
+        jDesktopPane2.removeAll();
+        jDesktopPane2.add(hienThiCau6).setVisible(true);
+    }//GEN-LAST:event_panelCau6MouseClicked
+
+    private void panelCau7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau7MouseClicked
+        // TODO add your handling code here:
+        HienThiCau7 hienThiCau7 = new HienThiCau7();
+        jDesktopPane2.removeAll();
+        jDesktopPane2.add(hienThiCau7).setVisible(true);
+    }//GEN-LAST:event_panelCau7MouseClicked
+
+    private void panelCau8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau8MouseClicked
+        // TODO add your handling code here:
+        HienThiCau8 hienThiCau8 = new HienThiCau8();
+        jDesktopPane2.removeAll();
+        jDesktopPane2.add(hienThiCau8).setVisible(true);
+    }//GEN-LAST:event_panelCau8MouseClicked
+
+    private void panelCau9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau9MouseClicked
+        // TODO add your handling code here:
+        HienThiCau9 hienThiCau9 = new HienThiCau9();
+        jDesktopPane2.removeAll();
+        jDesktopPane2.add(hienThiCau9).setVisible(true);
+    }//GEN-LAST:event_panelCau9MouseClicked
+
+    private void panelCau10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau10MouseClicked
+        // TODO add your handling code here:
+        HienThiCau10 hienThiCau10 = new HienThiCau10();
+        jDesktopPane2.removeAll();
+        jDesktopPane2.add(hienThiCau10).setVisible(true);
+    }//GEN-LAST:event_panelCau10MouseClicked
+
+    private void panelCau11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau11MouseClicked
+        // TODO add your handling code here:
+        HienThiCau11 hienThiCau11 = new HienThiCau11();
+        jDesktopPane2.removeAll();
+        jDesktopPane2.add(hienThiCau11).setVisible(true);
+    }//GEN-LAST:event_panelCau11MouseClicked
+
+    private void panelCau12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau12MouseClicked
+        // TODO add your handling code here:
+        HienThiCau12 hienThiCau12 = new HienThiCau12();
+        jDesktopPane2.removeAll();
+        jDesktopPane2.add(hienThiCau12).setVisible(true);
+    }//GEN-LAST:event_panelCau12MouseClicked
+
+    private void panelCau13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau13MouseClicked
+        // TODO add your handling code here:
+        HienThiCau13 hienThiCau13 = new HienThiCau13();
+        jDesktopPane2.removeAll();
+        jDesktopPane2.add(hienThiCau13).setVisible(true);
+    }//GEN-LAST:event_panelCau13MouseClicked
+
+    private void panelCau14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau14MouseClicked
+        // TODO add your handling code here:
+        HienThiCau14 hienThiCau14 = new HienThiCau14();
+        jDesktopPane2.removeAll();
+        jDesktopPane2.add(hienThiCau14).setVisible(true);
+    }//GEN-LAST:event_panelCau14MouseClicked
+
+    private void panelCau15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau15MouseClicked
+        // TODO add your handling code here:
+        HienThiCau15 hienThiCau15 = new HienThiCau15();
+        jDesktopPane2.removeAll();
+        jDesktopPane2.add(hienThiCau15).setVisible(true);
+    }//GEN-LAST:event_panelCau15MouseClicked
+
+    private void panelCau16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau16MouseClicked
+        // TODO add your handling code here:
+        HienThiCau16 hienThiCau16 = new HienThiCau16();
+        jDesktopPane2.removeAll();
+        jDesktopPane2.add(hienThiCau16).setVisible(true);
+    }//GEN-LAST:event_panelCau16MouseClicked
+
+    private void panelCau17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau17MouseClicked
+        // TODO add your handling code here:
+        HienThiCau17 hienThiCau17 = new HienThiCau17();
+        jDesktopPane2.removeAll();
+        jDesktopPane2.add(hienThiCau17).setVisible(true);
+    }//GEN-LAST:event_panelCau17MouseClicked
+
+    private void panelCau18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau18MouseClicked
+        // TODO add your handling code here:
+        HienThiCau18 hienThiCau18 = new HienThiCau18();
+        jDesktopPane2.removeAll();
+        jDesktopPane2.add(hienThiCau18).setVisible(true);
+    }//GEN-LAST:event_panelCau18MouseClicked
+
+    private void panelCau19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau19MouseClicked
+        // TODO add your handling code here:
+        HienThiCau19 hienThiCau19 = new HienThiCau19();
+        jDesktopPane2.removeAll();
+        jDesktopPane2.add(hienThiCau19).setVisible(true);
+    }//GEN-LAST:event_panelCau19MouseClicked
+
+    private void panelCau20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau20MouseClicked
+        // TODO add your handling code here:
+        HienThiCau20 hienThiCau20 = new HienThiCau20();
+        jDesktopPane2.removeAll();
+        jDesktopPane2.add(hienThiCau20).setVisible(true);
+    }//GEN-LAST:event_panelCau20MouseClicked
 
     /**
      * @param args the command line arguments
