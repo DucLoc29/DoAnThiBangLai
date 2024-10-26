@@ -4,6 +4,9 @@
  */
 package doanthibanglai;
 
+import static doanthibanglai.ReadExcel.readCauHoiFromExcel;
+import java.util.ArrayList;
+
 /**
  *
  * @author DASH ST
@@ -74,6 +77,21 @@ public class Main extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                String excelFileCauLietPath = "src\\FileExcelCauHoi\\CauLiet.xlsx";
+                String excelFileCauLyThuyetPath = "src\\FileExcelCauHoi\\CauLyThuyet.xlsx";
+                String excelFileCauSaHinhPath = "src\\FileExcelCauHoi\\CauSaHinh.xlsx";
+                String excelFileCauBienBaoPath = "src\\FileExcelCauHoi\\CauBienBao.xlsx";
+
+                ArrayList<CauHoi> dsCauLiet = readCauHoiFromExcel(excelFileCauLietPath);
+                ArrayList<CauHoi> dsCauLyThuyet = readCauHoiFromExcel(excelFileCauLyThuyetPath);
+                ArrayList<CauHoi> dsCauSaHinh = readCauHoiFromExcel(excelFileCauSaHinhPath);
+                ArrayList<CauHoi> dsCauBienBao = readCauHoiFromExcel(excelFileCauBienBaoPath);
+
+                // In ra các câu hỏi đã đọc được
+                for (CauHoi cauHoi : dsCauLyThuyet) {
+                    System.out.println(cauHoi);
+                }
+                
                 new JFrameManHinhChinh();
             }
         });
