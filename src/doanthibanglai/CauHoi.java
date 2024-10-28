@@ -1,10 +1,9 @@
-
-package doanthibanglai;
-
-/**
- *
- * @author Duc Loc
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+package readexcel;
+
 public class CauHoi {
     private String id;
     private String question;
@@ -12,14 +11,16 @@ public class CauHoi {
     private String b;
     private String c;
     private String correctAnswer;
+    private String imagePath;
 
-    public CauHoi(String id, String question, String a, String b, String c, String correctAnswer) {
+    public CauHoi(String id, String question, String a, String b, String c, String correctAnswer, String imagePath) {
         this.id = id;
         this.question = question;
         this.a = a;
         this.b = b;
         this.c = c;
         this.correctAnswer = correctAnswer;
+        this.imagePath = imagePath;
     }
 
     public String getId() {
@@ -46,6 +47,12 @@ public class CauHoi {
         return correctAnswer;
     }
 
+    public String getImagePath() {
+        return imagePath;
+    }
+    
+    
+
     public void setId(String id) {
         this.id = id;
     }
@@ -70,10 +77,15 @@ public class CauHoi {
         this.correctAnswer = correctAnswer;
     }
 
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
     
+
 
     @Override
     public String toString() {
-        return "ID: " + id + "\nQuestion: " + question + "\nA: " + a + "\nB: " + b + "\nC: " + c + "\nCorrect Answer: " + correctAnswer;
+        return "ID: " + id + "\nQuestion: " + question + "\nA: " + a + "\nB: " + b + "\nC: " + c + "\nCorrect Answer: " + correctAnswer + "\nImage Path: " + imagePath;
     }
 }
+

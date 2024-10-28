@@ -4,16 +4,48 @@
  */
 package doanthibanglai;
 
+import java.io.File;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
+import readexcel.CauHoi;
 
 public class ReadExcel {
+   
+    public static boolean isFileExists(String filePath) {
+        File file = new File(filePath);
+
+        return file.exists();
+    }
+    
+    public static void addImagePath(ArrayList<CauHoi> dsCauHoi, String FileImageCauHoiPath){
+        String noImagePath = "src\\ImageCauHoi\\NoImage.png";
+        String imageFilePath = FileImageCauHoiPath; 
+        boolean result = true;
+        for (CauHoi cauHoi : dsCauHoi) {
+            // Ket hop thanh duong dan tuyet doi
+            imageFilePath = imageFilePath + "\\" + cauHoi.getImagePath();
+            result = isFileExists(imageFilePath);
+            
+            if(result) {
+                cauHoi.setImagePath(imageFilePath);
+            }
+            else {
+                cauHoi.setImagePath(noImagePath);      
+            }
+            
+            imageFilePath = FileImageCauHoiPath;
+        }
+    }
 
     public static ArrayList<CauHoi> readCauHoiFromExcel(String excelFilePath) {
+        
         ArrayList<CauHoi> danhSachCauHoi = new ArrayList<>();
 
         try (FileInputStream fis = new FileInputStream(excelFilePath);
@@ -33,8 +65,11 @@ public class ReadExcel {
                 String b = row.getCell(3).getStringCellValue();
                 String c = row.getCell(4).getStringCellValue();
                 String correctAnswer = row.getCell(5).getStringCellValue();
+                String imagePath = id + ".png";
+                
+                
 
-                CauHoi cauHoi = new CauHoi(id, question, a, b, c, correctAnswer);
+                CauHoi cauHoi = new CauHoi(id, question, a, b, c, correctAnswer, imagePath);
                 danhSachCauHoi.add(cauHoi);
             }
 
@@ -44,7 +79,23 @@ public class ReadExcel {
 
         return danhSachCauHoi;
     }
-
+    
+    public static void randomAddCauHoi(ArrayList<CauHoi> dsCauHoiThi ,ArrayList<CauHoi> dsCauHoi, int soCau) {
+        
+        Random random = new Random();
+        Set<Integer> dsViTriCauHoiThi = new HashSet<>() ;
+        
+        int n;
+        while(dsViTriCauHoiThi.size() < soCau) {
+            n = random.nextInt(dsCauHoi.size());
+            dsViTriCauHoiThi.add(n);
+        }
+        
+        for(int vitri : dsViTriCauHoiThi) {
+            dsCauHoiThi.add(dsCauHoi.get(vitri));
+        }
+               
+    }
 }
 
 

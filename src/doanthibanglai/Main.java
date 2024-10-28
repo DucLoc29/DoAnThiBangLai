@@ -4,8 +4,9 @@
  */
 package doanthibanglai;
 
-import static doanthibanglai.ReadExcel.readCauHoiFromExcel;
 import java.util.ArrayList;
+import java.util.Collections;
+import readexcel.CauHoi;
 
 /**
  *
@@ -77,19 +78,46 @@ public class Main extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                // Duong dan File excel CauHoi
                 String excelFileCauLietPath = "src\\FileExcelCauHoi\\CauLiet.xlsx";
                 String excelFileCauLyThuyetPath = "src\\FileExcelCauHoi\\CauLyThuyet.xlsx";
                 String excelFileCauSaHinhPath = "src\\FileExcelCauHoi\\CauSaHinh.xlsx";
                 String excelFileCauBienBaoPath = "src\\FileExcelCauHoi\\CauBienBao.xlsx";
 
-                ArrayList<CauHoi> dsCauLiet = readCauHoiFromExcel(excelFileCauLietPath);
-                ArrayList<CauHoi> dsCauLyThuyet = readCauHoiFromExcel(excelFileCauLyThuyetPath);
-                ArrayList<CauHoi> dsCauSaHinh = readCauHoiFromExcel(excelFileCauSaHinhPath);
-                ArrayList<CauHoi> dsCauBienBao = readCauHoiFromExcel(excelFileCauBienBaoPath);
+                ArrayList<CauHoi> dsCauLiet = ReadExcel.readCauHoiFromExcel(excelFileCauLietPath);
+                ArrayList<CauHoi> dsCauLyThuyet = ReadExcel.readCauHoiFromExcel(excelFileCauLyThuyetPath);
+                ArrayList<CauHoi> dsCauSaHinh = ReadExcel.readCauHoiFromExcel(excelFileCauSaHinhPath);
+                ArrayList<CauHoi> dsCauBienBao = ReadExcel.readCauHoiFromExcel(excelFileCauBienBaoPath);
 
-                // In ra các câu hỏi đã đọc được
-                for (CauHoi cauHoi : dsCauLyThuyet) {
+                // Duong dan File anh CauHoi
+                String FileImageCauLietPath = "src\\ImageCauHoi\\CauLietImage";
+                String FileImageCauBienBaoPath = "src\\ImageCauHoi\\CauBienBaoImage";
+                String FileImageCauSaHinhPath = "src\\ImageCauHoi\\CauSaHinhImage";
+                String FileImageCauLyThuyetPath = "src\\ImageCauHoi\\CauLyThuyetImage";
+
+                ReadExcel.addImagePath(dsCauLiet, FileImageCauLietPath);
+                ReadExcel.addImagePath(dsCauLyThuyet, FileImageCauLyThuyetPath);
+                ReadExcel.addImagePath(dsCauBienBao, FileImageCauBienBaoPath);
+                ReadExcel.addImagePath(dsCauSaHinh, FileImageCauSaHinhPath);
+                     
+                // Tao danh sach Cau Hoi Thi
+                ArrayList<CauHoi> dsCauHoiThi = new ArrayList<>();
+                int soCauLyThuyet = 6; 
+                int soCauLiet = 3;
+                int soCauBienBao = 6;
+                int soCauSaHinh = 5;
+
+                ReadExcel.randomAddCauHoi(dsCauHoiThi, dsCauLyThuyet, soCauLyThuyet);
+                ReadExcel.randomAddCauHoi(dsCauHoiThi, dsCauBienBao, soCauBienBao);
+                ReadExcel.randomAddCauHoi(dsCauHoiThi, dsCauSaHinh, soCauSaHinh);
+                ReadExcel.randomAddCauHoi(dsCauHoiThi, dsCauLiet, soCauLiet);
+                Collections.shuffle(dsCauHoiThi); // Xao tron danh sach thi
+
+                System.out.println(dsCauHoiThi.size());
+                for (CauHoi cauHoi : dsCauHoiThi) {
+
                     System.out.println(cauHoi);
+
                 }
                 
                 new JFrameManHinhChinh();
