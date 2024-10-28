@@ -4,6 +4,10 @@
  */
 package doanthibanglai;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
+
 /**
  *
  * @author DASH ST
@@ -128,7 +132,37 @@ public class JFrameManHinhChinh extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (evt.getSource() == batDauButton){
             setVisible(false);
-            new JFrameManHinhThi();
+                
+                
+                ArrayList<CauHoi> dsCauHoiThi = Main.getDsCauHoiThi();
+                ArrayList<CauHoi> dsCauHoiLyThuyet = Main.getDsCauLyThuyet();
+                ArrayList<CauHoi> dsCauHoiBienBao = Main.getDsCauBienBao();
+                ArrayList<CauHoi> dsCauHoiSaHinh = Main.getDsCauSaHinh();
+                ArrayList<CauHoi> dsCauHoiLiet = Main.getDsCauLiet();            
+                   
+                // Them ngau nhien cau hoi vao danh sach Cau hoi thi
+                ReadExcel.randomAddCauHoi(dsCauHoiThi, dsCauHoiLyThuyet, Main.getSoCauLyThuyet());
+                ReadExcel.randomAddCauHoi(dsCauHoiThi, dsCauHoiBienBao, Main.getSoCauBienBao());
+                ReadExcel.randomAddCauHoi(dsCauHoiThi, dsCauHoiSaHinh, Main.getSoCauSaHinh());
+                ReadExcel.randomAddCauHoi(dsCauHoiThi, dsCauHoiLiet, Main.getSoCauLiet());
+                Collections.shuffle(dsCauHoiThi); // Xao tron danh sach thi
+                
+                
+                Main.setDsCauLyThuyet(dsCauHoiLyThuyet);
+                Main.setDsCauBienBao(dsCauHoiBienBao);
+                Main.setDsCauSaHinh(dsCauHoiSaHinh);
+                Main.setDsCauLiet(dsCauHoiLiet);
+                Main.setDsCauHoiThi(dsCauHoiThi);
+
+                System.out.println(Main.getDsCauHoiThi().size());
+                for (CauHoi cauHoi : Main.getDsCauHoiThi()) {
+
+                    System.out.println(cauHoi);
+
+                }
+                new JFrameManHinhThi();
+            
+            
             
         }
     }//GEN-LAST:event_batDauButtonActionPerformed

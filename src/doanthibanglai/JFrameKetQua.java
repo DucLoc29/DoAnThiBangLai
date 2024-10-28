@@ -4,6 +4,9 @@
  */
 package doanthibanglai;
 
+import java.util.ArrayList;
+
+
 /**
  *
  * @author DASH ST
@@ -92,6 +95,13 @@ public class JFrameKetQua extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(evt.getSource() == troVeButton) {
             setVisible(false);
+            
+            // Xoa du lieu ds Cau hoi thi
+            ArrayList<CauHoi> dsCauHoiThi = Main.getDsCauHoiThi();
+            dsCauHoiThi.clear();
+            Main.setDsCauHoiThi(dsCauHoiThi);
+                    
+            
             new JFrameManHinhChinh();
         }
     }//GEN-LAST:event_troVeButtonActionPerformed

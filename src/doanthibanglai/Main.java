@@ -5,8 +5,6 @@
 package doanthibanglai;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import readexcel.CauHoi;
 
 /**
  *
@@ -14,13 +12,101 @@ import readexcel.CauHoi;
  */
 public class Main extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Main
-     */
+    private static ArrayList<CauHoi> dsCauLiet = new ArrayList<>();
+    private static ArrayList<CauHoi> dsCauLyThuyet = new ArrayList<>();
+    private static ArrayList<CauHoi> dsCauSaHinh = new ArrayList<>();
+    private static ArrayList<CauHoi> dsCauBienBao = new ArrayList<>();
+    private static ArrayList<CauHoi> dsCauHoiThi = new ArrayList<>();
+    
+    private static int soCauLyThuyet = 6; 
+    private static int soCauLiet = 3;
+    private static int soCauBienBao = 6;
+    private static int soCauSaHinh = 5;
+    
     public Main() {
         initComponents();
     }
 
+    public static void setDsCauLiet(ArrayList<CauHoi> dsCauLiet) {
+        Main.dsCauLiet = dsCauLiet;
+    }
+
+    public static void setDsCauLyThuyet(ArrayList<CauHoi> dsCauLyThuyet) {
+        Main.dsCauLyThuyet = dsCauLyThuyet;
+    }
+
+    public static void setDsCauSaHinh(ArrayList<CauHoi> dsCauSaHinh) {
+        Main.dsCauSaHinh = dsCauSaHinh;
+    }
+
+    public static void setDsCauBienBao(ArrayList<CauHoi> dsCauBienBao) {
+        Main.dsCauBienBao = dsCauBienBao;
+    }
+
+    public static void setDsCauHoiThi(ArrayList<CauHoi> dsCauHoiThi) {
+        Main.dsCauHoiThi = dsCauHoiThi;
+    }
+
+    public static void setSoCauLyThuyet(int soCauLyThuyet) {
+        Main.soCauLyThuyet = soCauLyThuyet;
+    }
+
+    public static void setSoCauLiet(int soCauLiet) {
+        Main.soCauLiet = soCauLiet;
+    }
+
+    public static void setSoCauBienBao(int soCauBienBao) {
+        Main.soCauBienBao = soCauBienBao;
+    }
+
+    public static void setSoCauSaHinh(int soCauSaHinh) {
+        Main.soCauSaHinh = soCauSaHinh;
+    }
+
+    
+    
+    
+
+    public static ArrayList<CauHoi> getDsCauLiet() {
+        return dsCauLiet;
+    }
+
+    public static ArrayList<CauHoi> getDsCauLyThuyet() {
+        return dsCauLyThuyet;
+    }
+
+    public static ArrayList<CauHoi> getDsCauSaHinh() {
+        return dsCauSaHinh;
+    }
+
+    public static ArrayList<CauHoi> getDsCauBienBao() {
+        return dsCauBienBao;
+    }
+
+    public static ArrayList<CauHoi> getDsCauHoiThi() {
+        return dsCauHoiThi;
+    }
+
+    public static int getSoCauLyThuyet() {
+        return soCauLyThuyet;
+    }
+
+    public static int getSoCauLiet() {
+        return soCauLiet;
+    }
+
+    public static int getSoCauBienBao() {
+        return soCauBienBao;
+    }
+
+    public static int getSoCauSaHinh() {
+        return soCauSaHinh;
+    }
+
+    
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,6 +135,8 @@ public class Main extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -84,11 +172,11 @@ public class Main extends javax.swing.JFrame {
                 String excelFileCauSaHinhPath = "src\\FileExcelCauHoi\\CauSaHinh.xlsx";
                 String excelFileCauBienBaoPath = "src\\FileExcelCauHoi\\CauBienBao.xlsx";
 
-                ArrayList<CauHoi> dsCauLiet = ReadExcel.readCauHoiFromExcel(excelFileCauLietPath);
-                ArrayList<CauHoi> dsCauLyThuyet = ReadExcel.readCauHoiFromExcel(excelFileCauLyThuyetPath);
-                ArrayList<CauHoi> dsCauSaHinh = ReadExcel.readCauHoiFromExcel(excelFileCauSaHinhPath);
-                ArrayList<CauHoi> dsCauBienBao = ReadExcel.readCauHoiFromExcel(excelFileCauBienBaoPath);
-
+                dsCauLiet = ReadExcel.readCauHoiFromExcel(excelFileCauLietPath);
+                dsCauLyThuyet = ReadExcel.readCauHoiFromExcel(excelFileCauLyThuyetPath);
+                dsCauSaHinh = ReadExcel.readCauHoiFromExcel(excelFileCauSaHinhPath);
+                dsCauBienBao = ReadExcel.readCauHoiFromExcel(excelFileCauBienBaoPath);
+                
                 // Duong dan File anh CauHoi
                 String FileImageCauLietPath = "src\\ImageCauHoi\\CauLietImage";
                 String FileImageCauBienBaoPath = "src\\ImageCauHoi\\CauBienBaoImage";
@@ -99,28 +187,16 @@ public class Main extends javax.swing.JFrame {
                 ReadExcel.addImagePath(dsCauLyThuyet, FileImageCauLyThuyetPath);
                 ReadExcel.addImagePath(dsCauBienBao, FileImageCauBienBaoPath);
                 ReadExcel.addImagePath(dsCauSaHinh, FileImageCauSaHinhPath);
-                     
-                // Tao danh sach Cau Hoi Thi
-                ArrayList<CauHoi> dsCauHoiThi = new ArrayList<>();
-                int soCauLyThuyet = 6; 
-                int soCauLiet = 3;
-                int soCauBienBao = 6;
-                int soCauSaHinh = 5;
-
-                ReadExcel.randomAddCauHoi(dsCauHoiThi, dsCauLyThuyet, soCauLyThuyet);
-                ReadExcel.randomAddCauHoi(dsCauHoiThi, dsCauBienBao, soCauBienBao);
-                ReadExcel.randomAddCauHoi(dsCauHoiThi, dsCauSaHinh, soCauSaHinh);
-                ReadExcel.randomAddCauHoi(dsCauHoiThi, dsCauLiet, soCauLiet);
-                Collections.shuffle(dsCauHoiThi); // Xao tron danh sach thi
-
-                System.out.println(dsCauHoiThi.size());
-                for (CauHoi cauHoi : dsCauHoiThi) {
-
-                    System.out.println(cauHoi);
-
-                }
                 
                 new JFrameManHinhChinh();
+
+                
+                     
+                
+                
+                
+                
+                
             }
         });
     }
