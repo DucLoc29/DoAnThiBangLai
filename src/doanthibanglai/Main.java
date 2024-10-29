@@ -5,6 +5,10 @@
 package doanthibanglai;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 /**
  *
@@ -17,6 +21,7 @@ public class Main extends javax.swing.JFrame {
     private static ArrayList<CauHoi> dsCauSaHinh = new ArrayList<>();
     private static ArrayList<CauHoi> dsCauBienBao = new ArrayList<>();
     private static ArrayList<CauHoi> dsCauHoiThi = new ArrayList<>();
+    private static Map<String, String> dsCauTraLoi = new HashMap<>();
     
     private static int soCauLyThuyet = 6; 
     private static int soCauLiet = 3;
@@ -63,7 +68,10 @@ public class Main extends javax.swing.JFrame {
         Main.soCauSaHinh = soCauSaHinh;
     }
 
-    
+    public static void setDsCauTraLoi(Map<String, String> dsCauTraLoi) {
+        Main.dsCauTraLoi = dsCauTraLoi;
+    }
+
     
     
 
@@ -101,6 +109,10 @@ public class Main extends javax.swing.JFrame {
 
     public static int getSoCauSaHinh() {
         return soCauSaHinh;
+    }
+
+    public static Map<String, String> getDsCauTraLoi() {
+        return dsCauTraLoi;
     }
 
     

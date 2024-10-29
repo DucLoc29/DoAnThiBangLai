@@ -6,6 +6,9 @@ package doanthibanglai;
 
 import JInternalFrameHienThiCauHoi.*;
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Map;
+import javax.swing.JLabel;
 
 /**
  *
@@ -16,15 +19,22 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
     /**
      * Creates new form JFrameManHinhThi
      */
-    Color DefauColor, ClickColor;
+    Color DefauColor, ClickColor, AnsweredColor;
+    private ArrayList<CauHoi> dsCauHoiThi = Main.getDsCauHoiThi();
+    private Map<String, String> dsCauTraLoi = Main.getDsCauTraLoi();
+    private String idCauHoi;
+    private String cauTraLoi;
+
     
     public JFrameManHinhThi() {
         initComponents();
         setVisible(true);
         setLocationRelativeTo(null);
         
+                     
         DefauColor = new Color(242,242,242);
-        ClickColor = new Color(153,153,153);
+        ClickColor = new Color(255,255,153); 
+        AnsweredColor = new Color(153,153,153);
         
         //set defaut color to pan or run time
         panelCau1.setBackground(ClickColor);
@@ -47,6 +57,9 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         panelCau18.setBackground(DefauColor);
         panelCau19.setBackground(DefauColor);
         panelCau20.setBackground(DefauColor);
+        
+
+        
         
         HienThiCau1 hienThiCau1 = new HienThiCau1();
         jDesktopPane2.removeAll();
@@ -807,7 +820,7 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         jDesktopPane2.setLayout(jDesktopPane2Layout);
         jDesktopPane2Layout.setHorizontalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1039, Short.MAX_VALUE)
+            .addGap(0, 1021, Short.MAX_VALUE)
         );
         jDesktopPane2Layout.setVerticalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -820,8 +833,9 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelTinhNang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jDesktopPane2))
+                .addGap(18, 18, 18)
+                .addComponent(jDesktopPane2)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -838,12 +852,19 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(evt.getSource() == nopBaiButton) {
             setVisible(false);
+            
+        for (String key : Main.getDsCauTraLoi().keySet()) {
+            System.out.println("Key: " + key + ", Value: " + Main.getDsCauTraLoi().get(key));
+        }
+
             new JFrameKetQua();
         }
     }//GEN-LAST:event_nopBaiButtonActionPerformed
 
     private void panelCau1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau1MousePressed
         // TODO add your handling code here:
+        
+        
         panelCau1.setBackground(ClickColor);
         panelCau2.setBackground(DefauColor);
         panelCau3.setBackground(DefauColor);
@@ -864,6 +885,8 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         panelCau18.setBackground(DefauColor);
         panelCau19.setBackground(DefauColor);
         panelCau20.setBackground(DefauColor);
+                            
+       
     }//GEN-LAST:event_panelCau1MousePressed
 
     private void panelCau2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau2MousePressed

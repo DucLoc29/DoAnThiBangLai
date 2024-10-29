@@ -6,7 +6,10 @@ package JInternalFrameHienThiCauHoi;
 
 import doanthibanglai.CauHoi;
 import doanthibanglai.Main;
+import java.awt.Color;
 import java.awt.Image;
+import java.util.ArrayList;
+import java.util.Map;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
@@ -21,11 +24,46 @@ public class HienThiCau11 extends javax.swing.JInternalFrame {
     /**
      * Creates new form JInternalFrameCau1
      */
+    Color DefaultColor, ClickColor;
+    private ArrayList<CauHoi> dsCauHoiThi = Main.getDsCauHoiThi();
+    private Map<String, String> dsCauTraLoi = Main.getDsCauTraLoi();
+    private String idCauHoi = dsCauHoiThi.get(10).getId();
+    
+    
     public HienThiCau11() {
         initComponents();
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
         BasicInternalFrameUI ui = (BasicInternalFrameUI)this.getUI();
         ui.setNorthPane(null);
+        
+        // Hien thi mau
+        DefaultColor = new Color(246,243,243);
+        ClickColor = new Color(153,255,153);
+        
+        // hien thi mau dap an duoc chon
+        String cauTraLoi = dsCauTraLoi.get(idCauHoi);
+        if(cauTraLoi.equals("None")) {
+            jPanelA.setBackground(DefaultColor);
+            jPanelB.setBackground(DefaultColor);
+            jPanelC.setBackground(DefaultColor);
+        }
+        else if (cauTraLoi.equals("A")) {
+            jPanelA.setBackground(ClickColor);
+            jPanelB.setBackground(DefaultColor);
+            jPanelC.setBackground(DefaultColor);
+        }
+        else if (cauTraLoi.equals("B")) {
+            jPanelA.setBackground(DefaultColor);
+            jPanelB.setBackground(ClickColor);
+            jPanelC.setBackground(DefaultColor);
+        }
+        else if (cauTraLoi.equals("C")) {
+            jPanelA.setBackground(DefaultColor);
+            jPanelB.setBackground(DefaultColor);
+            jPanelC.setBackground(ClickColor);
+        }
+        
+        
         
         // Cau 1
         CauHoi cauhoi = Main.getDsCauHoiThi().get(10);
@@ -81,6 +119,11 @@ public class HienThiCau11 extends javax.swing.JInternalFrame {
         imageHienThi.setLabelFor(cauHoiHienThi);
 
         jPanelA.setBackground(new java.awt.Color(246, 243, 243));
+        jPanelA.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanelAMousePressed(evt);
+            }
+        });
 
         cauAHienThi.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cauAHienThi.setText("CauA");
@@ -103,6 +146,11 @@ public class HienThiCau11 extends javax.swing.JInternalFrame {
         );
 
         jPanelB.setBackground(new java.awt.Color(246, 243, 243));
+        jPanelB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanelBMousePressed(evt);
+            }
+        });
 
         cauBHienThi.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cauBHienThi.setText("CauB");
@@ -125,6 +173,11 @@ public class HienThiCau11 extends javax.swing.JInternalFrame {
         );
 
         jPanelC.setBackground(new java.awt.Color(246, 243, 243));
+        jPanelC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanelCMousePressed(evt);
+            }
+        });
 
         cauCHienThi.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cauCHienThi.setText("CauC");
@@ -195,6 +248,39 @@ public class HienThiCau11 extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jPanelAMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAMousePressed
+        // TODO add your handling code here:
+        
+        dsCauTraLoi.put(idCauHoi, "A");
+        Main.setDsCauTraLoi(dsCauTraLoi);
+        
+        jPanelA.setBackground(ClickColor);
+        jPanelB.setBackground(DefaultColor);
+        jPanelC.setBackground(DefaultColor);
+    }//GEN-LAST:event_jPanelAMousePressed
+
+    private void jPanelBMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelBMousePressed
+        // TODO add your handling code here:
+        
+        dsCauTraLoi.put(idCauHoi, "B");
+        Main.setDsCauTraLoi(dsCauTraLoi);
+        
+        jPanelA.setBackground(DefaultColor);
+        jPanelB.setBackground(ClickColor);
+        jPanelC.setBackground(DefaultColor);
+    }//GEN-LAST:event_jPanelBMousePressed
+
+    private void jPanelCMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCMousePressed
+        // TODO add your handling code here:
+        
+        dsCauTraLoi.put(idCauHoi, "C");
+        Main.setDsCauTraLoi(dsCauTraLoi);
+        
+        jPanelA.setBackground(DefaultColor);
+        jPanelB.setBackground(DefaultColor);
+        jPanelC.setBackground(ClickColor);
+    }//GEN-LAST:event_jPanelCMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

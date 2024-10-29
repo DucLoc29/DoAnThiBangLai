@@ -6,6 +6,8 @@ package doanthibanglai;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -147,13 +149,20 @@ public class JFrameManHinhChinh extends javax.swing.JFrame {
                 ReadExcel.randomAddCauHoi(dsCauHoiThi, dsCauHoiLiet, Main.getSoCauLiet());
                 Collections.shuffle(dsCauHoiThi); // Xao tron danh sach thi
                 
-                
-                Main.setDsCauLyThuyet(dsCauHoiLyThuyet);
-                Main.setDsCauBienBao(dsCauHoiBienBao);
-                Main.setDsCauSaHinh(dsCauHoiSaHinh);
-                Main.setDsCauLiet(dsCauHoiLiet);
+                // set dsCauHoiThi trong Main          
                 Main.setDsCauHoiThi(dsCauHoiThi);
 
+                // Khoi tao cau tra loi ban dau la None
+                Map<String, String> dsCauTraloiMap = new HashMap<>();
+                for (int i = 0; i < 20; i++){
+                    dsCauTraloiMap.put(dsCauHoiThi.get(i).getId(), "None");
+                }               
+                Main.setDsCauTraLoi(dsCauTraloiMap);
+                
+//                for (String key : Main.getDsCauTraLoi().keySet()) {
+//                    System.out.println("Key: " + key + ", Value: " + dsCauTraloiMap.get(key));
+//                }
+                
 //                System.out.println(Main.getDsCauHoiThi().size());
 //                for (CauHoi cauHoi : Main.getDsCauHoiThi()) {
 //
