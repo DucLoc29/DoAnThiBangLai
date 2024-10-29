@@ -154,12 +154,12 @@ public class JFrameManHinhChinh extends javax.swing.JFrame {
                 Main.setDsCauLiet(dsCauHoiLiet);
                 Main.setDsCauHoiThi(dsCauHoiThi);
 
-                System.out.println(Main.getDsCauHoiThi().size());
-                for (CauHoi cauHoi : Main.getDsCauHoiThi()) {
-
-                    System.out.println(cauHoi);
-
-                }
+//                System.out.println(Main.getDsCauHoiThi().size());
+//                for (CauHoi cauHoi : Main.getDsCauHoiThi()) {
+//
+//                    System.out.println(cauHoi);
+//
+//                }
                 new JFrameManHinhThi();
             
             
