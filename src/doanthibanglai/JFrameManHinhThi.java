@@ -6,9 +6,11 @@ package doanthibanglai;
 
 import JInternalFrameHienThiCauHoi.*;
 import java.awt.Color;
+import java.awt.Panel;
 import java.util.ArrayList;
 import java.util.Map;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  *
@@ -21,15 +23,15 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
      */
     Color DefauColor, ClickColor, AnsweredColor;
     private ArrayList<CauHoi> dsCauHoiThi = Main.getDsCauHoiThi();
-    private Map<String, String> dsCauTraLoi = Main.getDsCauTraLoi();
-    private String idCauHoi;
-    private String cauTraLoi;
+    private Map<String, String> dsCauTraLoi = Main.getDsCauTraLoi();  
 
+    
     
     public JFrameManHinhThi() {
         initComponents();
         setVisible(true);
         setLocationRelativeTo(null);
+              
         
                      
         DefauColor = new Color(242,242,242);
@@ -848,6 +850,19 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private JPanel setColor(String idCauHoi, JPanel panel) {
+              
+        String cauTraLoi = dsCauTraLoi.get(idCauHoi);
+        if (cauTraLoi.equals("None")) {
+            panel.setBackground(DefauColor);
+        }
+        else {
+            panel.setBackground(AnsweredColor);
+        }
+         
+        return panel;
+    }
+    
     private void nopBaiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nopBaiButtonActionPerformed
         // TODO add your handling code here:
         if(evt.getSource() == nopBaiButton) {
@@ -863,486 +878,507 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
 
     private void panelCau1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau1MousePressed
         // TODO add your handling code here:
-        
+           
         
         panelCau1.setBackground(ClickColor);
-        panelCau2.setBackground(DefauColor);
-        panelCau3.setBackground(DefauColor);
-        panelCau4.setBackground(DefauColor);
-        panelCau5.setBackground(DefauColor);
-        panelCau6.setBackground(DefauColor);
-        panelCau7.setBackground(DefauColor);
-        panelCau8.setBackground(DefauColor);
-        panelCau9.setBackground(DefauColor);
-        panelCau10.setBackground(DefauColor);
-        panelCau11.setBackground(DefauColor);
-        panelCau12.setBackground(DefauColor);
-        panelCau13.setBackground(DefauColor);
-        panelCau14.setBackground(DefauColor);
-        panelCau15.setBackground(DefauColor);
-        panelCau16.setBackground(DefauColor);
-        panelCau17.setBackground(DefauColor);
-        panelCau18.setBackground(DefauColor);
-        panelCau19.setBackground(DefauColor);
-        panelCau20.setBackground(DefauColor);
+        
+        panelCau2 = setColor(dsCauHoiThi.get(1).getId(), panelCau2);      
+        panelCau3 = setColor(dsCauHoiThi.get(2).getId(), panelCau3);
+        panelCau4 = setColor(dsCauHoiThi.get(3).getId(), panelCau4);
+        panelCau5 = setColor(dsCauHoiThi.get(4).getId(), panelCau5);
+        panelCau6 = setColor(dsCauHoiThi.get(5).getId(), panelCau6);
+        panelCau7 = setColor(dsCauHoiThi.get(6).getId(), panelCau7);
+        panelCau8 = setColor(dsCauHoiThi.get(7).getId(), panelCau8);
+        panelCau9 = setColor(dsCauHoiThi.get(8).getId(), panelCau9);
+        panelCau10 = setColor(dsCauHoiThi.get(9).getId(), panelCau10);
+        panelCau11 = setColor(dsCauHoiThi.get(10).getId(), panelCau11);
+        panelCau12 = setColor(dsCauHoiThi.get(11).getId(), panelCau12);
+        panelCau13 = setColor(dsCauHoiThi.get(12).getId(), panelCau13);
+        panelCau14 = setColor(dsCauHoiThi.get(13).getId(), panelCau14);
+        panelCau15 = setColor(dsCauHoiThi.get(14).getId(), panelCau15);
+        panelCau16 = setColor(dsCauHoiThi.get(15).getId(), panelCau16);
+        panelCau17 = setColor(dsCauHoiThi.get(16).getId(), panelCau17);
+        panelCau18 = setColor(dsCauHoiThi.get(17).getId(), panelCau18);
+        panelCau19 = setColor(dsCauHoiThi.get(18).getId(), panelCau19);
+        panelCau20 = setColor(dsCauHoiThi.get(19).getId(), panelCau20);
                             
        
     }//GEN-LAST:event_panelCau1MousePressed
 
     private void panelCau2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau2MousePressed
         // TODO add your handling code here:
-        panelCau1.setBackground(DefauColor);
         panelCau2.setBackground(ClickColor);
-        panelCau3.setBackground(DefauColor);
-        panelCau4.setBackground(DefauColor);
-        panelCau5.setBackground(DefauColor);
-        panelCau6.setBackground(DefauColor);
-        panelCau7.setBackground(DefauColor);
-        panelCau8.setBackground(DefauColor);
-        panelCau9.setBackground(DefauColor);
-        panelCau10.setBackground(DefauColor);
-        panelCau11.setBackground(DefauColor);
-        panelCau12.setBackground(DefauColor);
-        panelCau13.setBackground(DefauColor);
-        panelCau14.setBackground(DefauColor);
-        panelCau15.setBackground(DefauColor);
-        panelCau16.setBackground(DefauColor);
-        panelCau17.setBackground(DefauColor);
-        panelCau18.setBackground(DefauColor);
-        panelCau19.setBackground(DefauColor);
-        panelCau20.setBackground(DefauColor);
+        
+        panelCau1 = setColor(dsCauHoiThi.get(0).getId(), panelCau1);      
+        panelCau3 = setColor(dsCauHoiThi.get(2).getId(), panelCau3);
+        panelCau4 = setColor(dsCauHoiThi.get(3).getId(), panelCau4);
+        panelCau5 = setColor(dsCauHoiThi.get(4).getId(), panelCau5);
+        panelCau6 = setColor(dsCauHoiThi.get(5).getId(), panelCau6);
+        panelCau7 = setColor(dsCauHoiThi.get(6).getId(), panelCau7);
+        panelCau8 = setColor(dsCauHoiThi.get(7).getId(), panelCau8);
+        panelCau9 = setColor(dsCauHoiThi.get(8).getId(), panelCau9);
+        panelCau10 = setColor(dsCauHoiThi.get(9).getId(), panelCau10);
+        panelCau11 = setColor(dsCauHoiThi.get(10).getId(), panelCau11);
+        panelCau12 = setColor(dsCauHoiThi.get(11).getId(), panelCau12);
+        panelCau13 = setColor(dsCauHoiThi.get(12).getId(), panelCau13);
+        panelCau14 = setColor(dsCauHoiThi.get(13).getId(), panelCau14);
+        panelCau15 = setColor(dsCauHoiThi.get(14).getId(), panelCau15);
+        panelCau16 = setColor(dsCauHoiThi.get(15).getId(), panelCau16);
+        panelCau17 = setColor(dsCauHoiThi.get(16).getId(), panelCau17);
+        panelCau18 = setColor(dsCauHoiThi.get(17).getId(), panelCau18);
+        panelCau19 = setColor(dsCauHoiThi.get(18).getId(), panelCau19);
+        panelCau20 = setColor(dsCauHoiThi.get(19).getId(), panelCau20);
     }//GEN-LAST:event_panelCau2MousePressed
 
     private void panelCau3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau3MousePressed
-        panelCau1.setBackground(DefauColor);
-        panelCau2.setBackground(DefauColor);
+        // TODO add your handling code here:
         panelCau3.setBackground(ClickColor);
-        panelCau4.setBackground(DefauColor);
-        panelCau5.setBackground(DefauColor);
-        panelCau6.setBackground(DefauColor);
-        panelCau7.setBackground(DefauColor);
-        panelCau8.setBackground(DefauColor);
-        panelCau9.setBackground(DefauColor);
-        panelCau10.setBackground(DefauColor);
-        panelCau11.setBackground(DefauColor);
-        panelCau12.setBackground(DefauColor);
-        panelCau13.setBackground(DefauColor);
-        panelCau14.setBackground(DefauColor);
-        panelCau15.setBackground(DefauColor);
-        panelCau16.setBackground(DefauColor);
-        panelCau17.setBackground(DefauColor);
-        panelCau18.setBackground(DefauColor);
-        panelCau19.setBackground(DefauColor);
-        panelCau20.setBackground(DefauColor);        // TODO add your handling code here:
+        
+        panelCau1 = setColor(dsCauHoiThi.get(0).getId(), panelCau1);
+        panelCau2 = setColor(dsCauHoiThi.get(1).getId(), panelCau2);      
+        panelCau4 = setColor(dsCauHoiThi.get(3).getId(), panelCau4);
+        panelCau5 = setColor(dsCauHoiThi.get(4).getId(), panelCau5);
+        panelCau6 = setColor(dsCauHoiThi.get(5).getId(), panelCau6);
+        panelCau7 = setColor(dsCauHoiThi.get(6).getId(), panelCau7);
+        panelCau8 = setColor(dsCauHoiThi.get(7).getId(), panelCau8);
+        panelCau9 = setColor(dsCauHoiThi.get(8).getId(), panelCau9);
+        panelCau10 = setColor(dsCauHoiThi.get(9).getId(), panelCau10);
+        panelCau11 = setColor(dsCauHoiThi.get(10).getId(), panelCau11);
+        panelCau12 = setColor(dsCauHoiThi.get(11).getId(), panelCau12);
+        panelCau13 = setColor(dsCauHoiThi.get(12).getId(), panelCau13);
+        panelCau14 = setColor(dsCauHoiThi.get(13).getId(), panelCau14);
+        panelCau15 = setColor(dsCauHoiThi.get(14).getId(), panelCau15);
+        panelCau16 = setColor(dsCauHoiThi.get(15).getId(), panelCau16);
+        panelCau17 = setColor(dsCauHoiThi.get(16).getId(), panelCau17);
+        panelCau18 = setColor(dsCauHoiThi.get(17).getId(), panelCau18);
+        panelCau19 = setColor(dsCauHoiThi.get(18).getId(), panelCau19);
+        panelCau20 = setColor(dsCauHoiThi.get(19).getId(), panelCau20);
     }//GEN-LAST:event_panelCau3MousePressed
 
     private void panelCau4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau4MousePressed
         // TODO add your handling code here:
-        panelCau1.setBackground(DefauColor);
-        panelCau2.setBackground(DefauColor);
-        panelCau3.setBackground(DefauColor);
         panelCau4.setBackground(ClickColor);
-        panelCau5.setBackground(DefauColor);
-        panelCau6.setBackground(DefauColor);
-        panelCau7.setBackground(DefauColor);
-        panelCau8.setBackground(DefauColor);
-        panelCau9.setBackground(DefauColor);
-        panelCau10.setBackground(DefauColor);
-        panelCau11.setBackground(DefauColor);
-        panelCau12.setBackground(DefauColor);
-        panelCau13.setBackground(DefauColor);
-        panelCau14.setBackground(DefauColor);
-        panelCau15.setBackground(DefauColor);
-        panelCau16.setBackground(DefauColor);
-        panelCau17.setBackground(DefauColor);
-        panelCau18.setBackground(DefauColor);
-        panelCau19.setBackground(DefauColor);
-        panelCau20.setBackground(DefauColor);
+        
+        panelCau1 = setColor(dsCauHoiThi.get(0).getId(), panelCau1);
+        panelCau2 = setColor(dsCauHoiThi.get(1).getId(), panelCau2);      
+        panelCau3 = setColor(dsCauHoiThi.get(2).getId(), panelCau3);
+        panelCau5 = setColor(dsCauHoiThi.get(4).getId(), panelCau5);
+        panelCau6 = setColor(dsCauHoiThi.get(5).getId(), panelCau6);
+        panelCau7 = setColor(dsCauHoiThi.get(6).getId(), panelCau7);
+        panelCau8 = setColor(dsCauHoiThi.get(7).getId(), panelCau8);
+        panelCau9 = setColor(dsCauHoiThi.get(8).getId(), panelCau9);
+        panelCau10 = setColor(dsCauHoiThi.get(9).getId(), panelCau10);
+        panelCau11 = setColor(dsCauHoiThi.get(10).getId(), panelCau11);
+        panelCau12 = setColor(dsCauHoiThi.get(11).getId(), panelCau12);
+        panelCau13 = setColor(dsCauHoiThi.get(12).getId(), panelCau13);
+        panelCau14 = setColor(dsCauHoiThi.get(13).getId(), panelCau14);
+        panelCau15 = setColor(dsCauHoiThi.get(14).getId(), panelCau15);
+        panelCau16 = setColor(dsCauHoiThi.get(15).getId(), panelCau16);
+        panelCau17 = setColor(dsCauHoiThi.get(16).getId(), panelCau17);
+        panelCau18 = setColor(dsCauHoiThi.get(17).getId(), panelCau18);
+        panelCau19 = setColor(dsCauHoiThi.get(18).getId(), panelCau19);
+        panelCau20 = setColor(dsCauHoiThi.get(19).getId(), panelCau20);
     }//GEN-LAST:event_panelCau4MousePressed
 
     private void panelCau5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau5MousePressed
         // TODO add your handling code here:
-        panelCau1.setBackground(DefauColor);
-        panelCau2.setBackground(DefauColor);
-        panelCau3.setBackground(DefauColor);
-        panelCau4.setBackground(DefauColor);
         panelCau5.setBackground(ClickColor);
-        panelCau6.setBackground(DefauColor);
-        panelCau7.setBackground(DefauColor);
-        panelCau8.setBackground(DefauColor);
-        panelCau9.setBackground(DefauColor);
-        panelCau10.setBackground(DefauColor);
-        panelCau11.setBackground(DefauColor);
-        panelCau12.setBackground(DefauColor);
-        panelCau13.setBackground(DefauColor);
-        panelCau14.setBackground(DefauColor);
-        panelCau15.setBackground(DefauColor);
-        panelCau16.setBackground(DefauColor);
-        panelCau17.setBackground(DefauColor);
-        panelCau18.setBackground(DefauColor);
-        panelCau19.setBackground(DefauColor);
-        panelCau20.setBackground(DefauColor);
+        
+        panelCau1 = setColor(dsCauHoiThi.get(0).getId(), panelCau1);
+        panelCau2 = setColor(dsCauHoiThi.get(1).getId(), panelCau2);      
+        panelCau3 = setColor(dsCauHoiThi.get(2).getId(), panelCau3);
+        panelCau4 = setColor(dsCauHoiThi.get(3).getId(), panelCau4);
+        panelCau6 = setColor(dsCauHoiThi.get(5).getId(), panelCau6);
+        panelCau7 = setColor(dsCauHoiThi.get(6).getId(), panelCau7);
+        panelCau8 = setColor(dsCauHoiThi.get(7).getId(), panelCau8);
+        panelCau9 = setColor(dsCauHoiThi.get(8).getId(), panelCau9);
+        panelCau10 = setColor(dsCauHoiThi.get(9).getId(), panelCau10);
+        panelCau11 = setColor(dsCauHoiThi.get(10).getId(), panelCau11);
+        panelCau12 = setColor(dsCauHoiThi.get(11).getId(), panelCau12);
+        panelCau13 = setColor(dsCauHoiThi.get(12).getId(), panelCau13);
+        panelCau14 = setColor(dsCauHoiThi.get(13).getId(), panelCau14);
+        panelCau15 = setColor(dsCauHoiThi.get(14).getId(), panelCau15);
+        panelCau16 = setColor(dsCauHoiThi.get(15).getId(), panelCau16);
+        panelCau17 = setColor(dsCauHoiThi.get(16).getId(), panelCau17);
+        panelCau18 = setColor(dsCauHoiThi.get(17).getId(), panelCau18);
+        panelCau19 = setColor(dsCauHoiThi.get(18).getId(), panelCau19);
+        panelCau20 = setColor(dsCauHoiThi.get(19).getId(), panelCau20);
         
     }//GEN-LAST:event_panelCau5MousePressed
 
     private void panelCau6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau6MousePressed
         // TODO add your handling code here:
-        panelCau1.setBackground(DefauColor);
-        panelCau2.setBackground(DefauColor);
-        panelCau3.setBackground(DefauColor);
-        panelCau4.setBackground(DefauColor);
-        panelCau5.setBackground(DefauColor);
         panelCau6.setBackground(ClickColor);
-        panelCau7.setBackground(DefauColor);
-        panelCau8.setBackground(DefauColor);
-        panelCau9.setBackground(DefauColor);
-        panelCau10.setBackground(DefauColor);
-        panelCau11.setBackground(DefauColor);
-        panelCau12.setBackground(DefauColor);
-        panelCau13.setBackground(DefauColor);
-        panelCau14.setBackground(DefauColor);
-        panelCau15.setBackground(DefauColor);
-        panelCau16.setBackground(DefauColor);
-        panelCau17.setBackground(DefauColor);
-        panelCau18.setBackground(DefauColor);
-        panelCau19.setBackground(DefauColor);
-        panelCau20.setBackground(DefauColor);
+        
+        panelCau1 = setColor(dsCauHoiThi.get(0).getId(), panelCau1);
+        panelCau2 = setColor(dsCauHoiThi.get(1).getId(), panelCau2);      
+        panelCau3 = setColor(dsCauHoiThi.get(2).getId(), panelCau3);
+        panelCau4 = setColor(dsCauHoiThi.get(3).getId(), panelCau4);
+        panelCau5 = setColor(dsCauHoiThi.get(4).getId(), panelCau5);
+        panelCau7 = setColor(dsCauHoiThi.get(6).getId(), panelCau7);
+        panelCau8 = setColor(dsCauHoiThi.get(7).getId(), panelCau8);
+        panelCau9 = setColor(dsCauHoiThi.get(8).getId(), panelCau9);
+        panelCau10 = setColor(dsCauHoiThi.get(9).getId(), panelCau10);
+        panelCau11 = setColor(dsCauHoiThi.get(10).getId(), panelCau11);
+        panelCau12 = setColor(dsCauHoiThi.get(11).getId(), panelCau12);
+        panelCau13 = setColor(dsCauHoiThi.get(12).getId(), panelCau13);
+        panelCau14 = setColor(dsCauHoiThi.get(13).getId(), panelCau14);
+        panelCau15 = setColor(dsCauHoiThi.get(14).getId(), panelCau15);
+        panelCau16 = setColor(dsCauHoiThi.get(15).getId(), panelCau16);
+        panelCau17 = setColor(dsCauHoiThi.get(16).getId(), panelCau17);
+        panelCau18 = setColor(dsCauHoiThi.get(17).getId(), panelCau18);
+        panelCau19 = setColor(dsCauHoiThi.get(18).getId(), panelCau19);
+        panelCau20 = setColor(dsCauHoiThi.get(19).getId(), panelCau20);
     }//GEN-LAST:event_panelCau6MousePressed
 
     private void panelCau7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau7MousePressed
         // TODO add your handling code here:
-        panelCau1.setBackground(DefauColor);
-        panelCau2.setBackground(DefauColor);
-        panelCau3.setBackground(DefauColor);
-        panelCau4.setBackground(DefauColor);
-        panelCau5.setBackground(DefauColor);
-        panelCau6.setBackground(DefauColor);
         panelCau7.setBackground(ClickColor);
-        panelCau8.setBackground(DefauColor);
-        panelCau9.setBackground(DefauColor);
-        panelCau10.setBackground(DefauColor);
-        panelCau11.setBackground(DefauColor);
-        panelCau12.setBackground(DefauColor);
-        panelCau13.setBackground(DefauColor);
-        panelCau14.setBackground(DefauColor);
-        panelCau15.setBackground(DefauColor);
-        panelCau16.setBackground(DefauColor);
-        panelCau17.setBackground(DefauColor);
-        panelCau18.setBackground(DefauColor);
-        panelCau19.setBackground(DefauColor);
-        panelCau20.setBackground(DefauColor);
+        
+        panelCau1 = setColor(dsCauHoiThi.get(0).getId(), panelCau1);
+        panelCau2 = setColor(dsCauHoiThi.get(1).getId(), panelCau2);      
+        panelCau3 = setColor(dsCauHoiThi.get(2).getId(), panelCau3);
+        panelCau4 = setColor(dsCauHoiThi.get(3).getId(), panelCau4);
+        panelCau5 = setColor(dsCauHoiThi.get(4).getId(), panelCau5);
+        panelCau6 = setColor(dsCauHoiThi.get(5).getId(), panelCau6);
+        panelCau8 = setColor(dsCauHoiThi.get(7).getId(), panelCau8);
+        panelCau9 = setColor(dsCauHoiThi.get(8).getId(), panelCau9);
+        panelCau10 = setColor(dsCauHoiThi.get(9).getId(), panelCau10);
+        panelCau11 = setColor(dsCauHoiThi.get(10).getId(), panelCau11);
+        panelCau12 = setColor(dsCauHoiThi.get(11).getId(), panelCau12);
+        panelCau13 = setColor(dsCauHoiThi.get(12).getId(), panelCau13);
+        panelCau14 = setColor(dsCauHoiThi.get(13).getId(), panelCau14);
+        panelCau15 = setColor(dsCauHoiThi.get(14).getId(), panelCau15);
+        panelCau16 = setColor(dsCauHoiThi.get(15).getId(), panelCau16);
+        panelCau17 = setColor(dsCauHoiThi.get(16).getId(), panelCau17);
+        panelCau18 = setColor(dsCauHoiThi.get(17).getId(), panelCau18);
+        panelCau19 = setColor(dsCauHoiThi.get(18).getId(), panelCau19);
+        panelCau20 = setColor(dsCauHoiThi.get(19).getId(), panelCau20);
     }//GEN-LAST:event_panelCau7MousePressed
 
     private void panelCau8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau8MousePressed
         // TODO add your handling code here:
-        panelCau1.setBackground(DefauColor);
-        panelCau2.setBackground(DefauColor);
-        panelCau3.setBackground(DefauColor);
-        panelCau4.setBackground(DefauColor);
-        panelCau5.setBackground(DefauColor);
-        panelCau6.setBackground(DefauColor);
-        panelCau7.setBackground(DefauColor);
         panelCau8.setBackground(ClickColor);
-        panelCau9.setBackground(DefauColor);
-        panelCau10.setBackground(DefauColor);
-        panelCau11.setBackground(DefauColor);
-        panelCau12.setBackground(DefauColor);
-        panelCau13.setBackground(DefauColor);
-        panelCau14.setBackground(DefauColor);
-        panelCau15.setBackground(DefauColor);
-        panelCau16.setBackground(DefauColor);
-        panelCau17.setBackground(DefauColor);
-        panelCau18.setBackground(DefauColor);
-        panelCau19.setBackground(DefauColor);
-        panelCau20.setBackground(DefauColor);
+        
+        panelCau1 = setColor(dsCauHoiThi.get(0).getId(), panelCau1);
+        panelCau2 = setColor(dsCauHoiThi.get(1).getId(), panelCau2);      
+        panelCau3 = setColor(dsCauHoiThi.get(2).getId(), panelCau3);
+        panelCau4 = setColor(dsCauHoiThi.get(3).getId(), panelCau4);
+        panelCau5 = setColor(dsCauHoiThi.get(4).getId(), panelCau5);
+        panelCau6 = setColor(dsCauHoiThi.get(5).getId(), panelCau6);
+        panelCau7 = setColor(dsCauHoiThi.get(6).getId(), panelCau7);
+        panelCau9 = setColor(dsCauHoiThi.get(8).getId(), panelCau9);
+        panelCau10 = setColor(dsCauHoiThi.get(9).getId(), panelCau10);
+        panelCau11 = setColor(dsCauHoiThi.get(10).getId(), panelCau11);
+        panelCau12 = setColor(dsCauHoiThi.get(11).getId(), panelCau12);
+        panelCau13 = setColor(dsCauHoiThi.get(12).getId(), panelCau13);
+        panelCau14 = setColor(dsCauHoiThi.get(13).getId(), panelCau14);
+        panelCau15 = setColor(dsCauHoiThi.get(14).getId(), panelCau15);
+        panelCau16 = setColor(dsCauHoiThi.get(15).getId(), panelCau16);
+        panelCau17 = setColor(dsCauHoiThi.get(16).getId(), panelCau17);
+        panelCau18 = setColor(dsCauHoiThi.get(17).getId(), panelCau18);
+        panelCau19 = setColor(dsCauHoiThi.get(18).getId(), panelCau19);
+        panelCau20 = setColor(dsCauHoiThi.get(19).getId(), panelCau20);
     }//GEN-LAST:event_panelCau8MousePressed
 
     private void panelCau9MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau9MousePressed
         // TODO add your handling code here:
-        panelCau1.setBackground(DefauColor);
-        panelCau2.setBackground(DefauColor);
-        panelCau3.setBackground(DefauColor);
-        panelCau4.setBackground(DefauColor);
-        panelCau5.setBackground(DefauColor);
-        panelCau6.setBackground(DefauColor);
-        panelCau7.setBackground(DefauColor);
-        panelCau8.setBackground(DefauColor);
         panelCau9.setBackground(ClickColor);
-        panelCau10.setBackground(DefauColor);
-        panelCau11.setBackground(DefauColor);
-        panelCau12.setBackground(DefauColor);
-        panelCau13.setBackground(DefauColor);
-        panelCau14.setBackground(DefauColor);
-        panelCau15.setBackground(DefauColor);
-        panelCau16.setBackground(DefauColor);
-        panelCau17.setBackground(DefauColor);
-        panelCau18.setBackground(DefauColor);
-        panelCau19.setBackground(DefauColor);
-        panelCau20.setBackground(DefauColor);
+        
+        panelCau1 = setColor(dsCauHoiThi.get(0).getId(), panelCau1);
+        panelCau2 = setColor(dsCauHoiThi.get(1).getId(), panelCau2);      
+        panelCau3 = setColor(dsCauHoiThi.get(2).getId(), panelCau3);
+        panelCau4 = setColor(dsCauHoiThi.get(3).getId(), panelCau4);
+        panelCau5 = setColor(dsCauHoiThi.get(4).getId(), panelCau5);
+        panelCau6 = setColor(dsCauHoiThi.get(5).getId(), panelCau6);
+        panelCau7 = setColor(dsCauHoiThi.get(6).getId(), panelCau7);
+        panelCau8 = setColor(dsCauHoiThi.get(7).getId(), panelCau8);
+        panelCau10 = setColor(dsCauHoiThi.get(9).getId(), panelCau10);
+        panelCau11 = setColor(dsCauHoiThi.get(10).getId(), panelCau11);
+        panelCau12 = setColor(dsCauHoiThi.get(11).getId(), panelCau12);
+        panelCau13 = setColor(dsCauHoiThi.get(12).getId(), panelCau13);
+        panelCau14 = setColor(dsCauHoiThi.get(13).getId(), panelCau14);
+        panelCau15 = setColor(dsCauHoiThi.get(14).getId(), panelCau15);
+        panelCau16 = setColor(dsCauHoiThi.get(15).getId(), panelCau16);
+        panelCau17 = setColor(dsCauHoiThi.get(16).getId(), panelCau17);
+        panelCau18 = setColor(dsCauHoiThi.get(17).getId(), panelCau18);
+        panelCau19 = setColor(dsCauHoiThi.get(18).getId(), panelCau19);
+        panelCau20 = setColor(dsCauHoiThi.get(19).getId(), panelCau20);
     }//GEN-LAST:event_panelCau9MousePressed
 
     private void panelCau10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau10MousePressed
         // TODO add your handling code here:
-        panelCau1.setBackground(DefauColor);
-        panelCau2.setBackground(DefauColor);
-        panelCau3.setBackground(DefauColor);
-        panelCau4.setBackground(DefauColor);
-        panelCau5.setBackground(DefauColor);
-        panelCau6.setBackground(DefauColor);
-        panelCau7.setBackground(DefauColor);
-        panelCau8.setBackground(DefauColor);
-        panelCau9.setBackground(DefauColor);
         panelCau10.setBackground(ClickColor);
-        panelCau11.setBackground(DefauColor);
-        panelCau12.setBackground(DefauColor);
-        panelCau13.setBackground(DefauColor);
-        panelCau14.setBackground(DefauColor);
-        panelCau15.setBackground(DefauColor);
-        panelCau16.setBackground(DefauColor);
-        panelCau17.setBackground(DefauColor);
-        panelCau18.setBackground(DefauColor);
-        panelCau19.setBackground(DefauColor);
-        panelCau20.setBackground(DefauColor);
+        
+        panelCau1 = setColor(dsCauHoiThi.get(0).getId(), panelCau1);
+        panelCau2 = setColor(dsCauHoiThi.get(1).getId(), panelCau2);      
+        panelCau3 = setColor(dsCauHoiThi.get(2).getId(), panelCau3);
+        panelCau4 = setColor(dsCauHoiThi.get(3).getId(), panelCau4);
+        panelCau5 = setColor(dsCauHoiThi.get(4).getId(), panelCau5);
+        panelCau6 = setColor(dsCauHoiThi.get(5).getId(), panelCau6);
+        panelCau7 = setColor(dsCauHoiThi.get(6).getId(), panelCau7);
+        panelCau8 = setColor(dsCauHoiThi.get(7).getId(), panelCau8);
+        panelCau9 = setColor(dsCauHoiThi.get(8).getId(), panelCau9);
+        panelCau11 = setColor(dsCauHoiThi.get(10).getId(), panelCau11);
+        panelCau12 = setColor(dsCauHoiThi.get(11).getId(), panelCau12);
+        panelCau13 = setColor(dsCauHoiThi.get(12).getId(), panelCau13);
+        panelCau14 = setColor(dsCauHoiThi.get(13).getId(), panelCau14);
+        panelCau15 = setColor(dsCauHoiThi.get(14).getId(), panelCau15);
+        panelCau16 = setColor(dsCauHoiThi.get(15).getId(), panelCau16);
+        panelCau17 = setColor(dsCauHoiThi.get(16).getId(), panelCau17);
+        panelCau18 = setColor(dsCauHoiThi.get(17).getId(), panelCau18);
+        panelCau19 = setColor(dsCauHoiThi.get(18).getId(), panelCau19);
+        panelCau20 = setColor(dsCauHoiThi.get(19).getId(), panelCau20);
     }//GEN-LAST:event_panelCau10MousePressed
 
     private void panelCau11MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau11MousePressed
         // TODO add your handling code here:
-        panelCau1.setBackground(DefauColor);
-        panelCau2.setBackground(DefauColor);
-        panelCau3.setBackground(DefauColor);
-        panelCau4.setBackground(DefauColor);
-        panelCau5.setBackground(DefauColor);
-        panelCau6.setBackground(DefauColor);
-        panelCau7.setBackground(DefauColor);
-        panelCau8.setBackground(DefauColor);
-        panelCau9.setBackground(DefauColor);
-        panelCau10.setBackground(DefauColor);
         panelCau11.setBackground(ClickColor);
-        panelCau12.setBackground(DefauColor);
-        panelCau13.setBackground(DefauColor);
-        panelCau14.setBackground(DefauColor);
-        panelCau15.setBackground(DefauColor);
-        panelCau16.setBackground(DefauColor);
-        panelCau17.setBackground(DefauColor);
-        panelCau18.setBackground(DefauColor);
-        panelCau19.setBackground(DefauColor);
-        panelCau20.setBackground(DefauColor);
+        
+        panelCau1 = setColor(dsCauHoiThi.get(0).getId(), panelCau1);
+        panelCau2 = setColor(dsCauHoiThi.get(1).getId(), panelCau2);      
+        panelCau3 = setColor(dsCauHoiThi.get(2).getId(), panelCau3);
+        panelCau4 = setColor(dsCauHoiThi.get(3).getId(), panelCau4);
+        panelCau5 = setColor(dsCauHoiThi.get(4).getId(), panelCau5);
+        panelCau6 = setColor(dsCauHoiThi.get(5).getId(), panelCau6);
+        panelCau7 = setColor(dsCauHoiThi.get(6).getId(), panelCau7);
+        panelCau8 = setColor(dsCauHoiThi.get(7).getId(), panelCau8);
+        panelCau9 = setColor(dsCauHoiThi.get(8).getId(), panelCau9);
+        panelCau10 = setColor(dsCauHoiThi.get(9).getId(), panelCau10);
+        panelCau12 = setColor(dsCauHoiThi.get(11).getId(), panelCau12);
+        panelCau13 = setColor(dsCauHoiThi.get(12).getId(), panelCau13);
+        panelCau14 = setColor(dsCauHoiThi.get(13).getId(), panelCau14);
+        panelCau15 = setColor(dsCauHoiThi.get(14).getId(), panelCau15);
+        panelCau16 = setColor(dsCauHoiThi.get(15).getId(), panelCau16);
+        panelCau17 = setColor(dsCauHoiThi.get(16).getId(), panelCau17);
+        panelCau18 = setColor(dsCauHoiThi.get(17).getId(), panelCau18);
+        panelCau19 = setColor(dsCauHoiThi.get(18).getId(), panelCau19);
+        panelCau20 = setColor(dsCauHoiThi.get(19).getId(), panelCau20);
     }//GEN-LAST:event_panelCau11MousePressed
 
     private void panelCau12MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau12MousePressed
         // TODO add your handling code here:
-        panelCau1.setBackground(DefauColor);
-        panelCau2.setBackground(DefauColor);
-        panelCau3.setBackground(DefauColor);
-        panelCau4.setBackground(DefauColor);
-        panelCau5.setBackground(DefauColor);
-        panelCau6.setBackground(DefauColor);
-        panelCau7.setBackground(DefauColor);
-        panelCau8.setBackground(DefauColor);
-        panelCau9.setBackground(DefauColor);
-        panelCau10.setBackground(DefauColor);
-        panelCau11.setBackground(DefauColor);
         panelCau12.setBackground(ClickColor);
-        panelCau13.setBackground(DefauColor);
-        panelCau14.setBackground(DefauColor);
-        panelCau15.setBackground(DefauColor);
-        panelCau16.setBackground(DefauColor);
-        panelCau17.setBackground(DefauColor);
-        panelCau18.setBackground(DefauColor);
-        panelCau19.setBackground(DefauColor);
-        panelCau20.setBackground(DefauColor);
+        
+        panelCau1 = setColor(dsCauHoiThi.get(0).getId(), panelCau1);
+        panelCau2 = setColor(dsCauHoiThi.get(1).getId(), panelCau2);      
+        panelCau3 = setColor(dsCauHoiThi.get(2).getId(), panelCau3);
+        panelCau4 = setColor(dsCauHoiThi.get(3).getId(), panelCau4);
+        panelCau5 = setColor(dsCauHoiThi.get(4).getId(), panelCau5);
+        panelCau6 = setColor(dsCauHoiThi.get(5).getId(), panelCau6);
+        panelCau7 = setColor(dsCauHoiThi.get(6).getId(), panelCau7);
+        panelCau8 = setColor(dsCauHoiThi.get(7).getId(), panelCau8);
+        panelCau9 = setColor(dsCauHoiThi.get(8).getId(), panelCau9);
+        panelCau10 = setColor(dsCauHoiThi.get(9).getId(), panelCau10);
+        panelCau11 = setColor(dsCauHoiThi.get(10).getId(), panelCau11);
+        panelCau13 = setColor(dsCauHoiThi.get(12).getId(), panelCau13);
+        panelCau14 = setColor(dsCauHoiThi.get(13).getId(), panelCau14);
+        panelCau15 = setColor(dsCauHoiThi.get(14).getId(), panelCau15);
+        panelCau16 = setColor(dsCauHoiThi.get(15).getId(), panelCau16);
+        panelCau17 = setColor(dsCauHoiThi.get(16).getId(), panelCau17);
+        panelCau18 = setColor(dsCauHoiThi.get(17).getId(), panelCau18);
+        panelCau19 = setColor(dsCauHoiThi.get(18).getId(), panelCau19);
+        panelCau20 = setColor(dsCauHoiThi.get(19).getId(), panelCau20);
     }//GEN-LAST:event_panelCau12MousePressed
 
     private void panelCau13MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau13MousePressed
         // TODO add your handling code here:
-        panelCau1.setBackground(DefauColor);
-        panelCau2.setBackground(DefauColor);
-        panelCau3.setBackground(DefauColor);
-        panelCau4.setBackground(DefauColor);
-        panelCau5.setBackground(DefauColor);
-        panelCau6.setBackground(DefauColor);
-        panelCau7.setBackground(DefauColor);
-        panelCau8.setBackground(DefauColor);
-        panelCau9.setBackground(DefauColor);
-        panelCau10.setBackground(DefauColor);
-        panelCau11.setBackground(DefauColor);
-        panelCau12.setBackground(DefauColor);
         panelCau13.setBackground(ClickColor);
-        panelCau14.setBackground(DefauColor);
-        panelCau15.setBackground(DefauColor);
-        panelCau16.setBackground(DefauColor);
-        panelCau17.setBackground(DefauColor);
-        panelCau18.setBackground(DefauColor);
-        panelCau19.setBackground(DefauColor);
-        panelCau20.setBackground(DefauColor);
+        
+        panelCau1 = setColor(dsCauHoiThi.get(0).getId(), panelCau1);
+        panelCau2 = setColor(dsCauHoiThi.get(1).getId(), panelCau2);      
+        panelCau3 = setColor(dsCauHoiThi.get(2).getId(), panelCau3);
+        panelCau4 = setColor(dsCauHoiThi.get(3).getId(), panelCau4);
+        panelCau5 = setColor(dsCauHoiThi.get(4).getId(), panelCau5);
+        panelCau6 = setColor(dsCauHoiThi.get(5).getId(), panelCau6);
+        panelCau7 = setColor(dsCauHoiThi.get(6).getId(), panelCau7);
+        panelCau8 = setColor(dsCauHoiThi.get(7).getId(), panelCau8);
+        panelCau9 = setColor(dsCauHoiThi.get(8).getId(), panelCau9);
+        panelCau10 = setColor(dsCauHoiThi.get(9).getId(), panelCau10);
+        panelCau11 = setColor(dsCauHoiThi.get(10).getId(), panelCau11);
+        panelCau12 = setColor(dsCauHoiThi.get(11).getId(), panelCau12);
+        panelCau14 = setColor(dsCauHoiThi.get(13).getId(), panelCau14);
+        panelCau15 = setColor(dsCauHoiThi.get(14).getId(), panelCau15);
+        panelCau16 = setColor(dsCauHoiThi.get(15).getId(), panelCau16);
+        panelCau17 = setColor(dsCauHoiThi.get(16).getId(), panelCau17);
+        panelCau18 = setColor(dsCauHoiThi.get(17).getId(), panelCau18);
+        panelCau19 = setColor(dsCauHoiThi.get(18).getId(), panelCau19);
+        panelCau20 = setColor(dsCauHoiThi.get(19).getId(), panelCau20);
     }//GEN-LAST:event_panelCau13MousePressed
 
     private void panelCau14MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau14MousePressed
         // TODO add your handling code here:
-        panelCau1.setBackground(DefauColor);
-        panelCau2.setBackground(DefauColor);
-        panelCau3.setBackground(DefauColor);
-        panelCau4.setBackground(DefauColor);
-        panelCau5.setBackground(DefauColor);
-        panelCau6.setBackground(DefauColor);
-        panelCau7.setBackground(DefauColor);
-        panelCau8.setBackground(DefauColor);
-        panelCau9.setBackground(DefauColor);
-        panelCau10.setBackground(DefauColor);
-        panelCau11.setBackground(DefauColor);
-        panelCau12.setBackground(DefauColor);
-        panelCau13.setBackground(DefauColor);
         panelCau14.setBackground(ClickColor);
-        panelCau15.setBackground(DefauColor);
-        panelCau16.setBackground(DefauColor);
-        panelCau17.setBackground(DefauColor);
-        panelCau18.setBackground(DefauColor);
-        panelCau19.setBackground(DefauColor);
-        panelCau20.setBackground(DefauColor);
+        
+        panelCau1 = setColor(dsCauHoiThi.get(0).getId(), panelCau1);
+        panelCau2 = setColor(dsCauHoiThi.get(1).getId(), panelCau2);      
+        panelCau3 = setColor(dsCauHoiThi.get(2).getId(), panelCau3);
+        panelCau4 = setColor(dsCauHoiThi.get(3).getId(), panelCau4);
+        panelCau5 = setColor(dsCauHoiThi.get(4).getId(), panelCau5);
+        panelCau6 = setColor(dsCauHoiThi.get(5).getId(), panelCau6);
+        panelCau7 = setColor(dsCauHoiThi.get(6).getId(), panelCau7);
+        panelCau8 = setColor(dsCauHoiThi.get(7).getId(), panelCau8);
+        panelCau9 = setColor(dsCauHoiThi.get(8).getId(), panelCau9);
+        panelCau10 = setColor(dsCauHoiThi.get(9).getId(), panelCau10);
+        panelCau11 = setColor(dsCauHoiThi.get(10).getId(), panelCau11);
+        panelCau12 = setColor(dsCauHoiThi.get(11).getId(), panelCau12);
+        panelCau13 = setColor(dsCauHoiThi.get(12).getId(), panelCau13);
+        panelCau15 = setColor(dsCauHoiThi.get(14).getId(), panelCau15);
+        panelCau16 = setColor(dsCauHoiThi.get(15).getId(), panelCau16);
+        panelCau17 = setColor(dsCauHoiThi.get(16).getId(), panelCau17);
+        panelCau18 = setColor(dsCauHoiThi.get(17).getId(), panelCau18);
+        panelCau19 = setColor(dsCauHoiThi.get(18).getId(), panelCau19);
+        panelCau20 = setColor(dsCauHoiThi.get(19).getId(), panelCau20);
     }//GEN-LAST:event_panelCau14MousePressed
 
     private void panelCau15MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau15MousePressed
         // TODO add your handling code here:
-        panelCau1.setBackground(DefauColor);
-        panelCau2.setBackground(DefauColor);
-        panelCau3.setBackground(DefauColor);
-        panelCau4.setBackground(DefauColor);
-        panelCau5.setBackground(DefauColor);
-        panelCau6.setBackground(DefauColor);
-        panelCau7.setBackground(DefauColor);
-        panelCau8.setBackground(DefauColor);
-        panelCau9.setBackground(DefauColor);
-        panelCau10.setBackground(DefauColor);
-        panelCau11.setBackground(DefauColor);
-        panelCau12.setBackground(DefauColor);
-        panelCau13.setBackground(DefauColor);
-        panelCau14.setBackground(DefauColor);
         panelCau15.setBackground(ClickColor);
-        panelCau16.setBackground(DefauColor);
-        panelCau17.setBackground(DefauColor);
-        panelCau18.setBackground(DefauColor);
-        panelCau19.setBackground(DefauColor);
-        panelCau20.setBackground(DefauColor);
+        
+        panelCau1 = setColor(dsCauHoiThi.get(0).getId(), panelCau1);
+        panelCau2 = setColor(dsCauHoiThi.get(1).getId(), panelCau2);      
+        panelCau3 = setColor(dsCauHoiThi.get(2).getId(), panelCau3);
+        panelCau4 = setColor(dsCauHoiThi.get(3).getId(), panelCau4);
+        panelCau5 = setColor(dsCauHoiThi.get(4).getId(), panelCau5);
+        panelCau6 = setColor(dsCauHoiThi.get(5).getId(), panelCau6);
+        panelCau7 = setColor(dsCauHoiThi.get(6).getId(), panelCau7);
+        panelCau8 = setColor(dsCauHoiThi.get(7).getId(), panelCau8);
+        panelCau9 = setColor(dsCauHoiThi.get(8).getId(), panelCau9);
+        panelCau10 = setColor(dsCauHoiThi.get(9).getId(), panelCau10);
+        panelCau11 = setColor(dsCauHoiThi.get(10).getId(), panelCau11);
+        panelCau12 = setColor(dsCauHoiThi.get(11).getId(), panelCau12);
+        panelCau13 = setColor(dsCauHoiThi.get(12).getId(), panelCau13);
+        panelCau14 = setColor(dsCauHoiThi.get(13).getId(), panelCau14);
+        panelCau16 = setColor(dsCauHoiThi.get(15).getId(), panelCau16);
+        panelCau17 = setColor(dsCauHoiThi.get(16).getId(), panelCau17);
+        panelCau18 = setColor(dsCauHoiThi.get(17).getId(), panelCau18);
+        panelCau19 = setColor(dsCauHoiThi.get(18).getId(), panelCau19);
+        panelCau20 = setColor(dsCauHoiThi.get(19).getId(), panelCau20);
     }//GEN-LAST:event_panelCau15MousePressed
 
     private void panelCau16MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau16MousePressed
         // TODO add your handling code here:
-        panelCau1.setBackground(DefauColor);
-        panelCau2.setBackground(DefauColor);
-        panelCau3.setBackground(DefauColor);
-        panelCau4.setBackground(DefauColor);
-        panelCau5.setBackground(DefauColor);
-        panelCau6.setBackground(DefauColor);
-        panelCau7.setBackground(DefauColor);
-        panelCau8.setBackground(DefauColor);
-        panelCau9.setBackground(DefauColor);
-        panelCau10.setBackground(DefauColor);
-        panelCau11.setBackground(DefauColor);
-        panelCau12.setBackground(DefauColor);
-        panelCau13.setBackground(DefauColor);
-        panelCau14.setBackground(DefauColor);
-        panelCau15.setBackground(DefauColor);
         panelCau16.setBackground(ClickColor);
-        panelCau17.setBackground(DefauColor);
-        panelCau18.setBackground(DefauColor);
-        panelCau19.setBackground(DefauColor);
-        panelCau20.setBackground(DefauColor);
+        
+        panelCau1 = setColor(dsCauHoiThi.get(0).getId(), panelCau1);
+        panelCau2 = setColor(dsCauHoiThi.get(1).getId(), panelCau2);      
+        panelCau3 = setColor(dsCauHoiThi.get(2).getId(), panelCau3);
+        panelCau4 = setColor(dsCauHoiThi.get(3).getId(), panelCau4);
+        panelCau5 = setColor(dsCauHoiThi.get(4).getId(), panelCau5);
+        panelCau6 = setColor(dsCauHoiThi.get(5).getId(), panelCau6);
+        panelCau7 = setColor(dsCauHoiThi.get(6).getId(), panelCau7);
+        panelCau8 = setColor(dsCauHoiThi.get(7).getId(), panelCau8);
+        panelCau9 = setColor(dsCauHoiThi.get(8).getId(), panelCau9);
+        panelCau10 = setColor(dsCauHoiThi.get(9).getId(), panelCau10);
+        panelCau11 = setColor(dsCauHoiThi.get(10).getId(), panelCau11);
+        panelCau12 = setColor(dsCauHoiThi.get(11).getId(), panelCau12);
+        panelCau13 = setColor(dsCauHoiThi.get(12).getId(), panelCau13);
+        panelCau14 = setColor(dsCauHoiThi.get(13).getId(), panelCau14);
+        panelCau15 = setColor(dsCauHoiThi.get(14).getId(), panelCau15);
+        panelCau17 = setColor(dsCauHoiThi.get(16).getId(), panelCau17);
+        panelCau18 = setColor(dsCauHoiThi.get(17).getId(), panelCau18);
+        panelCau19 = setColor(dsCauHoiThi.get(18).getId(), panelCau19);
+        panelCau20 = setColor(dsCauHoiThi.get(19).getId(), panelCau20);
     }//GEN-LAST:event_panelCau16MousePressed
 
     private void panelCau17MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau17MousePressed
         // TODO add your handling code here:
-        panelCau1.setBackground(DefauColor);
-        panelCau2.setBackground(DefauColor);
-        panelCau3.setBackground(DefauColor);
-        panelCau4.setBackground(DefauColor);
-        panelCau5.setBackground(DefauColor);
-        panelCau6.setBackground(DefauColor);
-        panelCau7.setBackground(DefauColor);
-        panelCau8.setBackground(DefauColor);
-        panelCau9.setBackground(DefauColor);
-        panelCau10.setBackground(DefauColor);
-        panelCau11.setBackground(DefauColor);
-        panelCau12.setBackground(DefauColor);
-        panelCau13.setBackground(DefauColor);
-        panelCau14.setBackground(DefauColor);
-        panelCau15.setBackground(DefauColor);
-        panelCau16.setBackground(DefauColor);
         panelCau17.setBackground(ClickColor);
-        panelCau18.setBackground(DefauColor);
-        panelCau19.setBackground(DefauColor);
-        panelCau20.setBackground(DefauColor);
+        
+        panelCau1 = setColor(dsCauHoiThi.get(0).getId(), panelCau1);
+        panelCau2 = setColor(dsCauHoiThi.get(1).getId(), panelCau2);      
+        panelCau3 = setColor(dsCauHoiThi.get(2).getId(), panelCau3);
+        panelCau4 = setColor(dsCauHoiThi.get(3).getId(), panelCau4);
+        panelCau5 = setColor(dsCauHoiThi.get(4).getId(), panelCau5);
+        panelCau6 = setColor(dsCauHoiThi.get(5).getId(), panelCau6);
+        panelCau7 = setColor(dsCauHoiThi.get(6).getId(), panelCau7);
+        panelCau8 = setColor(dsCauHoiThi.get(7).getId(), panelCau8);
+        panelCau9 = setColor(dsCauHoiThi.get(8).getId(), panelCau9);
+        panelCau10 = setColor(dsCauHoiThi.get(9).getId(), panelCau10);
+        panelCau11 = setColor(dsCauHoiThi.get(10).getId(), panelCau11);
+        panelCau12 = setColor(dsCauHoiThi.get(11).getId(), panelCau12);
+        panelCau13 = setColor(dsCauHoiThi.get(12).getId(), panelCau13);
+        panelCau14 = setColor(dsCauHoiThi.get(13).getId(), panelCau14);
+        panelCau15 = setColor(dsCauHoiThi.get(14).getId(), panelCau15);
+        panelCau16 = setColor(dsCauHoiThi.get(15).getId(), panelCau16);
+        panelCau18 = setColor(dsCauHoiThi.get(17).getId(), panelCau18);
+        panelCau19 = setColor(dsCauHoiThi.get(18).getId(), panelCau19);
+        panelCau20 = setColor(dsCauHoiThi.get(19).getId(), panelCau20);
     }//GEN-LAST:event_panelCau17MousePressed
 
     private void panelCau18MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau18MousePressed
         // TODO add your handling code here:
-        panelCau1.setBackground(DefauColor);
-        panelCau2.setBackground(DefauColor);
-        panelCau3.setBackground(DefauColor);
-        panelCau4.setBackground(DefauColor);
-        panelCau5.setBackground(DefauColor);
-        panelCau6.setBackground(DefauColor);
-        panelCau7.setBackground(DefauColor);
-        panelCau8.setBackground(DefauColor);
-        panelCau9.setBackground(DefauColor);
-        panelCau10.setBackground(DefauColor);
-        panelCau11.setBackground(DefauColor);
-        panelCau12.setBackground(DefauColor);
-        panelCau13.setBackground(DefauColor);
-        panelCau14.setBackground(DefauColor);
-        panelCau15.setBackground(DefauColor);
-        panelCau16.setBackground(DefauColor);
-        panelCau17.setBackground(DefauColor);
         panelCau18.setBackground(ClickColor);
-        panelCau19.setBackground(DefauColor);
-        panelCau20.setBackground(DefauColor);
+        
+        panelCau1 = setColor(dsCauHoiThi.get(0).getId(), panelCau1);
+        panelCau2 = setColor(dsCauHoiThi.get(1).getId(), panelCau2);      
+        panelCau3 = setColor(dsCauHoiThi.get(2).getId(), panelCau3);
+        panelCau4 = setColor(dsCauHoiThi.get(3).getId(), panelCau4);
+        panelCau5 = setColor(dsCauHoiThi.get(4).getId(), panelCau5);
+        panelCau6 = setColor(dsCauHoiThi.get(5).getId(), panelCau6);
+        panelCau7 = setColor(dsCauHoiThi.get(6).getId(), panelCau7);
+        panelCau8 = setColor(dsCauHoiThi.get(7).getId(), panelCau8);
+        panelCau9 = setColor(dsCauHoiThi.get(8).getId(), panelCau9);
+        panelCau10 = setColor(dsCauHoiThi.get(9).getId(), panelCau10);
+        panelCau11 = setColor(dsCauHoiThi.get(10).getId(), panelCau11);
+        panelCau12 = setColor(dsCauHoiThi.get(11).getId(), panelCau12);
+        panelCau13 = setColor(dsCauHoiThi.get(12).getId(), panelCau13);
+        panelCau14 = setColor(dsCauHoiThi.get(13).getId(), panelCau14);
+        panelCau15 = setColor(dsCauHoiThi.get(14).getId(), panelCau15);
+        panelCau16 = setColor(dsCauHoiThi.get(15).getId(), panelCau16);
+        panelCau17 = setColor(dsCauHoiThi.get(16).getId(), panelCau17);
+        panelCau19 = setColor(dsCauHoiThi.get(18).getId(), panelCau19);
+        panelCau20 = setColor(dsCauHoiThi.get(19).getId(), panelCau20);
     }//GEN-LAST:event_panelCau18MousePressed
 
     private void panelCau19MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau19MousePressed
         // TODO add your handling code here:
-        panelCau1.setBackground(DefauColor);
-        panelCau2.setBackground(DefauColor);
-        panelCau3.setBackground(DefauColor);
-        panelCau4.setBackground(DefauColor);
-        panelCau5.setBackground(DefauColor);
-        panelCau6.setBackground(DefauColor);
-        panelCau7.setBackground(DefauColor);
-        panelCau8.setBackground(DefauColor);
-        panelCau9.setBackground(DefauColor);
-        panelCau10.setBackground(DefauColor);
-        panelCau11.setBackground(DefauColor);
-        panelCau12.setBackground(DefauColor);
-        panelCau13.setBackground(DefauColor);
-        panelCau14.setBackground(DefauColor);
-        panelCau15.setBackground(DefauColor);
-        panelCau16.setBackground(DefauColor);
-        panelCau17.setBackground(DefauColor);
-        panelCau18.setBackground(DefauColor);
         panelCau19.setBackground(ClickColor);
-        panelCau20.setBackground(DefauColor);
+        
+        panelCau1 = setColor(dsCauHoiThi.get(0).getId(), panelCau1);
+        panelCau2 = setColor(dsCauHoiThi.get(1).getId(), panelCau2);      
+        panelCau3 = setColor(dsCauHoiThi.get(2).getId(), panelCau3);
+        panelCau4 = setColor(dsCauHoiThi.get(3).getId(), panelCau4);
+        panelCau5 = setColor(dsCauHoiThi.get(4).getId(), panelCau5);
+        panelCau6 = setColor(dsCauHoiThi.get(5).getId(), panelCau6);
+        panelCau7 = setColor(dsCauHoiThi.get(6).getId(), panelCau7);
+        panelCau8 = setColor(dsCauHoiThi.get(7).getId(), panelCau8);
+        panelCau9 = setColor(dsCauHoiThi.get(8).getId(), panelCau9);
+        panelCau10 = setColor(dsCauHoiThi.get(9).getId(), panelCau10);
+        panelCau11 = setColor(dsCauHoiThi.get(10).getId(), panelCau11);
+        panelCau12 = setColor(dsCauHoiThi.get(11).getId(), panelCau12);
+        panelCau13 = setColor(dsCauHoiThi.get(12).getId(), panelCau13);
+        panelCau14 = setColor(dsCauHoiThi.get(13).getId(), panelCau14);
+        panelCau15 = setColor(dsCauHoiThi.get(14).getId(), panelCau15);
+        panelCau16 = setColor(dsCauHoiThi.get(15).getId(), panelCau16);
+        panelCau17 = setColor(dsCauHoiThi.get(16).getId(), panelCau17);
+        panelCau18 = setColor(dsCauHoiThi.get(17).getId(), panelCau18);
+        panelCau20 = setColor(dsCauHoiThi.get(19).getId(), panelCau20);
     }//GEN-LAST:event_panelCau19MousePressed
 
     private void panelCau20MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau20MousePressed
         // TODO add your handling code here:
-        panelCau1.setBackground(DefauColor);
-        panelCau2.setBackground(DefauColor);
-        panelCau3.setBackground(DefauColor);
-        panelCau4.setBackground(DefauColor);
-        panelCau5.setBackground(DefauColor);
-        panelCau6.setBackground(DefauColor);
-        panelCau7.setBackground(DefauColor);
-        panelCau8.setBackground(DefauColor);
-        panelCau9.setBackground(DefauColor);
-        panelCau10.setBackground(DefauColor);
-        panelCau11.setBackground(DefauColor);
-        panelCau12.setBackground(DefauColor);
-        panelCau13.setBackground(DefauColor);
-        panelCau14.setBackground(DefauColor);
-        panelCau15.setBackground(DefauColor);
-        panelCau16.setBackground(DefauColor);
-        panelCau17.setBackground(DefauColor);
-        panelCau18.setBackground(DefauColor);
-        panelCau19.setBackground(DefauColor);
         panelCau20.setBackground(ClickColor);
+        
+        panelCau1 = setColor(dsCauHoiThi.get(0).getId(), panelCau1);
+        panelCau2 = setColor(dsCauHoiThi.get(1).getId(), panelCau2);      
+        panelCau3 = setColor(dsCauHoiThi.get(2).getId(), panelCau3);
+        panelCau4 = setColor(dsCauHoiThi.get(3).getId(), panelCau4);
+        panelCau5 = setColor(dsCauHoiThi.get(4).getId(), panelCau5);
+        panelCau6 = setColor(dsCauHoiThi.get(5).getId(), panelCau6);
+        panelCau7 = setColor(dsCauHoiThi.get(6).getId(), panelCau7);
+        panelCau8 = setColor(dsCauHoiThi.get(7).getId(), panelCau8);
+        panelCau9 = setColor(dsCauHoiThi.get(8).getId(), panelCau9);
+        panelCau10 = setColor(dsCauHoiThi.get(9).getId(), panelCau10);
+        panelCau11 = setColor(dsCauHoiThi.get(10).getId(), panelCau11);
+        panelCau12 = setColor(dsCauHoiThi.get(11).getId(), panelCau12);
+        panelCau13 = setColor(dsCauHoiThi.get(12).getId(), panelCau13);
+        panelCau14 = setColor(dsCauHoiThi.get(13).getId(), panelCau14);
+        panelCau15 = setColor(dsCauHoiThi.get(14).getId(), panelCau15);
+        panelCau16 = setColor(dsCauHoiThi.get(15).getId(), panelCau16);
+        panelCau17 = setColor(dsCauHoiThi.get(16).getId(), panelCau17);
+        panelCau18 = setColor(dsCauHoiThi.get(17).getId(), panelCau18);
+        panelCau19 = setColor(dsCauHoiThi.get(18).getId(), panelCau19);
     }//GEN-LAST:event_panelCau20MousePressed
 
     
