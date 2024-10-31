@@ -4,6 +4,9 @@
  */
 package doanthibanglai;
 
+import javax.swing.JLabel;
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author DASH ST
@@ -12,7 +15,7 @@ public class DongHoDemNguoc extends Thread {
     private volatile boolean running = true;
     private int totalSeconds;
 
-    public void run(int minutes, int seconds) {
+    public void run(JLabel jLabel, int minutes, int seconds) {
         totalSeconds = minutes * 60 + seconds;
 
         while (running && totalSeconds >= 0) {
@@ -23,6 +26,12 @@ public class DongHoDemNguoc extends Thread {
             // Dinh dang dong ho
             String formattedTime = String.format("%02d:%02d", displayMinutes, displaySeconds); 
             System.out.println("Thời gian còn lại: " + formattedTime);
+           
+            
+            // Thay doi JLabel Time tren giao dien nguoi dung
+            SwingUtilities.invokeLater(() -> {
+                jLabel.setText(formattedTime);
+            });
            
             try {
                 Thread.sleep(1000); // Tạm dừng 1 giây

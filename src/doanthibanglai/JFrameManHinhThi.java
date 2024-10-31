@@ -17,15 +17,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import org.apache.poi.hssf.record.PageBreakRecord;
 
-/**
- *
- * @author DASH ST
- */
+
 public class JFrameManHinhThi extends javax.swing.JFrame {
 
-    /**
-     * Creates new form JFrameManHinhThi
-     */
+    
     Color DefauColor, ClickColor, AnsweredColor;
     private ArrayList<CauHoi> dsCauHoiThi = Main.getDsCauHoiThi();
     private Map<String, String> dsCauTraLoi = Main.getDsCauTraLoi();  
@@ -36,12 +31,10 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
     private static volatile boolean countDownFinished; // flag
     private static volatile boolean stopAbruptly; // flag
     
+    private int minutes = 20;
+    private int seconds = 0;
     
-    
-    public static void setStopAbruptly(boolean stopAbruptly) {
-        JFrameManHinhThi.stopAbruptly = stopAbruptly;
-    }
-    
+   
     
     
     private void freezeComponents(Container container) {
@@ -59,6 +52,7 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         freezeComponents(this.getContentPane());
     }
     
+    
     public JFrameManHinhThi() {
         initComponents();
         setVisible(true);
@@ -69,12 +63,13 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
               
         clock = new DongHoDemNguoc();
         clockThread = new Thread(() -> {                                                         
-            clock.run(0, 10); // thoi gian dong ho 00:00 phut giay              
+            clock.run(jLabelTime, minutes, seconds); // thoi gian dong ho 00:00 phut giay              
             countDownFinished = true;
             
         });               
         clockThread.start();
         
+        // Luong kiem tra dong ho da dung hay chua
         checkThreadFlag = new Thread(() -> {
             while(!countDownFinished) {
                 try {
@@ -84,6 +79,7 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
                 }
             }
             
+            // kiem tra dong ho co bi dung dot ngot hay khong
             if (!stopAbruptly) {
                  // Dong bang man hinh hien tai
                 freezeAllComponents();

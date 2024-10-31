@@ -16,9 +16,7 @@ import java.util.Set;
  */
 public class Main extends javax.swing.JFrame {
     
-    
-
-    
+ 
     private static ArrayList<CauHoi> dsCauLiet = new ArrayList<>();
     private static ArrayList<CauHoi> dsCauLyThuyet = new ArrayList<>();
     private static ArrayList<CauHoi> dsCauSaHinh = new ArrayList<>();
@@ -34,7 +32,6 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
     }
-
 
 
 
@@ -122,11 +119,7 @@ public class Main extends javax.swing.JFrame {
         return dsCauTraLoi;
     }
 
-    
-    
-    
-    
-    
+           
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -211,11 +204,7 @@ public class Main extends javax.swing.JFrame {
                 
                 new JFrameManHinhChinh();
 
-                
-                     
-                
-                
-                
+                                                                               
                 
                 
             }

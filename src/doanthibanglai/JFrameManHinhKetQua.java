@@ -22,9 +22,9 @@ public class JFrameManHinhKetQua extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         
         System.out.println("");
-        for (String key : Main.getDsCauTraLoi().keySet()) {
-            System.out.println("Key: " + key + ", Value: " + Main.getDsCauTraLoi().get(key));
-        }
+        ChamDiem chamDiem = new ChamDiem();
+        chamDiem.tinhDiem(Main.getDsCauHoiThi(), Main.getDsCauTraLoi());
+        jLabelKetQua.setText(chamDiem.getKetQua());
                 
     }
 
@@ -39,6 +39,7 @@ public class JFrameManHinhKetQua extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabelKetQua = new javax.swing.JLabel();
         troVeButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -49,13 +50,22 @@ public class JFrameManHinhKetQua extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("KẾT QUẢ");
 
+        jLabelKetQua.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLabelKetQua.setForeground(new java.awt.Color(204, 204, 255));
+        jLabelKetQua.setText(" PASS");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(458, 458, 458)
-                .addComponent(jLabel1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(458, 458, 458)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(442, 442, 442)
+                        .addComponent(jLabelKetQua)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -63,7 +73,9 @@ public class JFrameManHinhKetQua extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel1)
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addComponent(jLabelKetQua)
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         troVeButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -88,7 +100,7 @@ public class JFrameManHinhKetQua extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 446, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 414, Short.MAX_VALUE)
                 .addComponent(troVeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
         );
@@ -146,13 +158,14 @@ public class JFrameManHinhKetQua extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFrameManHinhKetQua();
+                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelKetQua;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton troVeButton;
     // End of variables declaration//GEN-END:variables
