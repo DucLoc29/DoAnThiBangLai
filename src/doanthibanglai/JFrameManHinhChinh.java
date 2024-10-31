@@ -19,11 +19,17 @@ public class JFrameManHinhChinh extends javax.swing.JFrame {
     /**
      * Creates new form JFrameCauHoi
      */
+    
+    
     public JFrameManHinhChinh() {
         initComponents();
         setVisible(true);
         setLocationRelativeTo(null);
+        
+        
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -169,7 +175,21 @@ public class JFrameManHinhChinh extends javax.swing.JFrame {
 //                    System.out.println(cauHoi);
 //
 //                }
+                this.setVisible(false);
+                this.dispose(); // tat man hinh hien tai
                 new JFrameManHinhThi();
+                
+
+//                DongHoDemNguoc clock = new DongHoDemNguoc();
+//                Thread clockThread = new Thread(() -> {                                                         
+//                    clock.run(0, 10);                   
+//                    manHinhThi.setVisible(false);
+//                    manHinhThi.dispose();
+//                    
+//                });
+//                
+//                clockThread.start();
+                
             
             
             
@@ -207,9 +227,7 @@ public class JFrameManHinhChinh extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                JFrameManHinhChinh manHinhChinh = new JFrameManHinhChinh();
-                manHinhChinh.setVisible(true);
-                manHinhChinh.setLocationRelativeTo(null);
+                
             }
         });
     }

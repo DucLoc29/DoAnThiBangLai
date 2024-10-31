@@ -15,7 +15,10 @@ import java.util.Set;
  * @author DASH ST
  */
 public class Main extends javax.swing.JFrame {
+    
+    
 
+    
     private static ArrayList<CauHoi> dsCauLiet = new ArrayList<>();
     private static ArrayList<CauHoi> dsCauLyThuyet = new ArrayList<>();
     private static ArrayList<CauHoi> dsCauSaHinh = new ArrayList<>();
@@ -31,6 +34,9 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
     }
+
+
+
 
     public static void setDsCauLiet(ArrayList<CauHoi> dsCauLiet) {
         Main.dsCauLiet = dsCauLiet;
@@ -74,6 +80,7 @@ public class Main extends javax.swing.JFrame {
 
     
     
+    
 
     public static ArrayList<CauHoi> getDsCauLiet() {
         return dsCauLiet;
@@ -115,6 +122,8 @@ public class Main extends javax.swing.JFrame {
         return dsCauTraLoi;
     }
 
+    
+    
     
     
     

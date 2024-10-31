@@ -6,11 +6,16 @@ package doanthibanglai;
 
 import JInternalFrameHienThiCauHoi.*;
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.Container;
 import java.awt.Panel;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import org.apache.poi.hssf.record.PageBreakRecord;
 
 /**
  *
@@ -24,14 +29,82 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
     Color DefauColor, ClickColor, AnsweredColor;
     private ArrayList<CauHoi> dsCauHoiThi = Main.getDsCauHoiThi();
     private Map<String, String> dsCauTraLoi = Main.getDsCauTraLoi();  
-
+    private DongHoDemNguoc clock; 
+    private Thread clockThread; // luong chay cua Dong ho
+    private Thread checkThreadFlag;// luong kiem tra Dong ho da dung chua
+     
+    private static volatile boolean countDownFinished; // flag
+    private static volatile boolean stopAbruptly; // flag
     
+    
+    
+    public static void setStopAbruptly(boolean stopAbruptly) {
+        JFrameManHinhThi.stopAbruptly = stopAbruptly;
+    }
+    
+    
+    
+    private void freezeComponents(Container container) {
+        Component[] components = container.getComponents();
+        for(Component component : components){
+            component.setEnabled(false);
+            
+            if(component instanceof Container) {
+                freezeComponents((Container) component);
+            }
+        }
+    }
+    
+    private void freezeAllComponents() {
+        freezeComponents(this.getContentPane());
+    }
     
     public JFrameManHinhThi() {
         initComponents();
         setVisible(true);
         setLocationRelativeTo(null);
+        
+        stopAbruptly = false; // khoi tao
+        countDownFinished = false; // khoi tao
               
+        clock = new DongHoDemNguoc();
+        clockThread = new Thread(() -> {                                                         
+            clock.run(0, 10); // thoi gian dong ho 00:00 phut giay              
+            countDownFinished = true;
+            
+        });               
+        clockThread.start();
+        
+        checkThreadFlag = new Thread(() -> {
+            while(!countDownFinished) {
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+            }
+            
+            if (!stopAbruptly) {
+                 // Dong bang man hinh hien tai
+                freezeAllComponents();
+
+                try {
+                    new JFrameThongBaoHetGio();
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+                // dong man hinh hien tai
+                this.setVisible(false);
+                this.dispose();
+
+                new JFrameManHinhKetQua();
+            }
+            
+            
+        });
+        checkThreadFlag.start();
+        
+        
         
                      
         DefauColor = new Color(242,242,242);
@@ -120,6 +193,7 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         panelCau11 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
+        jLabelTime = new javax.swing.JLabel();
         jDesktopPane2 = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -720,6 +794,10 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabelTime.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabelTime.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelTime.setText("00:00");
+
         javax.swing.GroupLayout panelTinhNangLayout = new javax.swing.GroupLayout(panelTinhNang);
         panelTinhNang.setLayout(panelTinhNangLayout);
         panelTinhNangLayout.setHorizontalGroup(
@@ -730,11 +808,6 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
                     .addGroup(panelTinhNangLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(panelTinhNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelTinhNangLayout.createSequentialGroup()
-                                .addComponent(panelCau1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(panelCau11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(panelTinhNangLayout.createSequentialGroup()
                                 .addGroup(panelTinhNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(panelCau10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -757,10 +830,17 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
                                     .addComponent(panelCau13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(panelCau12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(panelCau20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addContainerGap(43, Short.MAX_VALUE))))
+                                .addContainerGap(43, Short.MAX_VALUE))
+                            .addGroup(panelTinhNangLayout.createSequentialGroup()
+                                .addComponent(panelCau1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelTinhNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(panelCau11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelTime))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(panelTinhNangLayout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addGap(68, 68, 68))))
+                        .addContainerGap())))
             .addGroup(panelTinhNangLayout.createSequentialGroup()
                 .addGap(83, 83, 83)
                 .addComponent(nopBaiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -769,9 +849,11 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         panelTinhNangLayout.setVerticalGroup(
             panelTinhNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTinhNangLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(jLabel2)
-                .addGap(57, 57, 57)
+                .addGap(28, 28, 28)
+                .addGroup(panelTinhNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabelTime, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(63, 63, 63)
                 .addGroup(panelTinhNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelTinhNangLayout.createSequentialGroup()
                         .addComponent(panelCau1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -815,7 +897,7 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
                     .addComponent(panelCau10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(nopBaiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jDesktopPane2Layout = new javax.swing.GroupLayout(jDesktopPane2);
@@ -866,13 +948,21 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
     private void nopBaiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nopBaiButtonActionPerformed
         // TODO add your handling code here:
         if(evt.getSource() == nopBaiButton) {
-            setVisible(false);
+            // dung clock
+            clock.stopClock();
+            stopAbruptly = true; // nop bai khi Dong ho chua dem ve 0;
+        
             
-        for (String key : Main.getDsCauTraLoi().keySet()) {
-            System.out.println("Key: " + key + ", Value: " + Main.getDsCauTraLoi().get(key));
-        }
-
-            new JFrameKetQua();
+            
+            // Tat man hinh hien tai
+            this.setVisible(false);
+            this.dispose();
+                   
+        
+        
+            
+            new JFrameManHinhKetQua();
+        
         }
     }//GEN-LAST:event_nopBaiButtonActionPerformed
 
@@ -1556,7 +1646,11 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFrameManHinhThi();      
+                
+                
+                
+                 
+                
             }
         });
     }
@@ -1584,6 +1678,7 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelTime;
     private javax.swing.JButton nopBaiButton;
     private javax.swing.JPanel panelCau1;
     private javax.swing.JPanel panelCau10;

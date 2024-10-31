@@ -11,15 +11,21 @@ import java.util.ArrayList;
  *
  * @author DASH ST
  */
-public class JFrameKetQua extends javax.swing.JFrame {
+public class JFrameManHinhKetQua extends javax.swing.JFrame {
 
     /**
      * Creates new form JFrameKetQua
      */
-    public JFrameKetQua() {
+    public JFrameManHinhKetQua() {
         initComponents();
         setVisible(true);
         setLocationRelativeTo(null);
+        
+        System.out.println("");
+        for (String key : Main.getDsCauTraLoi().keySet()) {
+            System.out.println("Key: " + key + ", Value: " + Main.getDsCauTraLoi().get(key));
+        }
+                
     }
 
     /**
@@ -94,14 +100,17 @@ public class JFrameKetQua extends javax.swing.JFrame {
     private void troVeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_troVeButtonActionPerformed
         // TODO add your handling code here:
         if(evt.getSource() == troVeButton) {
-            setVisible(false);
+            // dat lai stopAbruptly cho dong ho
+            
+            
             
             // Xoa du lieu ds Cau hoi thi
             ArrayList<CauHoi> dsCauHoiThi = Main.getDsCauHoiThi();
             dsCauHoiThi.clear();
             Main.setDsCauHoiThi(dsCauHoiThi);
                     
-            
+            this.setVisible(false);
+            this.dispose();
             new JFrameManHinhChinh();
         }
     }//GEN-LAST:event_troVeButtonActionPerformed
@@ -123,20 +132,21 @@ public class JFrameKetQua extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFrameKetQua.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameManHinhKetQua.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFrameKetQua.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameManHinhKetQua.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFrameKetQua.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameManHinhKetQua.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFrameKetQua.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameManHinhKetQua.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFrameKetQua();
+                new JFrameManHinhKetQua();
             }
         });
     }
