@@ -4,6 +4,7 @@
  */
 package doanthibanglai;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -23,6 +24,7 @@ public class Main extends javax.swing.JFrame {
     private static ArrayList<CauHoi> dsCauBienBao = new ArrayList<>();
     private static ArrayList<CauHoi> dsCauHoiThi = new ArrayList<>();
     private static Map<String, String> dsCauTraLoi = new HashMap<>();
+    private static KiLuc kiLuc = new KiLuc();
     
     private static int soCauLyThuyet = 6; 
     private static int soCauLiet = 3;
@@ -33,7 +35,9 @@ public class Main extends javax.swing.JFrame {
         initComponents();
     }
 
-
+    public static void setKiLuc(KiLuc kiLuc) {
+        Main.kiLuc = kiLuc;
+    }
 
     public static void setDsCauLiet(ArrayList<CauHoi> dsCauLiet) {
         Main.dsCauLiet = dsCauLiet;
@@ -78,7 +82,12 @@ public class Main extends javax.swing.JFrame {
     
     
     
+    
+    public static KiLuc getKiLuc() {
+        return kiLuc;
+    }
 
+    
     public static ArrayList<CauHoi> getDsCauLiet() {
         return dsCauLiet;
     }
@@ -185,6 +194,7 @@ public class Main extends javax.swing.JFrame {
                 String excelFileCauLyThuyetPath = "src\\FileExcelCauHoi\\CauLyThuyet.xlsx";
                 String excelFileCauSaHinhPath = "src\\FileExcelCauHoi\\CauSaHinh.xlsx";
                 String excelFileCauBienBaoPath = "src\\FileExcelCauHoi\\CauBienBao.xlsx";
+                String textFileKiLucPath = "src\\KiLuc\\KiLuc.txt";
 
                 dsCauLiet = ReadExcel.readCauHoiFromExcel(excelFileCauLietPath);
                 dsCauLyThuyet = ReadExcel.readCauHoiFromExcel(excelFileCauLyThuyetPath);
@@ -202,11 +212,12 @@ public class Main extends javax.swing.JFrame {
                 ReadExcel.addImagePath(dsCauBienBao, FileImageCauBienBaoPath);
                 ReadExcel.addImagePath(dsCauSaHinh, FileImageCauSaHinhPath);
                 
+                // doc file Ki luc              
+                kiLuc.docFileKiLuc(textFileKiLucPath);
+                                                                                                                
+                
                 new JFrameManHinhChinh();
-
-                                                                               
-                
-                
+                                                                                                               
             }
         });
     }

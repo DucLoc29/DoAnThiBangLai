@@ -1,11 +1,14 @@
 
 package doanthibanglai;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class JFrameManHinhKetQua extends javax.swing.JFrame {
-
+       
    
+    
     public JFrameManHinhKetQua() {
         initComponents();
         setVisible(true);
@@ -50,6 +53,20 @@ public class JFrameManHinhKetQua extends javax.swing.JFrame {
         jLabelBienBaoKetQua.setText(String.valueOf(chamDiem.getSoCauDungBienBao()) + "/6");
         jLabelSaHinhKetQua.setText(String.valueOf(chamDiem.getSoCauDungSaHinh()) + "/5");
         jLabelTongSoKetQua.setText(String.valueOf(chamDiem.getSoCauDungTongCong()) + "/20");
+        
+        
+        KiLuc kiLuc = Main.getKiLuc();
+        jProgressBarCustomLietKiLuc.setValue(300/Main.getSoCauLiet()*kiLuc.getSoCauLiet());
+        jProgressBarCustomLyThuyetKiLuc.setValue(300/Main.getSoCauLyThuyet()*kiLuc.getSoCauLyThuyet());       
+        jProgressBarCustomBienBaoKiLuc.setValue(300/Main.getSoCauBienBao()*kiLuc.getSoCauBienBao());
+        jProgressBarCustomSaHinhKiLuc.setValue(300/Main.getSoCauSaHinh()*kiLuc.getSoCauSaHinh());
+        jProgressBarCustomTongSoKiLuc.setValue(300/(Main.getSoCauBienBao() + Main.getSoCauLiet() + Main.getSoCauLyThuyet() + Main.getSoCauSaHinh())*kiLuc.getTongSoCau());
+        
+        jLabelLietKiLuc.setText(String.valueOf(kiLuc.getSoCauLiet()) + "/3");
+        jLabelLyThuyetKiLuc.setText(String.valueOf(kiLuc.getSoCauLyThuyet()) + "/6");
+        jLabelBienBaoKiLuc.setText(String.valueOf(kiLuc.getSoCauBienBao()) + "/6");
+        jLabelSaHinhKiLuc.setText(String.valueOf(kiLuc.getSoCauSaHinh()) + "/5");
+        jLabelTongSoKiLuc.setText(String.valueOf(kiLuc.getTongSoCau()) + "/20");
         
                 
     }
@@ -249,10 +266,11 @@ public class JFrameManHinhKetQua extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(80, 80, 80)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jProgressBarCustomLietKiLuc, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelLietKiLuc))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jProgressBarCustomLietKiLuc, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelLietKiLuc)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -439,15 +457,48 @@ public class JFrameManHinhKetQua extends javax.swing.JFrame {
     private void troVeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_troVeButtonActionPerformed
         // TODO add your handling code here:
         if(evt.getSource() == troVeButton) {
-            // dat lai stopAbruptly cho dong ho
             
+            ChamDiem chamDiem = new ChamDiem();
+            chamDiem.tinhDiem(Main.getDsCauHoiThi(), Main.getDsCauTraLoi());
+            KiLuc kiLuc = Main.getKiLuc();            
             
+            // Gan Ki luc
             
-            // Xoa du lieu ds Cau hoi thi
-            ArrayList<CauHoi> dsCauHoiThi = Main.getDsCauHoiThi();
-            dsCauHoiThi.clear();
-            Main.setDsCauHoiThi(dsCauHoiThi);
+            if(chamDiem.getSoCauDungTongCong() > kiLuc.getTongSoCau()) {
+                kiLuc.setSoCauLiet(chamDiem.getSoCauDungLiet());
+                kiLuc.setSoCauLyThuyet(chamDiem.getSoCauDungLyThuyet());
+                kiLuc.setSoCauBienBao(chamDiem.getSoCauDungBienBao());
+                kiLuc.setSoCauSaHinh(chamDiem.getSoCauDungSaHinh());
+                kiLuc.setTongSoCau(chamDiem.getSoCauDungTongCong());
+                
+                Main.setKiLuc(kiLuc);                                      
+                
+//                System.out.println(kiLuc.getSoCauLiet());
+//                System.out.println(kiLuc.getSoCauLyThuyet());
+//                System.out.println(kiLuc.getSoCauBienBao());
+//                System.out.println(kiLuc.getSoCauSaHinh());
+//                System.out.println(kiLuc.getTongSoCau());
+                
+                
                     
+                // ghi vao file Ki luc                                              
+                String textFileKiLucPath = "src\\KiLuc\\KiLuc.txt";
+                Main.getKiLuc().ghiFileKiLuc(textFileKiLucPath);
+                
+            }          
+            
+                                              
+            // Xoa du lieu 
+            ArrayList<CauHoi> dsCauHoiThi = Main.getDsCauHoiThi();          
+            Map<String, String> dsCauTraLoi = Main.getDsCauTraLoi();
+            
+            dsCauHoiThi.clear();          
+            dsCauTraLoi.clear();
+            
+            Main.setDsCauHoiThi(dsCauHoiThi);          
+            Main.setDsCauTraLoi(dsCauTraLoi);
+            
+                                          
             this.setVisible(false);
             this.dispose();
             new JFrameManHinhChinh();
@@ -519,7 +570,6 @@ public class JFrameManHinhKetQua extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel6;
     private doanthibanglai.JProgressBarCustom jProgressBarCustomBienBaoKetQua;
     private doanthibanglai.JProgressBarCustom jProgressBarCustomBienBaoKiLuc;
     private doanthibanglai.JProgressBarCustom jProgressBarCustomLietKetQua;

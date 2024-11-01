@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import org.bouncycastle.pqc.math.linearalgebra.GoppaCode;
 
 
 /**
@@ -25,6 +26,36 @@ public class JFrameManHinhChinh extends javax.swing.JFrame {
         initComponents();
         setVisible(true);
         setLocationRelativeTo(null);
+        
+        KiLuc kiLuc = Main.getKiLuc();     
+        System.out.println(kiLuc.getSoCauLiet());
+        System.out.println(kiLuc.getSoCauLyThuyet());
+        System.out.println(kiLuc.getSoCauBienBao());
+        System.out.println(kiLuc.getSoCauSaHinh());
+        System.out.println(kiLuc.getTongSoCau());
+        
+        jProgressBarCustomLietKiLuc.setMinimum(0);
+        jProgressBarCustomLietKiLuc.setMaximum(300);
+        jProgressBarCustomLyThuyetKiLuc.setMinimum(0);
+        jProgressBarCustomLyThuyetKiLuc.setMaximum(300);
+        jProgressBarCustomBienBaoKiLuc.setMinimum(0);
+        jProgressBarCustomBienBaoKiLuc.setMaximum(300);
+        jProgressBarCustomSaHinhKiLuc.setMinimum(0);
+        jProgressBarCustomSaHinhKiLuc.setMaximum(300);
+        jProgressBarCustomTongSoKiLuc.setMinimum(0);
+        jProgressBarCustomTongSoKiLuc.setMaximum(300);
+        
+        jProgressBarCustomLietKiLuc.setValue(300/Main.getSoCauLiet()*kiLuc.getSoCauLiet());
+        jProgressBarCustomLyThuyetKiLuc.setValue(300/Main.getSoCauLyThuyet()*kiLuc.getSoCauLyThuyet());       
+        jProgressBarCustomBienBaoKiLuc.setValue(300/Main.getSoCauBienBao()*kiLuc.getSoCauBienBao());
+        jProgressBarCustomSaHinhKiLuc.setValue(300/Main.getSoCauSaHinh()*kiLuc.getSoCauSaHinh());
+        jProgressBarCustomTongSoKiLuc.setValue(300/(Main.getSoCauBienBao() + Main.getSoCauLiet() + Main.getSoCauLyThuyet() + Main.getSoCauSaHinh())*kiLuc.getTongSoCau());
+        
+        jLabelLietKiLuc.setText(String.valueOf(kiLuc.getSoCauLiet()) + "/3");
+        jLabelLyThuyetKiLuc.setText(String.valueOf(kiLuc.getSoCauLyThuyet()) + "/6");
+        jLabelBienBaoKiLuc.setText(String.valueOf(kiLuc.getSoCauBienBao()) + "/6");
+        jLabelSaHinhKiLuc.setText(String.valueOf(kiLuc.getSoCauSaHinh()) + "/5");
+        jLabelTongSoKiLuc.setText(String.valueOf(kiLuc.getTongSoCau()) + "/20");
         
         
     }
@@ -46,6 +77,21 @@ public class JFrameManHinhChinh extends javax.swing.JFrame {
         batDauButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jProgressBarCustomLietKiLuc = new doanthibanglai.JProgressBarCustom();
+        jProgressBarCustomLyThuyetKiLuc = new doanthibanglai.JProgressBarCustom();
+        jProgressBarCustomBienBaoKiLuc = new doanthibanglai.JProgressBarCustom();
+        jLabelLietKiLuc = new javax.swing.JLabel();
+        jLabelLyThuyetKiLuc = new javax.swing.JLabel();
+        jLabelBienBaoKiLuc = new javax.swing.JLabel();
+        jLabelSaHinhKiLuc = new javax.swing.JLabel();
+        jLabelTongSoKiLuc = new javax.swing.JLabel();
+        jProgressBarCustomSaHinhKiLuc = new doanthibanglai.JProgressBarCustom();
+        jProgressBarCustomTongSoKiLuc = new doanthibanglai.JProgressBarCustom();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -98,24 +144,143 @@ public class JFrameManHinhChinh extends javax.swing.JFrame {
                 .addContainerGap(115, Short.MAX_VALUE))
         );
 
+        jPanel2.setBackground(new java.awt.Color(239, 237, 237));
+
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setText("KỈ LỤC HIỆN TẠI");
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel9.setText("Liệt");
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 153, 0));
+        jLabel10.setText("Lý thuyết");
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel11.setText("Biển báo");
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(153, 0, 153));
+        jLabel12.setText("Sa hình");
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(204, 102, 0));
+        jLabel13.setText("Tổng số");
+
+        jProgressBarCustomLietKiLuc.setForeground(new java.awt.Color(204, 0, 0));
+
+        jProgressBarCustomLyThuyetKiLuc.setForeground(new java.awt.Color(0, 153, 0));
+
+        jProgressBarCustomBienBaoKiLuc.setForeground(new java.awt.Color(0, 0, 153));
+
+        jLabelLietKiLuc.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelLietKiLuc.setForeground(new java.awt.Color(204, 0, 0));
+        jLabelLietKiLuc.setText("3/3");
+
+        jLabelLyThuyetKiLuc.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelLyThuyetKiLuc.setForeground(new java.awt.Color(0, 153, 0));
+        jLabelLyThuyetKiLuc.setText("6/6");
+
+        jLabelBienBaoKiLuc.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelBienBaoKiLuc.setForeground(new java.awt.Color(0, 0, 153));
+        jLabelBienBaoKiLuc.setText("6/6");
+
+        jLabelSaHinhKiLuc.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelSaHinhKiLuc.setForeground(new java.awt.Color(153, 0, 153));
+        jLabelSaHinhKiLuc.setText("5/5");
+
+        jLabelTongSoKiLuc.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelTongSoKiLuc.setForeground(new java.awt.Color(204, 102, 0));
+        jLabelTongSoKiLuc.setText("20/20");
+
+        jProgressBarCustomSaHinhKiLuc.setForeground(new java.awt.Color(153, 0, 153));
+
+        jProgressBarCustomTongSoKiLuc.setForeground(new java.awt.Color(204, 102, 0));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(180, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(165, 165, 165))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(69, 69, 69)
+                        .addComponent(jProgressBarCustomLietKiLuc, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jProgressBarCustomLyThuyetKiLuc, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jProgressBarCustomBienBaoKiLuc, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jProgressBarCustomTongSoKiLuc, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jProgressBarCustomSaHinhKiLuc, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabelSaHinhKiLuc, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelLyThuyetKiLuc, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelLietKiLuc, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelBienBaoKiLuc, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelTongSoKiLuc))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(51, 51, 51)
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jProgressBarCustomLietKiLuc, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabelLietKiLuc)
+                                            .addComponent(jLabel9))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel10)
+                                .addGap(37, 37, 37))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jProgressBarCustomBienBaoKiLuc, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabelLyThuyetKiLuc)
+                                            .addComponent(jProgressBarCustomLyThuyetKiLuc, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel11)
+                                            .addComponent(jLabelBienBaoKiLuc, javax.swing.GroupLayout.Alignment.TRAILING))))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel12))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jProgressBarCustomSaHinhKiLuc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelSaHinhKiLuc, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addGap(25, 25, 25)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jProgressBarCustomTongSoKiLuc, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabelTongSoKiLuc))
+                .addGap(159, 159, 159))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -235,9 +400,24 @@ public class JFrameManHinhChinh extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton batDauButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelBienBaoKiLuc;
+    private javax.swing.JLabel jLabelLietKiLuc;
+    private javax.swing.JLabel jLabelLyThuyetKiLuc;
+    private javax.swing.JLabel jLabelSaHinhKiLuc;
+    private javax.swing.JLabel jLabelTongSoKiLuc;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private doanthibanglai.JProgressBarCustom jProgressBarCustomBienBaoKiLuc;
+    private doanthibanglai.JProgressBarCustom jProgressBarCustomLietKiLuc;
+    private doanthibanglai.JProgressBarCustom jProgressBarCustomLyThuyetKiLuc;
+    private doanthibanglai.JProgressBarCustom jProgressBarCustomSaHinhKiLuc;
+    private doanthibanglai.JProgressBarCustom jProgressBarCustomTongSoKiLuc;
     // End of variables declaration//GEN-END:variables
 }
