@@ -11,12 +11,33 @@ import java.util.Map;
 public class ChamDiem {
     private int soCauDungTongCong = 0;
     private String ketQua;
+    private int soCauDungLiet;
+    private int soCauDungSaHinh;
+    private int soCauDungLyThuyet;
+    private int soCauDungBienBao;
     
     Map<String, String> dsLiet = new HashMap<>();
     Map<String, String> dsSaHinh = new HashMap<>();
     Map<String, String> dsLyThuyet = new HashMap<>();
     Map<String, String> dsBienBao = new HashMap<>();
 
+    
+    
+    public int getSoCauDungLiet() {
+        return soCauDungLiet;
+    }
+
+    public int getSoCauDungSaHinh() {
+        return soCauDungSaHinh;
+    }
+
+    public int getSoCauDungLyThuyet() {
+        return soCauDungLyThuyet;
+    }
+
+    public int getSoCauDungBienBao() {
+        return soCauDungBienBao;
+    }
     
     public int getSoCauDungTongCong() {
         return soCauDungTongCong;
@@ -25,7 +46,7 @@ public class ChamDiem {
     public String getKetQua() {
         return ketQua;
     }
-   
+    
     
     
     private void tachCauTraLoi(Map<String, String> dsCauTraLoi) {
@@ -86,18 +107,25 @@ public class ChamDiem {
         int soCauDungL = tinhSoCauDung(dsCauHoiThi, dsLiet);
         int soCauDungSH = tinhSoCauDung(dsCauHoiThi, dsSaHinh);
         int soCauDungBB = tinhSoCauDung(dsCauHoiThi, dsBienBao);
-        soCauDungTongCong = soCauDungBB + soCauDungL + soCauDungLT + soCauDungSH; 
+         
+        
+        soCauDungLyThuyet = soCauDungLT;
+        soCauDungLiet = soCauDungL;
+        soCauDungBienBao = soCauDungBB;
+        soCauDungSaHinh = soCauDungSH;
+        soCauDungTongCong = soCauDungBB + soCauDungL + soCauDungLT + soCauDungSH;
         
         System.out.println("So cau dung Liet: " + soCauDungL);
         System.out.println("So cau dung Ly thuyet: " + soCauDungLT);
         System.out.println("So cau dung Sa hinh: " + soCauDungSH);
         System.out.println("So cau dung Bien bao: " + soCauDungBB);
         
-        if (soCauDungL != 3) {
-            ketQua = "FALSE";
+        // Khong sai cau Liet va chinh xac 16 cau thi PASS
+        if (soCauDungL == 3 && soCauDungTongCong >= 16) {
+            ketQua = " PASS";
         }
         else {
-            ketQua = " PASS";
+            ketQua = "FALSE";
         }
         
         System.out.println(ketQua);
