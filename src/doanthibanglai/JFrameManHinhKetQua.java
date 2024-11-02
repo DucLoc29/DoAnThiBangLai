@@ -121,6 +121,7 @@ public class JFrameManHinhKetQua extends javax.swing.JFrame {
         jLabelBienBaoKetQua = new javax.swing.JLabel();
         jLabelSaHinhKetQua = new javax.swing.JLabel();
         jLabelTongSoKetQua = new javax.swing.JLabel();
+        xemDapAnButton = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -291,7 +292,7 @@ public class JFrameManHinhKetQua extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(jProgressBarCustomTongSoKiLuc, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelTongSoKiLuc))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(220, 228, 225));
@@ -395,7 +396,7 @@ public class JFrameManHinhKetQua extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(jProgressBarCustomLietKetQua, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -420,8 +421,16 @@ public class JFrameManHinhKetQua extends javax.swing.JFrame {
                     .addComponent(jLabel13)
                     .addComponent(jProgressBarCustomTongSoKetQua, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelTongSoKetQua))
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
+
+        xemDapAnButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        xemDapAnButton.setText("XEM ĐÁP ÁN");
+        xemDapAnButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                xemDapAnButtonMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -433,8 +442,10 @@ public class JFrameManHinhKetQua extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(432, 432, 432)
+                .addGap(324, 324, 324)
                 .addComponent(troVeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(91, 91, 91)
+                .addComponent(xemDapAnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -445,9 +456,11 @@ public class JFrameManHinhKetQua extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(troVeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(troVeButton, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                    .addComponent(xemDapAnButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -479,12 +492,11 @@ public class JFrameManHinhKetQua extends javax.swing.JFrame {
 //                System.out.println(kiLuc.getSoCauSaHinh());
 //                System.out.println(kiLuc.getTongSoCau());
                 
-                
-                    
+                                    
                 // ghi vao file Ki luc                                              
                 String textFileKiLucPath = "src\\KiLuc\\KiLuc.txt";
                 Main.getKiLuc().ghiFileKiLuc(textFileKiLucPath);
-                
+                                                
             }          
             
                                               
@@ -504,6 +516,14 @@ public class JFrameManHinhKetQua extends javax.swing.JFrame {
             new JFrameManHinhChinh();
         }
     }//GEN-LAST:event_troVeButtonActionPerformed
+
+    private void xemDapAnButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xemDapAnButtonMouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        this.dispose();
+        
+        new JFrameManHinhHienThiDapAn();
+    }//GEN-LAST:event_xemDapAnButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -583,5 +603,6 @@ public class JFrameManHinhKetQua extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton troVeButton;
+    private javax.swing.JButton xemDapAnButton;
     // End of variables declaration//GEN-END:variables
 }

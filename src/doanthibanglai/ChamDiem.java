@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package doanthibanglai;
 
 import java.util.ArrayList;
@@ -20,7 +17,6 @@ public class ChamDiem {
     Map<String, String> dsSaHinh = new HashMap<>();
     Map<String, String> dsLyThuyet = new HashMap<>();
     Map<String, String> dsBienBao = new HashMap<>();
-
     
     
     public int getSoCauDungLiet() {
@@ -46,8 +42,7 @@ public class ChamDiem {
     public String getKetQua() {
         return ketQua;
     }
-    
-    
+        
     
     private void tachCauTraLoi(Map<String, String> dsCauTraLoi) {
         for (String key : dsCauTraLoi.keySet()) {
@@ -74,6 +69,7 @@ public class ChamDiem {
         return null;
     }
     
+    
     private int tinhSoCauDung(ArrayList<CauHoi> dsCauHoiThi, Map<String, String> dsCauTraLoi) {        
         int soCauDung = 0;
         
@@ -88,7 +84,7 @@ public class ChamDiem {
             if (cauHoi != null) {
                 dapAnDung = cauHoi.getCorrectAnswer();
                 cauTraLoi = dsCauTraLoi.get(key);
-                if(dapAnDung.equals(cauTraLoi)) {
+                if(dapAnDung.equals(cauTraLoi)) { 
                     soCauDung++;
                 }
             }

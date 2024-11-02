@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package doanthibanglai;
 
 import java.util.ArrayList;
@@ -75,6 +72,7 @@ public class JFrameManHinhChinh extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         batDauButton = new javax.swing.JButton();
+        xoaKiLucButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -114,6 +112,14 @@ public class JFrameManHinhChinh extends javax.swing.JFrame {
             }
         });
 
+        xoaKiLucButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        xoaKiLucButton1.setText("XÓA KỈ LỤC");
+        xoaKiLucButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                xoaKiLucButton1MousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -129,7 +135,9 @@ public class JFrameManHinhChinh extends javax.swing.JFrame {
                         .addGap(25, 25, 25))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(104, 104, 104)
-                .addComponent(batDauButton, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(batDauButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(xoaKiLucButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -141,7 +149,9 @@ public class JFrameManHinhChinh extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(109, 109, 109)
                 .addComponent(batDauButton, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(xoaKiLucButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(239, 237, 237));
@@ -246,7 +256,7 @@ public class JFrameManHinhChinh extends javax.swing.JFrame {
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(51, 51, 51)
                                         .addComponent(jLabel3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
                                         .addComponent(jProgressBarCustomLietKiLuc, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -361,6 +371,36 @@ public class JFrameManHinhChinh extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_batDauButtonActionPerformed
 
+    private void xoaKiLucButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xoaKiLucButton1MousePressed
+        // TODO add your handling code here:
+        // Gan du lieu  = 0
+        KiLuc kiLuc = Main.getKiLuc();
+        kiLuc.setSoCauLiet(0);
+        kiLuc.setSoCauLyThuyet(0);
+        kiLuc.setSoCauBienBao(0);
+        kiLuc.setSoCauSaHinh(0);
+        kiLuc.setTongSoCau(0);
+        Main.setKiLuc(kiLuc);
+        
+        // ghi vao file Ki luc                                              
+        String textFileKiLucPath = "src\\KiLuc\\KiLuc.txt";
+        Main.getKiLuc().ghiFileKiLuc(textFileKiLucPath);
+        
+        
+        // Hien thi lai Ki Luc
+        jProgressBarCustomLietKiLuc.setValue(300/Main.getSoCauLiet()*kiLuc.getSoCauLiet());
+        jProgressBarCustomLyThuyetKiLuc.setValue(300/Main.getSoCauLyThuyet()*kiLuc.getSoCauLyThuyet());       
+        jProgressBarCustomBienBaoKiLuc.setValue(300/Main.getSoCauBienBao()*kiLuc.getSoCauBienBao());
+        jProgressBarCustomSaHinhKiLuc.setValue(300/Main.getSoCauSaHinh()*kiLuc.getSoCauSaHinh());
+        jProgressBarCustomTongSoKiLuc.setValue(300/(Main.getSoCauBienBao() + Main.getSoCauLiet() + Main.getSoCauLyThuyet() + Main.getSoCauSaHinh())*kiLuc.getTongSoCau());
+        
+        jLabelLietKiLuc.setText(String.valueOf(kiLuc.getSoCauLiet()) + "/3");
+        jLabelLyThuyetKiLuc.setText(String.valueOf(kiLuc.getSoCauLyThuyet()) + "/6");
+        jLabelBienBaoKiLuc.setText(String.valueOf(kiLuc.getSoCauBienBao()) + "/6");
+        jLabelSaHinhKiLuc.setText(String.valueOf(kiLuc.getSoCauSaHinh()) + "/5");
+        jLabelTongSoKiLuc.setText(String.valueOf(kiLuc.getTongSoCau()) + "/20");
+    }//GEN-LAST:event_xoaKiLucButton1MousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -419,5 +459,6 @@ public class JFrameManHinhChinh extends javax.swing.JFrame {
     private doanthibanglai.JProgressBarCustom jProgressBarCustomLyThuyetKiLuc;
     private doanthibanglai.JProgressBarCustom jProgressBarCustomSaHinhKiLuc;
     private doanthibanglai.JProgressBarCustom jProgressBarCustomTongSoKiLuc;
+    private javax.swing.JButton xoaKiLucButton1;
     // End of variables declaration//GEN-END:variables
 }

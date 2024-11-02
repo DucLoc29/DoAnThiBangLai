@@ -1,140 +1,88 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package doanthibanglai;
 
 import JInternalFrameHienThiCauHoi.*;
+import  JInternalFrameHienThiDapAn.*;
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.Panel;
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import org.apache.poi.hssf.record.PageBreakRecord;
 
 
-public class JFrameManHinhThi extends javax.swing.JFrame {
+public class JFrameManHinhHienThiDapAn extends javax.swing.JFrame {
 
     
-    Color DefauColor, ClickColor, AnsweredColor;
+    Color DefauColor, ClickColor, TrueColor, FalseColor;
     private ArrayList<CauHoi> dsCauHoiThi = Main.getDsCauHoiThi();
     private Map<String, String> dsCauTraLoi = Main.getDsCauTraLoi();  
-    private DongHoDemNguoc clock; 
-    private Thread clockThread; // luong chay cua Dong ho
-    private Thread checkThreadFlag;// luong kiem tra Dong ho da dung chua
-     
-    private static volatile boolean countDownFinished; // flag
-    private static volatile boolean stopAbruptly; // flag
-    
-    private int minutes = 20;
-    private int seconds = 0;
-    
-   
-    
-    
-    private void freezeComponents(Container container) {
-        Component[] components = container.getComponents();
-        for(Component component : components){
-            component.setEnabled(false);
-            
-            if(component instanceof Container) {
-                freezeComponents((Container) component);
-            }
+         
+       
+    private CauHoi timCauHoiTheoID(ArrayList<CauHoi> dsCauHoiThi, String ID) {
+        for(CauHoi cauHoi : dsCauHoiThi) {
+            if(cauHoi.getId().equals(ID)) {
+                return cauHoi;
+            }           
         }
+        return null;
     }
     
-    private void freezeAllComponents() {
-        freezeComponents(this.getContentPane());
+    private JPanel setColor(String idCauHoi, JPanel panel) {
+              
+        String cauTraLoi = dsCauTraLoi.get(idCauHoi); // Dap an nguoi thi C
+        CauHoi cauHoi = timCauHoiTheoID(dsCauHoiThi, idCauHoi); // Cau Hoi 
+        String cauDung = cauHoi.getCorrectAnswer(); // Dap an dung C
+        
+        if (cauTraLoi.equals(cauDung)) {
+            panel.setBackground(TrueColor);
+        }
+        else {
+            panel.setBackground(FalseColor);
+        }
+         
+        return panel;
     }
     
-    
-    public JFrameManHinhThi() {
+    public JFrameManHinhHienThiDapAn() {
         initComponents();
         setVisible(true);
         setLocationRelativeTo(null);
-        
-        stopAbruptly = false; // khoi tao
-        countDownFinished = false; // khoi tao
-              
-        clock = new DongHoDemNguoc();
-        clockThread = new Thread(() -> {                                                         
-            clock.run(jLabelTime, minutes, seconds); // thoi gian dong ho 00:00 phut giay              
-            countDownFinished = true;
-            
-        });               
-        clockThread.start();
-        
-        // Luong kiem tra dong ho da dung hay chua
-        checkThreadFlag = new Thread(() -> {
-            while(!countDownFinished) {
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException ex) {
-                    ex.printStackTrace();
-                }
-            }
-            
-            // kiem tra dong ho co bi dung dot ngot hay khong
-            if (!stopAbruptly) {
-                 // Dong bang man hinh hien tai
-                freezeAllComponents();
-
-                try {
-                    new JFrameThongBaoHetGio();
-                } catch (InterruptedException ex) {
-                    ex.printStackTrace();
-                }
-                // dong man hinh hien tai
-                this.setVisible(false);
-                this.dispose();
-
-                new JFrameManHinhKetQua();
-            }
-            
-            
-        });
-        checkThreadFlag.start();
-        
-        
-        
+                                                     
                      
-        DefauColor = new Color(242,242,242);// Trang
+        DefauColor = new Color(242,242,242); // Trang
         ClickColor = new Color(255,255,153); // Vang
-        AnsweredColor = new Color(153,153,153); // Xam
-        
+        TrueColor = new Color(153,255,153); // Xanh la
+        FalseColor = new Color(255,153,153); // Do
+              
         //set defaut color to pan or run time
+        
+        
         panelCau1.setBackground(ClickColor);
-        panelCau2.setBackground(DefauColor);
-        panelCau3.setBackground(DefauColor);
-        panelCau4.setBackground(DefauColor);
-        panelCau5.setBackground(DefauColor);
-        panelCau6.setBackground(DefauColor);
-        panelCau7.setBackground(DefauColor);
-        panelCau8.setBackground(DefauColor);
-        panelCau9.setBackground(DefauColor);
-        panelCau10.setBackground(DefauColor);
-        panelCau11.setBackground(DefauColor);
-        panelCau12.setBackground(DefauColor);
-        panelCau13.setBackground(DefauColor);
-        panelCau14.setBackground(DefauColor);
-        panelCau15.setBackground(DefauColor);
-        panelCau16.setBackground(DefauColor);
-        panelCau17.setBackground(DefauColor);
-        panelCau18.setBackground(DefauColor);
-        panelCau19.setBackground(DefauColor);
-        panelCau20.setBackground(DefauColor);
+        panelCau2 = setColor(dsCauHoiThi.get(1).getId(), panelCau2);
+        panelCau3 = setColor(dsCauHoiThi.get(2).getId(), panelCau3);
+        panelCau4 = setColor(dsCauHoiThi.get(3).getId(), panelCau4);
+        panelCau5 = setColor(dsCauHoiThi.get(4).getId(), panelCau5);
+        panelCau6 = setColor(dsCauHoiThi.get(5).getId(), panelCau6);
+        panelCau7 = setColor(dsCauHoiThi.get(6).getId(), panelCau7);
+        panelCau8 = setColor(dsCauHoiThi.get(7).getId(), panelCau8);
+        panelCau9 = setColor(dsCauHoiThi.get(8).getId(), panelCau9);
+        panelCau10 = setColor(dsCauHoiThi.get(9).getId(), panelCau10);
+        panelCau11 = setColor(dsCauHoiThi.get(10).getId(), panelCau11);
+        panelCau12 = setColor(dsCauHoiThi.get(11).getId(), panelCau12);
+        panelCau13 = setColor(dsCauHoiThi.get(12).getId(), panelCau13);
+        panelCau14 = setColor(dsCauHoiThi.get(13).getId(), panelCau14);
+        panelCau15 = setColor(dsCauHoiThi.get(14).getId(), panelCau15);
+        panelCau16 = setColor(dsCauHoiThi.get(15).getId(), panelCau16);
+        panelCau17 = setColor(dsCauHoiThi.get(16).getId(), panelCau17);
+        panelCau18 = setColor(dsCauHoiThi.get(17).getId(), panelCau18);
+        panelCau19 = setColor(dsCauHoiThi.get(18).getId(), panelCau19);
+        panelCau20 = setColor(dsCauHoiThi.get(19).getId(), panelCau20);
         
 
         
         
-        HienThiCau1 hienThiCau1 = new HienThiCau1();
+        HienThiDapAnCau1 hienThiDapAnCau1 = new HienThiDapAnCau1();
         jDesktopPane2.removeAll();
-        jDesktopPane2.add(hienThiCau1).setVisible(true);
+        jDesktopPane2.add(hienThiDapAnCau1).setVisible(true);
     }
 
     /**
@@ -147,7 +95,7 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
     private void initComponents() {
 
         panelTinhNang = new javax.swing.JPanel();
-        nopBaiButton = new javax.swing.JButton();
+        troVeButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         panelCau1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -189,7 +137,6 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         panelCau11 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        jLabelTime = new javax.swing.JLabel();
         jDesktopPane2 = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -197,19 +144,19 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         panelTinhNang.setBackground(new java.awt.Color(0, 102, 102));
         panelTinhNang.setForeground(new java.awt.Color(255, 255, 255));
 
-        nopBaiButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        nopBaiButton.setText("NỘP BÀI");
-        nopBaiButton.addActionListener(new java.awt.event.ActionListener() {
+        troVeButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        troVeButton.setText("TRỞ VỀ");
+        troVeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nopBaiButtonActionPerformed(evt);
+                troVeButtonActionPerformed(evt);
             }
         });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("THỜI GIAN:");
+        jLabel2.setText("KẾT QUẢ");
 
-        panelCau1.setBackground(new java.awt.Color(255, 255, 255));
+        panelCau1.setBackground(new java.awt.Color(255, 153, 153));
         panelCau1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panelCau1MouseClicked(evt);
@@ -226,10 +173,10 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         panelCau1.setLayout(panelCau1Layout);
         panelCau1Layout.setHorizontalGroup(
             panelCau1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCau1Layout.createSequentialGroup()
-                .addContainerGap(32, Short.MAX_VALUE)
+            .addGroup(panelCau1Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
                 .addComponent(jLabel1)
-                .addGap(34, 34, 34))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelCau1Layout.setVerticalGroup(
             panelCau1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -790,66 +737,53 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLabelTime.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabelTime.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelTime.setText("00:00");
-
         javax.swing.GroupLayout panelTinhNangLayout = new javax.swing.GroupLayout(panelTinhNang);
         panelTinhNang.setLayout(panelTinhNangLayout);
         panelTinhNangLayout.setHorizontalGroup(
             panelTinhNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelTinhNangLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
                 .addGroup(panelTinhNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelTinhNangLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addGap(45, 45, 45)
+                        .addGroup(panelTinhNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panelCau1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelCau10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelCau2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelCau4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelCau5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelCau8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelCau6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelCau7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelCau3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelCau9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelTinhNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelTinhNangLayout.createSequentialGroup()
-                                .addGroup(panelTinhNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(panelCau10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(panelCau2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(panelCau4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(panelCau5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(panelCau8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(panelCau6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(panelCau7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(panelCau3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(panelCau9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(panelTinhNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(panelCau19, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(panelCau18, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(panelCau17, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(panelCau16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(panelCau15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(panelCau14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(panelCau13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(panelCau12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(panelCau20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addContainerGap(43, Short.MAX_VALUE))
-                            .addGroup(panelTinhNangLayout.createSequentialGroup()
-                                .addComponent(panelCau1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(panelTinhNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(panelCau11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelTime))
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                            .addComponent(panelCau11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelTinhNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(panelCau19, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(panelCau18, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(panelCau17, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(panelCau16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(panelCau15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(panelCau14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(panelCau13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(panelCau12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(panelCau20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(panelTinhNangLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addContainerGap())))
-            .addGroup(panelTinhNangLayout.createSequentialGroup()
-                .addGap(83, 83, 83)
-                .addComponent(nopBaiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(83, 83, 83)
+                        .addComponent(troVeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(43, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTinhNangLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(114, 114, 114))
         );
         panelTinhNangLayout.setVerticalGroup(
             panelTinhNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTinhNangLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(panelTinhNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabelTime, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(63, 63, 63)
+                .addGap(52, 52, 52)
+                .addComponent(jLabel2)
+                .addGap(75, 75, 75)
                 .addGroup(panelTinhNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelTinhNangLayout.createSequentialGroup()
                         .addComponent(panelCau1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -892,7 +826,7 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
                     .addComponent(panelCau20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelCau10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(nopBaiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(troVeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(58, Short.MAX_VALUE))
         );
 
@@ -928,39 +862,19 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private JPanel setColor(String idCauHoi, JPanel panel) {
-              
-        String cauTraLoi = dsCauTraLoi.get(idCauHoi);
-        if (cauTraLoi.equals("None")) {
-            panel.setBackground(DefauColor);
-        }
-        else {
-            panel.setBackground(AnsweredColor);
-        }
-         
-        return panel;
-    }
     
-    private void nopBaiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nopBaiButtonActionPerformed
+    
+    private void troVeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_troVeButtonActionPerformed
         // TODO add your handling code here:
-        if(evt.getSource() == nopBaiButton) {
-            // dung clock
-            clock.stopClock();
-            stopAbruptly = true; // nop bai khi Dong ho chua dem ve 0;
-        
-            
+        if(evt.getSource() == troVeButton) {                               
             
             // Tat man hinh hien tai
             this.setVisible(false);
             this.dispose();
-                   
-        
-        
-            
-            new JFrameManHinhKetQua();
-        
+                                             
+            new JFrameManHinhKetQua();        
         }
-    }//GEN-LAST:event_nopBaiButtonActionPerformed
+    }//GEN-LAST:event_troVeButtonActionPerformed
 
     private void panelCau1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau1MousePressed
         // TODO add your handling code here:
@@ -1471,142 +1385,143 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
     
     private void panelCau1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau1MouseClicked
         // TODO add your handling code here:
-        HienThiCau1 hienThiCau1 = new HienThiCau1();
+        HienThiDapAnCau1 hienThiDapAnCau1 = new HienThiDapAnCau1();
         jDesktopPane2.removeAll();
-        jDesktopPane2.add(hienThiCau1).setVisible(true);
+        jDesktopPane2.add(hienThiDapAnCau1).setVisible(true);
     }//GEN-LAST:event_panelCau1MouseClicked
 
     private void panelCau2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau2MouseClicked
         // TODO add your handling code here:
-        HienThiCau2 hienThiCau2 = new HienThiCau2();
+        HienThiDapAnCau2 hienThiDapAnCau2 = new HienThiDapAnCau2();
         jDesktopPane2.removeAll();
-        jDesktopPane2.add(hienThiCau2).setVisible(true);
+        jDesktopPane2.add(hienThiDapAnCau2).setVisible(true);
     }//GEN-LAST:event_panelCau2MouseClicked
 
     private void panelCau3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau3MouseClicked
         // TODO add your handling code here:
-        HienThiCau3 hienThiCau3 = new HienThiCau3();
+        HienThiDapAnCau3 hienThiDapAnCau3 = new HienThiDapAnCau3();
         jDesktopPane2.removeAll();
-        jDesktopPane2.add(hienThiCau3).setVisible(true);
+        jDesktopPane2.add(hienThiDapAnCau3).setVisible(true);
     }//GEN-LAST:event_panelCau3MouseClicked
 
     private void panelCau4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau4MouseClicked
         // TODO add your handling code here:
-        HienThiCau4 hienThiCau4 = new HienThiCau4();
+        HienThiDapAnCau4 hienThiDapAnCau4 = new HienThiDapAnCau4();
         jDesktopPane2.removeAll();
-        jDesktopPane2.add(hienThiCau4).setVisible(true);
+        jDesktopPane2.add(hienThiDapAnCau4).setVisible(true);
     }//GEN-LAST:event_panelCau4MouseClicked
 
     private void panelCau5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau5MouseClicked
         // TODO add your handling code here:
-        HienThiCau5 hienThiCau5 = new HienThiCau5();
+        HienThiDapAnCau5 hienThiDapAnCau5 = new HienThiDapAnCau5();
         jDesktopPane2.removeAll();
-        jDesktopPane2.add(hienThiCau5).setVisible(true);
+        jDesktopPane2.add(hienThiDapAnCau5).setVisible(true);
     }//GEN-LAST:event_panelCau5MouseClicked
 
     private void panelCau6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau6MouseClicked
         // TODO add your handling code here:
-        HienThiCau6 hienThiCau6 = new HienThiCau6();
+        HienThiDapAnCau6 hienThiDapAnCau6 = new HienThiDapAnCau6();
         jDesktopPane2.removeAll();
-        jDesktopPane2.add(hienThiCau6).setVisible(true);
+        jDesktopPane2.add(hienThiDapAnCau6).setVisible(true);
     }//GEN-LAST:event_panelCau6MouseClicked
 
     private void panelCau7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau7MouseClicked
         // TODO add your handling code here:
-        HienThiCau7 hienThiCau7 = new HienThiCau7();
+        HienThiDapAnCau7 hienThiDapAnCau7 = new HienThiDapAnCau7();
+       
         jDesktopPane2.removeAll();
-        jDesktopPane2.add(hienThiCau7).setVisible(true);
+        jDesktopPane2.add(hienThiDapAnCau7).setVisible(true);
     }//GEN-LAST:event_panelCau7MouseClicked
 
     private void panelCau8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau8MouseClicked
         // TODO add your handling code here:
-        HienThiCau8 hienThiCau8 = new HienThiCau8();
+        HienThiDapAnCau8 hienThiDapAnCau8 = new HienThiDapAnCau8();
         jDesktopPane2.removeAll();
-        jDesktopPane2.add(hienThiCau8).setVisible(true);
+        jDesktopPane2.add(hienThiDapAnCau8).setVisible(true);
     }//GEN-LAST:event_panelCau8MouseClicked
 
     private void panelCau9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau9MouseClicked
         // TODO add your handling code here:
-        HienThiCau9 hienThiCau9 = new HienThiCau9();
+        HienThiDapAnCau9 hienThiDapAnCau9 = new HienThiDapAnCau9();
         jDesktopPane2.removeAll();
-        jDesktopPane2.add(hienThiCau9).setVisible(true);
+        jDesktopPane2.add(hienThiDapAnCau9).setVisible(true);
     }//GEN-LAST:event_panelCau9MouseClicked
 
     private void panelCau10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau10MouseClicked
         // TODO add your handling code here:
-        HienThiCau10 hienThiCau10 = new HienThiCau10();
+        HienThiDapAnCau10 hienThiDapAnCau10 = new HienThiDapAnCau10();
         jDesktopPane2.removeAll();
-        jDesktopPane2.add(hienThiCau10).setVisible(true);
+        jDesktopPane2.add(hienThiDapAnCau10).setVisible(true);
     }//GEN-LAST:event_panelCau10MouseClicked
 
     private void panelCau11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau11MouseClicked
         // TODO add your handling code here:
-        HienThiCau11 hienThiCau11 = new HienThiCau11();
+        HienThiDapAnCau11 hienThiDapAnCau11 = new HienThiDapAnCau11();
         jDesktopPane2.removeAll();
-        jDesktopPane2.add(hienThiCau11).setVisible(true);
+        jDesktopPane2.add(hienThiDapAnCau11).setVisible(true);
     }//GEN-LAST:event_panelCau11MouseClicked
 
     private void panelCau12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau12MouseClicked
         // TODO add your handling code here:
-        HienThiCau12 hienThiCau12 = new HienThiCau12();
+        HienThiDapAnCau12 hienThiDapAnCau12 = new HienThiDapAnCau12();
         jDesktopPane2.removeAll();
-        jDesktopPane2.add(hienThiCau12).setVisible(true);
+        jDesktopPane2.add(hienThiDapAnCau12).setVisible(true);
     }//GEN-LAST:event_panelCau12MouseClicked
 
     private void panelCau13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau13MouseClicked
         // TODO add your handling code here:
-        HienThiCau13 hienThiCau13 = new HienThiCau13();
+        HienThiDapAnCau13 hienThiDapAnCau13 = new HienThiDapAnCau13();
         jDesktopPane2.removeAll();
-        jDesktopPane2.add(hienThiCau13).setVisible(true);
+        jDesktopPane2.add(hienThiDapAnCau13).setVisible(true);
     }//GEN-LAST:event_panelCau13MouseClicked
 
     private void panelCau14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau14MouseClicked
         // TODO add your handling code here:
-        HienThiCau14 hienThiCau14 = new HienThiCau14();
+        HienThiDapAnCau14 hienThiDapAnCau14 = new HienThiDapAnCau14();
         jDesktopPane2.removeAll();
-        jDesktopPane2.add(hienThiCau14).setVisible(true);
+        jDesktopPane2.add(hienThiDapAnCau14).setVisible(true);
     }//GEN-LAST:event_panelCau14MouseClicked
 
     private void panelCau15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau15MouseClicked
         // TODO add your handling code here:
-        HienThiCau15 hienThiCau15 = new HienThiCau15();
+        HienThiDapAnCau15 hienThiDapAnCau15 = new HienThiDapAnCau15();
         jDesktopPane2.removeAll();
-        jDesktopPane2.add(hienThiCau15).setVisible(true);
+        jDesktopPane2.add(hienThiDapAnCau15).setVisible(true);
     }//GEN-LAST:event_panelCau15MouseClicked
 
     private void panelCau16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau16MouseClicked
         // TODO add your handling code here:
-        HienThiCau16 hienThiCau16 = new HienThiCau16();
+        HienThiDapAnCau16 hienThiDapAnCau16 = new HienThiDapAnCau16();
         jDesktopPane2.removeAll();
-        jDesktopPane2.add(hienThiCau16).setVisible(true);
+        jDesktopPane2.add(hienThiDapAnCau16).setVisible(true);
     }//GEN-LAST:event_panelCau16MouseClicked
 
     private void panelCau17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau17MouseClicked
         // TODO add your handling code here:
-        HienThiCau17 hienThiCau17 = new HienThiCau17();
+        HienThiDapAnCau17 hienThiDapAnCau17 = new HienThiDapAnCau17();
         jDesktopPane2.removeAll();
-        jDesktopPane2.add(hienThiCau17).setVisible(true);
+        jDesktopPane2.add(hienThiDapAnCau17).setVisible(true);
     }//GEN-LAST:event_panelCau17MouseClicked
 
     private void panelCau18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau18MouseClicked
         // TODO add your handling code here:
-        HienThiCau18 hienThiCau18 = new HienThiCau18();
+        HienThiDapAnCau18 hienThiDapAnCau18 = new HienThiDapAnCau18();
         jDesktopPane2.removeAll();
-        jDesktopPane2.add(hienThiCau18).setVisible(true);
+        jDesktopPane2.add(hienThiDapAnCau18).setVisible(true);
     }//GEN-LAST:event_panelCau18MouseClicked
 
     private void panelCau19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau19MouseClicked
         // TODO add your handling code here:
-        HienThiCau19 hienThiCau19 = new HienThiCau19();
+        HienThiDapAnCau19 hienThiDapAnCau19 = new HienThiDapAnCau19();
         jDesktopPane2.removeAll();
-        jDesktopPane2.add(hienThiCau19).setVisible(true);
+        jDesktopPane2.add(hienThiDapAnCau19).setVisible(true);
     }//GEN-LAST:event_panelCau19MouseClicked
 
     private void panelCau20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCau20MouseClicked
         // TODO add your handling code here:
-        HienThiCau20 hienThiCau20 = new HienThiCau20();
+        HienThiDapAnCau20 hienThiDapAnCau20 = new HienThiDapAnCau20();
         jDesktopPane2.removeAll();
-        jDesktopPane2.add(hienThiCau20).setVisible(true);
+        jDesktopPane2.add(hienThiDapAnCau20).setVisible(true);
     }//GEN-LAST:event_panelCau20MouseClicked
 
     /**
@@ -1626,14 +1541,26 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFrameManHinhThi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameManHinhHienThiDapAn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFrameManHinhThi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameManHinhHienThiDapAn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFrameManHinhThi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameManHinhHienThiDapAn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFrameManHinhThi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameManHinhHienThiDapAn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -1674,8 +1601,6 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLabelTime;
-    private javax.swing.JButton nopBaiButton;
     private javax.swing.JPanel panelCau1;
     private javax.swing.JPanel panelCau10;
     private javax.swing.JPanel panelCau11;
@@ -1697,5 +1622,6 @@ public class JFrameManHinhThi extends javax.swing.JFrame {
     private javax.swing.JPanel panelCau8;
     private javax.swing.JPanel panelCau9;
     private javax.swing.JPanel panelTinhNang;
+    private javax.swing.JButton troVeButton;
     // End of variables declaration//GEN-END:variables
 }
